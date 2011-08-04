@@ -138,5 +138,16 @@
 	</managed-bean>
 	
 	
+	<managed-bean>
+		<managed-bean-name>conceptoFacturacionWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.ConceptoFacturacionWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>paramsAdmin</property-name>
+			<value>#{paramsAdmin}</value>  
+		</managed-property>
+	</managed-bean>
+	
+	
 		
 </faces-config>

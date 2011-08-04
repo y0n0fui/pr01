@@ -16,6 +16,11 @@ import com.pp.admin.facade.IParamsAdmin;
 import com.pp.admin.hibernate.CTipoUbicacion;
 import com.pp.util.DataTable;
 
+/**
+ * 
+ * @author Fredy Sierra
+ *
+ */
 public class TipoUbicacionWeb extends CRUDWeb {
 
 	private CTipoUbicacion tipoUbicacion;

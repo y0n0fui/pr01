@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 25, 2011 11:41:28 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pp.admin.hibernate.KDefinicionProductos" table="k_definicion_productos" catalog="pp">
+        <id name="codigoInternoDefinicion" type="int">
+            <column name="codigo_interno_definicion" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="KBancosTerceros" class="com.pp.admin.hibernate.KBancosTerceros" fetch="select">
+            <column name="codigo_banco_tercero" not-null="true" />
+        </many-to-one>
+        <many-to-one name="KEmpresas" class="com.pp.admin.hibernate.KEmpresas" fetch="select">
+            <column name="codigo_interno_empresa" not-null="true" />
+        </many-to-one>
+        <many-to-one name="KProductos" class="com.pp.admin.hibernate.KProductos" fetch="select">
+            <column name="codigo_interno_producto" not-null="true" />
+        </many-to-one>
+        <property name="descripcionProducto" type="string">
+            <column name="descripcion_producto" length="30" not-null="true" />
+        </property>
+        <property name="porcAdministracion" type="big_decimal">
+            <column name="porc_administracion" precision="4" not-null="true" />
+        </property>
+        <property name="abreviado" type="string">
+            <column name="abreviado" length="6" not-null="true" />
+        </property>
+        <property name="fechaInsercion" type="timestamp">
+            <column name="fecha_insercion" length="0" />
+        </property>
+        <property name="usuarioInsercion" type="java.lang.Integer">
+            <column name="usuario_insercion" />
+        </property>
+        <property name="ipInsercion" type="string">
+            <column name="ip_insercion" length="16" />
+        </property>
+        <property name="fechaActualizacion" type="timestamp">
+            <column name="fecha_actualizacion" length="0" />
+        </property>
+        <property name="usuarioActualizacion" type="java.lang.Integer">
+            <column name="usuario_actualizacion" />
+        </property>
+        <property name="ipActualizacion" type="string">
+            <column name="ip_actualizacion" length="16" />
+        </property>
+        <set name="KPivotCoorPros" table="k_pivot_coor_pro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_definicion" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KPivotCoorPro" />
+        </set>
+        <set name="KMvtoBeneficiadoses" table="k_mvto_beneficiados" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_definicion" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KMvtoBeneficiados" />
+        </set>
+        <set name="KProductosDeduccioneses" table="k_productos_deducciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_definicion" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KProductosDeducciones" />
+        </set>
+        <set name="KFacturases" table="k_facturas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_definicion" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KFacturas" />
+        </set>
+    </class>
+</hibernate-mapping>

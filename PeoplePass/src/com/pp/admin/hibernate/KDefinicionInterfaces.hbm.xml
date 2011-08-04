@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 25, 2011 11:41:28 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pp.admin.hibernate.KDefinicionInterfaces" table="k_definicion_interfaces" catalog="pp">
+        <composite-id name="id" class="com.pp.admin.hibernate.KDefinicionInterfacesId">
+            <key-property name="codigoInternoInterface" type="int">
+                <column name="codigo_interno_interface" />
+            </key-property>
+            <key-property name="codigoInternoBanco3ro" type="int">
+                <column name="codigo_interno_banco_3ro" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="KBancosTerceros" class="com.pp.admin.hibernate.KBancosTerceros" update="false" insert="false" fetch="select">
+            <column name="codigo_interno_banco_3ro" not-null="true" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="60" not-null="true" />
+        </property>
+        <property name="caracterSeparacion" type="string">
+            <column name="caracter_separacion" length="1" not-null="true" />
+        </property>
+        <property name="caracterSaltoPagina" type="string">
+            <column name="caracter_salto_pagina" length="1" not-null="true" />
+        </property>
+        <property name="caracterSaltoLinea" type="string">
+            <column name="caracter_salto_linea" length="1" not-null="true" />
+        </property>
+        <property name="anchoFijoVariable" type="string">
+            <column name="ancho_fijo_variable" length="1" not-null="true" />
+        </property>
+        <property name="caracterRellenoAlfa" type="string">
+            <column name="caracter_relleno_alfa" length="1" />
+        </property>
+        <property name="caracterRellenoNumber" type="string">
+            <column name="caracter_relleno_number" length="1" />
+        </property>
+        <property name="rellenoAlfaDeIz" type="string">
+            <column name="relleno_alfa_de_iz" length="1" />
+        </property>
+        <property name="rellenoNumDeIz" type="string">
+            <column name="relleno_num_de_iz" length="1" />
+        </property>
+        <property name="titulos" type="string">
+            <column name="titulos" length="1" not-null="true" />
+        </property>
+        <property name="fechaInsercion" type="timestamp">
+            <column name="fecha_insercion" length="0" />
+        </property>
+        <property name="usuarioInsercion" type="java.lang.Integer">
+            <column name="usuario_insercion" />
+        </property>
+        <property name="ipInsercion" type="string">
+            <column name="ip_insercion" length="16" />
+        </property>
+        <property name="fechaActualizacion" type="timestamp">
+            <column name="fecha_actualizacion" length="0" />
+        </property>
+        <property name="usuarioActualizacion" type="java.lang.Integer">
+            <column name="usuario_actualizacion" />
+        </property>
+        <property name="ipActualizacion" type="string">
+            <column name="ip_actualizacion" length="16" />
+        </property>
+        <set name="KColumnasInterfaceses" table="k_columnas_interfaces" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_interface" not-null="true" />
+                <column name="cod_int_banco_tero" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KColumnasInterfaces" />
+        </set>
+    </class>
+</hibernate-mapping>

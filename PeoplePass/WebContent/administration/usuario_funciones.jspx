@@ -1,0 +1,301 @@
+<ice:panelGroup styleClass="componentBox" 
+            xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:f="http://java.sun.com/jsf/core"
+            xmlns:ice="http://www.icesoft.com/icefaces/component"
+            xmlns:jsp="http://java.sun.com/JSP/Page"
+            xmlns:ui="http://java.sun.com/jsf/facelets">
+
+   
+   
+		
+		<ice:panelGroup styleClass="synopsisBox inputFileContainer">
+        	<ice:outputText value="#{msg['adminufunciones.title']}"/>
+        	<ice:outputText value="#{msg['adminufunciones.desc']}"/>
+		</ice:panelGroup>
+		<ice:panelGroup styleClass="basicBox" >
+		
+		
+			<ice:dataTable id="empresalisttable"
+ 				  var="row"
+ 				  value="#{usuarioFuncionesWeb.dataTable.data}"
+		  columnClasses="tableCol"
+		  scrollable="true"
+		  scrollHeight="250px"
+		  columnWidths="100px,100px,80px,250px,100px,80px,80px,80px,80px"
+		  sortAscending="#{usuarioFuncionesWeb.dataTable.sortDataAscending}" 	
+		  sortColumn="#{usuarioFuncionesWeb.dataTable.sortColumn}">
+		 <ice:column>
+		
+			
+		          <f:facet name="header">
+		          	<ice:commandSortHeader id="c1Header"
+                                           columnName="c1" arrow="true">
+			              <ice:outputText id="lblc1"
+			                              value="#{msg['adminufunciones.ufunciones.usuario_empresa']}"/>
+			        </ice:commandSortHeader>                      
+		     	  </f:facet>	
+		      <ice:outputText id="valuec1"
+		                         value="#{row[1]}" >
+		       </ice:outputText>                 
+			</ice:column>
+			
+			
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c2Header"
+                                           columnName="c2" arrow="true">
+		     		 <ice:outputText id="lblc2"
+		                         value="#{msg['adminufunciones.ufunciones.dateAct']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec2"
+		                         value="#{row[2]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c3Header"
+                                           columnName="c3" arrow="true">
+		     		 <ice:outputText id="lblc3"
+		                         value="#{msg['adminufunciones.ufunciones.ipAct']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec3"
+		                         value="#{row[3]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c4Header"
+                                           columnName="c4" arrow="true">
+		     		 <ice:outputText id="lblc4"
+		                         value="#{msg['adminufunciones.ufunciones.userAct']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec4"
+		                         value="#{row[4]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c5Header"
+                                           columnName="c5" arrow="true">
+		     		 <ice:outputText id="lblc5"
+		                         value="#{msg['adminufunciones.ufunciones.dateInsert']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec5"
+		                         value="#{row[5]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c6Header"
+                                           columnName="c6" arrow="true">
+		     		 <ice:outputText id="lblc6"
+		                         value="#{msg['adminufunciones.ufunciones.ipInsert']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec6"
+		                         value="#{row[6]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c7Header"
+                                           columnName="c7" arrow="true">
+		     		 <ice:outputText id="lblc7"
+		                         value="#{msg['adminufunciones.ufunciones.userInsert']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec7"
+		                         value="#{row[7]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	      <ice:outputText id="lblcE"
+		                         value="#{msg['general.edit']}"/>
+		     </f:facet>
+		     
+		            <ice:commandLink   actionListener="#{usuarioFuncionesWeb.edit}" value="#{msg['general.edit']}" >
+							<f:attribute name="row" value="#{row}"/>
+					</ice:commandLink>
+		                        
+		                      
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		              <ice:outputText id="lblcD"
+		                         value="#{msg['general.delete']}"/>
+		     </f:facet>
+		     
+		            <ice:commandLink actionListener="#{usuarioFuncionesWeb.prepareToDelete}" value="#{msg['general.delete']}" >
+							<f:attribute name="row" value="#{row}"/>
+					</ice:commandLink>
+		                        
+		                    
+			</ice:column>
+			
+		</ice:dataTable>	
+		<ice:panelGroup> 
+		<ice:commandButton id="btnCreateRole" value="#{msg['adminufunciones.ufunciones.create']}" actionListener="#{usuarioFuncionesWeb.create}" ></ice:commandButton>
+			
+		</ice:panelGroup>
+		</ice:panelGroup>
+		<br/>
+		
+		<ice:panelPopup 
+            id="idPopUpPanel"
+            styleClass="corePopup2"
+            autoCentre="true" 
+            draggable="true" modal="true" style="width: 300px;height: 400px;"
+            visible="#{usuarioFuncionesWeb.rederPopup}">
+            
+        <f:facet name="header">
+        <ice:panelGroup styleClass="popupHeaderWrapper">
+            <ice:outputText id="popuptitle"
+                    value="#{msg['adminufunciones.ufunciones']}"
+                    styleClass="popupHeaderText"/>
+            <ice:commandButton id="modalpopUpCloseBtn" type="button"
+                               image="images/popupclose.gif"
+                               actionListener="#{usuarioFuncionesWeb.toggleModal}" 
+                               styleClass="popupHeaderImage"
+                               title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
+        </ice:panelGroup>
+    	</f:facet>
+    	<f:facet name="body"> 
+        <ice:panelGroup styleClass="popupBody">
+        	<table>	
+        
+        	<tr><td>
+        	<ice:outputText value="#{msg['adminufunciones.ufunciones.empresa']}"/>
+        	</td><td>
+        	 <ice:selectOneMenu id="slcempresa"
+                        value="#{usuarioFuncionesWeb.empresasid}"
+                        partialSubmit="true" 
+                        valueChangeListener="#{usuarioFuncionesWeb.loadUserEmpresas}">
+                    <f:selectItems id="Slctempresas"
+                                   value="#{usuarioFuncionesWeb.empresas}"/>
+                </ice:selectOneMenu>
+        	
+        	</td></tr>
+        	
+        	<tr><td>
+        	<ice:outputText value="#{msg['adminufunciones.ufunciones.usuario_empresa']}"/>
+        	</td><td>
+        	 <ice:selectOneMenu id="slcusuario"
+                        value="#{usuarioFuncionesWeb.usuariosEmpresasid}"
+                        partialSubmit="true">
+                    <f:selectItems id="Slctusuario"
+                                   value="#{usuarioFuncionesWeb.usuariosEmpresas}"/>
+                </ice:selectOneMenu>
+        	</td></tr>
+        	        	
+        	<tr><td>
+        	<ice:outputText value="#{msg['adminufunciones.ufunciones.autorizar_pago']}"/>
+        	</td><td>
+        	<ice:inputText id="inputautorizapago" value="#{usuarioFuncionesWeb.usuarioFunciones.autorizaPago}"></ice:inputText>
+        	</td></tr>
+        	
+        	<tr><td>
+        	<ice:outputText value="#{msg['adminufunciones.ufunciones.informar_pedido']}"/>
+        	</td><td>
+        	<ice:inputText id="inputinformarpedido" value="#{usuarioFuncionesWeb.usuarioFunciones.informarPedido}"></ice:inputText>
+        	</td></tr>
+        	
+        	<tr><td>
+        	<ice:outputText value="#{msg['adminufunciones.ufunciones.informar_factura']}"/>
+        	</td><td>
+        	<ice:inputText id="inputinfofactura" value="#{usuarioFuncionesWeb.usuarioFunciones.informarFactura}"></ice:inputText>
+        	</td></tr>
+        	
+        	<tr><td>
+        	<ice:outputText value="#{msg['adminufunciones.ufunciones.informar_sobregiro']}"/>
+        	</td><td>
+        	<ice:inputText id="inputinfosobregiro" value="#{usuarioFuncionesWeb.usuarioFunciones.informarSobregiro}"></ice:inputText>
+        	</td></tr>
+        	
+        	<tr><td>
+        	<ice:outputText value="#{msg['adminufunciones.ufunciones.enviar_plasticos']}"/>
+        	</td><td>
+        	<ice:inputText id="inputenviarplasticos" value="#{usuarioFuncionesWeb.usuarioFunciones.enviarPlasticos}"></ice:inputText>
+        	</td></tr>
+        	
+        	<tr><td>
+        	<ice:outputText value="#{msg['adminufunciones.ufunciones.coordinador']}"/>
+        	</td><td>
+        	<ice:inputText id="inputcoordinador" value="#{usuarioFuncionesWeb.usuarioFunciones.coordinador}"></ice:inputText>
+        	</td></tr>
+        	
+        	
+        	<tr>
+        		<td><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{usuarioFuncionesWeb.onSave}"></ice:commandButton></td>
+        		<td><ice:commandButton id="btnCancelSaveRole" value="#{msg['general.cancel']}" actionListener="#{usuarioFuncionesWeb.toggleModal}"></ice:commandButton></td>
+        	</tr>
+        	</table>
+        </ice:panelGroup> 
+        </f:facet>
+ </ice:panelPopup>
+ 
+ 
+ 
+ <ice:panelPopup 
+            id="idPopUpDelete"
+            styleClass="corePopup2"
+            autoCentre="true" 
+            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            visible="#{usuarioFuncionesWeb.renderDeleteAlert}">
+            
+        <f:facet name="header">
+        <ice:panelGroup styleClass="popupHeaderWrapper">
+            <ice:outputText id="xytitle"
+                    value="#{msg['general.delete']}"
+                    styleClass="popupHeaderText"/>
+            <ice:commandButton id="modalPnlCloseBtn" type="button"
+                               image="images/popupclose.gif"
+                               actionListener="#{usuarioFuncionesWeb.toggleModalDelete}" 
+                               styleClass="popupHeaderImage"
+                               title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
+        </ice:panelGroup>
+    	</f:facet>
+    	<f:facet name="body"> 
+        <ice:panelGroup styleClass="popupBody">
+        	<table>	
+        	<tr>
+        	<td colspan="2">
+        	<ice:outputText value="#{msg['general.delete.alert']}"/>
+        	</td>
+        	</tr>
+        	<tr>
+        		<td>
+        		<ice:commandButton id="btnAceptRole" value="#{msg['general.accept']}" actionListener="#{usuarioFuncionesWeb.delete}">
+        		</ice:commandButton>
+        		</td>
+        		<td>
+        		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{usuarioFuncionesWeb.toggleModalDelete}">
+        		</ice:commandButton>
+        		</td>
+        	</tr>
+        	</table>
+        </ice:panelGroup> 
+        </f:facet>
+ </ice:panelPopup>
+ 
+</ice:panelGroup>    

@@ -1,0 +1,22 @@
+
+
+java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("EEEE, d 'de' MMMM 'de' yyyy");
+System.out.println("date: " + sdf.format(new java.util.Date()));
+
+
+String bic = "PNBPUS3NNYC";
+
+String bic1 = bic.substring(0, bic.length()-3);
+String bic2 = bic.substring(bic.length()-3,bic.length());System.out.println(bic1 + " " + bic2 + " " + bic1+bic2 ); java.util.Calendar calendar = java.util.Calendar.getInstance();
+calendar.setTime(new java.util.Date());
+calendar.set(calendar.DAY_OF_MONTH,1);
+System.out.println("result" +calendar.getTime());
+calendar.add(calendar.MONTH,0);
+System.out.println("result" +calendar.getTime());
+calendar.set(calendar.DAY_OF_MONTH,calendar.getActualMaximum(calendar.DAY_OF_MONTH));
+System.out.println("result" +calendar.getTime());   
+System.out.println("result" +calendar.get(calendar.MONTH));
+System.out.println("result" +calendar.get(calendar.YEAR)); (No explicit return value)
+
+
+

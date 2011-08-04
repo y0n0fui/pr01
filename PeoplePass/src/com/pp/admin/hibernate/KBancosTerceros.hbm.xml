@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 25, 2011 11:41:28 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pp.admin.hibernate.KBancosTerceros" table="k_bancos_terceros" catalog="pp">
+        <id name="codIntBkoTer" type="int">
+            <column name="cod_int_bko_ter" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="CTipoIdentificacion" class="com.pp.admin.hibernate.CTipoIdentificacion" fetch="select">
+            <column name="tipo_identificacion" not-null="true" />
+        </many-to-one>
+        <property name="razonSocial" type="string">
+            <column name="razon_social" length="60" not-null="true" />
+        </property>
+        <property name="nombreContacto" type="string">
+            <column name="nombre_contacto" length="60" not-null="true" />
+        </property>
+        <property name="nroIdentificacion" type="string">
+            <column name="nro_identificacion" length="240" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="20" not-null="true" />
+        </property>
+        <property name="direccionIp" type="string">
+            <column name="direccion_ip" length="16" />
+        </property>
+        <property name="url" type="string">
+            <column name="url" length="120" />
+        </property>
+        <property name="usuarioConexion" type="string">
+            <column name="usuario_conexion" length="20" />
+        </property>
+        <property name="clave" type="string">
+            <column name="clave" length="20" />
+        </property>
+        <property name="tipoInterface" type="string">
+            <column name="tipo_interface" length="1" />
+        </property>
+        <property name="fechaInsercion" type="timestamp">
+            <column name="fecha_insercion" length="0" />
+        </property>
+        <property name="usuarioInsercion" type="java.lang.Integer">
+            <column name="usuario_insercion" />
+        </property>
+        <property name="ipInsercion" type="string">
+            <column name="ip_insercion" length="16" />
+        </property>
+        <property name="fechaActualizacion" type="timestamp">
+            <column name="fecha_actualizacion" length="0" />
+        </property>
+        <property name="usuarioActualizacion" type="java.lang.Integer">
+            <column name="usuario_actualizacion" />
+        </property>
+        <property name="ipActualizacion" type="string">
+            <column name="ip_actualizacion" length="16" />
+        </property>
+        <set name="KDefinicionProductoses" table="k_definicion_productos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_banco_tercero" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KDefinicionProductos" />
+        </set>
+        <set name="KDefinicionInterfaceses" table="k_definicion_interfaces" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_banco_3ro" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KDefinicionInterfaces" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 25, 2011 11:41:28 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pp.admin.hibernate.KEmpleadosClientes" table="k_empleados_clientes" catalog="pp">
+        <id name="codigoInternoEmpleado" type="int">
+            <column name="codigo_interno_empleado" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="KEmpleadosClientes" class="com.pp.admin.hibernate.KEmpleadosClientes" fetch="select">
+            <column name="cod_into_amparante" />
+        </many-to-one>
+        <many-to-one name="CTipoIdentificacion" class="com.pp.admin.hibernate.CTipoIdentificacion" fetch="select">
+            <column name="tipo_identificacion" not-null="true" />
+        </many-to-one>
+        <many-to-one name="CParentesco" class="com.pp.admin.hibernate.CParentesco" fetch="select">
+            <column name="parentesco" />
+        </many-to-one>
+        <property name="nroIdentificacion" type="string">
+            <column name="nro_identificacion" length="16" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="60" not-null="true" />
+        </property>
+        <property name="cargo" type="int">
+            <column name="cargo" not-null="true" />
+        </property>
+        <property name="dummy" type="string">
+            <column name="dummy" length="1" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="1" not-null="true" />
+        </property>
+        <property name="correoElectronico" type="string">
+            <column name="correo_electronico" length="16" />
+        </property>
+        <property name="direccionExtracto" type="java.lang.Integer">
+            <column name="direccion_extracto" />
+        </property>
+        <property name="direccionPersonal" type="java.lang.Integer">
+            <column name="direccion_personal" />
+        </property>
+        <property name="fechaInsercion" type="timestamp">
+            <column name="fecha_insercion" length="0" />
+        </property>
+        <property name="usuarioInsercion" type="java.lang.Integer">
+            <column name="usuario_insercion" />
+        </property>
+        <property name="ipInsercion" type="string">
+            <column name="ip_insercion" length="16" />
+        </property>
+        <property name="fechaActualizacion" type="timestamp">
+            <column name="fecha_actualizacion" length="0" />
+        </property>
+        <property name="usuarioActualizacion" type="java.lang.Integer">
+            <column name="usuario_actualizacion" />
+        </property>
+        <property name="ipActualizacion" type="string">
+            <column name="ip_actualizacion" length="16" />
+        </property>
+        <set name="KDireccioneses" table="k_direcciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_cliente" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KDirecciones" />
+        </set>
+        <set name="KMvtoBeneficiadoses" table="k_mvto_beneficiados" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_empleado" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KMvtoBeneficiados" />
+        </set>
+        <set name="KEmpleadosClienteses" table="k_empleados_clientes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cod_into_amparante" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KEmpleadosClientes" />
+        </set>
+    </class>
+</hibernate-mapping>

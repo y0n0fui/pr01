@@ -1,0 +1,129 @@
+package com.pp.admin.web;
+
+
+import java.util.Date;
+import java.util.List;
+
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.context.SecurityContextHolder;
+
+import com.pp.admin.facade.IUserAdmin;
+import com.pp.admin.hibernate.CTipoIdentificacion;
+import com.pp.util.DataTable;
+
+
+
+public class TipoIdentificacionWeb extends CRUDWeb{
+
+	
+	
+	private CTipoIdentificacion tipoIdentificacion;
+	
+	
+	
+	
+	public TipoIdentificacionWeb() {
+		tipoIdentificacion=new CTipoIdentificacion();
+	}
+	
+	/**
+	 * Herramienta logger
+	 */
+	static Logger logger = Logger.getLogger(TipoIdentificacionWeb.class);
+	
+	@Autowired
+	private IUserAdmin userAdmin;
+
+	
+	public void init(){
+		dataTable=new DataTable();
+		List<CTipoIdentificacion> tiposId=userAdmin.getTipoIdentificacion();
+		if(tiposId!=null)
+		for (CTipoIdentificacion tipid : tiposId) {
+			dataTable.addReg(tipid.getCodIntTipoId(),tipid.getDescripcion(),tipid.getFechaActualizacion(),
+					tipid.getIpActualizacion(),tipid.getUsuarioActualizacion(),
+					tipid.getFechaInsercion(),tipid.getIpInsercion(),tipid.getUsuarioInsercion());
+		}
+	}
+	
+	
+	
+	
+	public void onSave(ActionEvent evnt){
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		if(this.tipoIdentificacion.getCodIntTipoId()==0){
+		this.tipoIdentificacion.setFechaInsercion(new Date());
+		this.tipoIdentificacion.setIpInsercion(request.getRemoteAddr());
+		SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		this.tipoIdentificacion.setUsuarioInsercion(1);
+		}else{
+		this.tipoIdentificacion.setFechaActualizacion(new Date());
+		this.tipoIdentificacion.setIpActualizacion(request.getRemoteAddr());
+		this.tipoIdentificacion.setUsuarioActualizacion(1);
+		}
+		userAdmin.save(tipoIdentificacion);
+		init();
+		toggleModal(evnt);
+		
+	}
+	
+
+	
+	public void create(ActionEvent evnt){
+		this.tipoIdentificacion=new CTipoIdentificacion();
+		toggleModal(evnt);
+	}
+	
+	public void edit(ActionEvent evnt){
+		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
+		this.tipoIdentificacion=userAdmin.getTipoIdentificacion((Integer)selectData[0]);
+		toggleModal(null);
+	}
+
+	public void delete(ActionEvent evnt){
+		this.tipoIdentificacion=userAdmin.getTipoIdentificacion((Integer)selectData[0]);
+		userAdmin.delete(this.tipoIdentificacion);
+		this.tipoIdentificacion=new CTipoIdentificacion();
+		this.selectData=null;
+		init();
+		toggleModalDelete(evnt);
+	}
+	
+
+
+	public IUserAdmin getUserAdmin() {
+		return userAdmin;
+	}
+
+	public void setUserAdmin(IUserAdmin userAdmin) {
+		this.userAdmin = userAdmin;
+	}
+
+
+
+
+	public CTipoIdentificacion getTipoIdentificacion() {
+		return tipoIdentificacion;
+	}
+
+
+
+
+	public void setTipoIdentificacion(CTipoIdentificacion tipoIdentificacion) {
+		this.tipoIdentificacion = tipoIdentificacion;
+	}
+
+
+
+
+	
+
+	
+
+	
+}

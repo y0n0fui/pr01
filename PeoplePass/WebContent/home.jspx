@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root version="1.2" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:c="http://java.sun.com/jstl/core_rt">
+	<jsp:directive.page contentType="text/html;charset=UTF-8"
+		pageEncoding="UTF-8" />
+	<f:view>
+		<f:loadBundle basename="com.pp.messages" var="msg" />
+		<ice:outputDeclaration doctypeRoot="HTML"
+			doctypePublic="-//W3C//DTD HTML 4.01 Transitional//EN"
+			doctypeSystem="http://www.w3.org/TR/html4/loose.dtd" />
+		<html>
+<head>
+<title><ice:outputText value="#{msg['home.title']}" />
+</title>
+<ice:outputStyle href="./xmlhttp/css/royale/royale.css" />
+<link rel='stylesheet' type='text/css' href="./css/showcase_style.css" />
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0"
+	marginheight="0"
+	onLoad="MM_preloadImages('css/images/inicio/inicio_04_2.jpg','css/images/inicio/inicio_05_2.jpg','css/images/inicio/inicio_06_2.jpg','css/images/inicio/inicio_07_2.jpg')">
+
+	<table width="880" border="0" align="center" cellpadding="0"
+		cellspacing="0">
+		<tr>
+			<td height="158" background="css/images/inicio/inicio_01.jpg"
+				valign="top" align="right"><ice:form id="outForm">
+			| <ice:outputText value=" #{navigationBean.user.username}"
+						styleClass="iceOutTxt3" />|	  
+		   <ice:outputLink id="outLink" value="./j_spring_security_logout">
+						<ice:outputText value="#{msg['general.exit']}"
+							styleClass="iceOutTxt2" />
+					</ice:outputLink>
+				</ice:form></td>
+		</tr>
+	</table>
+	<table width="880" border="0" align="center" cellpadding="0"
+		cellspacing="0">
+		<tr>
+			<td height="55"><ice:outputConnectionStatus
+					styleClass="navConnectionStatus" showPopupOnDisconnect="true" />
+			</td>
+		</tr>
+	</table>
+	<table width="880" border="0" align="center" cellpadding="0"
+		cellspacing="0">
+		<tr>
+			<td valign="top" width="300"><ui:include src="/navigation.jspx" />
+			</td>
+			<td valign="top" height="355"><ice:panelStack
+					id="templatePanelStack" styleClass="componentContentPanelStack"
+					selectedPanel="#{navigationBean.selectedPanel}">
+
+
+					<ice:panelGroup id="userPanel">
+						<f:subview id="stSub">
+							<ice:form id="iceform">
+								<ui:include src="/administration/user.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
+					<ice:panelGroup id="cityPanel">
+						<f:subview id="stSub">
+							<ice:form id="cityform">
+								<ui:include src="/administration/ciudad.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
+					<ice:panelGroup id="rolePanel">
+						<f:subview id="stSub">
+							<ice:form id="roleform">
+								<ui:include src="/administration/role.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
+					<ice:panelGroup id="tipocargoPanel">
+						<f:subview id="stSub">
+							<ice:form id="tipocargoform">
+								<ui:include src="/administration/tipo_cargo.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
+					<ice:panelGroup id="tipoidPanel">
+						<f:subview id="stSub">
+							<ice:form id="tipoidform">
+								<ui:include src="/administration/tipo_identificacion.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
+					<ice:panelGroup id="empresaPanel">
+						<f:subview id="stSub">
+							<ice:form id="empresaform">
+								<ui:include src="/administration/empresa.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
+					<ice:panelGroup id="usuarioempresaPanel">
+						<f:subview id="stSub">
+							<ice:form id="usuarioempresaform">
+								<ui:include src="/administration/usuario_empresa.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
+					<ice:panelGroup id="usuariofuncionesPanel">
+						<f:subview id="stSub">
+							<ice:form id="usuariofuncionesform">
+								<ui:include src="/administration/usuario_funciones.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
+					<ice:panelGroup id="condicionesespecialesPanel">
+						<f:subview id="stSub">
+							<ice:form id="condicionesespecialesform">
+								<ui:include src="/administration/condiciones_especiales.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
+					<ice:panelGroup id="tipoubicacionPanel">
+						<f:subview id="stSub">
+							<ice:form id="tipoubicacionform">
+								<ui:include src="/administration/tipo_ubicacion.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
+				</ice:panelStack></td>
+		</tr>
+	</table>
+	<table width="880" border="0" align="center" cellpadding="0"
+		cellspacing="0">
+		<tr>
+			<td height="38" background="css/images/inicio/inicio_14.jpg"><div
+					align="center">
+					<span class="texto_login style3">© 2011 PeoplePass S. A.,
+						Todos los derechos reservados</span>.
+				</div>
+			</td>
+		</tr>
+	</table>
+
+</body>
+		</html>
+	</f:view>
+</jsp:root>

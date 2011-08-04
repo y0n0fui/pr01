@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+  xmlns:beans="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+              http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd"> 
+  
+   <authentication-provider>
+    <user-service>
+      <user name="july" password="july" authorities="ROLE_USER, ROLE_ADMIN" />
+      <user name="fysus" password="fysus" authorities="ROLE_USER" />
+    </user-service>
+  </authentication-provider>
+  
+ <!--  
+  <ldap-authentication-provider  user-dn-pattern="uid={0},ou=people" 
+  
+  	group-role-attribute="cn" 
+  	group-search-filter="memberUid={1}"
+	group-search-base="ou=group"
+	role-prefix="ROLE_"/>
+   -->
+  <http auto-config='false'>
+    <intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN" />
+    <intercept-url pattern="/login*" filters="none" />
+    <intercept-url pattern="/css/**" filters="none" />
+    <intercept-url pattern="/xmlhttp/**" filters="none" />
+    <form-login login-page="/login.jsp" authentication-failure-url="/login.jsp?login_error=1" default-target-url="/home.iface"/>
+    <http-basic />
+    <logout />
+  </http>
+    
+
+   
+</beans:beans>

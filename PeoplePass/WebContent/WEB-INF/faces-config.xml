@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE faces-config PUBLIC
+    "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+    "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+
+<faces-config>
+	<application>
+		<variable-resolver>
+			org.springframework.web.jsf.DelegatingVariableResolver
+ 	  	</variable-resolver>
+ 	  	<view-handler> 
+			com.icesoft.faces.facelets.D2DFaceletViewHandler 
+		</view-handler> 
+ 	  	<message-bundle>com.pp.messages</message-bundle>
+ 	  	<locale-config>
+            <default-locale>en</default-locale>
+        </locale-config>
+ 	 </application>
+	
+	
+	<managed-bean>
+		<managed-bean-name>navigationBean</managed-bean-name>
+		<managed-bean-class>com.pp.navigation.web.NavigationBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>userWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.UserWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>userAdmin</property-name>
+			<value>#{userAdmin}</value> 
+		</managed-property>
+		
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>cityWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.CityWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>cityAdmin</property-name>
+			<value>#{cityAdmin}</value> 
+		</managed-property>
+		
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>roleWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.RoleWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>userAdmin</property-name>
+			<value>#{userAdmin}</value> 
+		</managed-property>
+		
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>tipoCargoWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.TipoCargoWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>userAdmin</property-name>
+			<value>#{userAdmin}</value> 
+		</managed-property>
+		
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>tipoIdentificacionWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.TipoIdentificacionWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>userAdmin</property-name>
+			<value>#{userAdmin}</value> 
+		</managed-property>
+		
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>empresaWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.EmpresaWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>userAdmin</property-name>
+			<value>#{userAdmin}</value> 
+		</managed-property>
+		
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>usuarioEmpresaWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.UsuarioEmpresasWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>userAdmin</property-name>
+			<value>#{userAdmin}</value> 
+		</managed-property>
+		
+	</managed-bean>
+	
+	
+	<managed-bean>
+		<managed-bean-name>usuarioFuncionesWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.UsuarioFuncionesWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>userAdmin</property-name>
+			<value>#{userAdmin}</value> 
+		</managed-property>
+		
+	</managed-bean>
+	
+	
+	<managed-bean>
+		<managed-bean-name>condicionesEspecialesWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.CondicionesEspecialesWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>paramsAdmin</property-name>
+			<value>#{paramsAdmin}</value>  
+		</managed-property>
+		<managed-property>
+			<property-name>userAdmin</property-name>
+			<value>#{userAdmin}</value> 
+		</managed-property>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>tipoUbicacionWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.TipoUbicacionWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>paramsAdmin</property-name>
+			<value>#{paramsAdmin}</value>  
+		</managed-property>
+	</managed-bean>
+	
+	
+		
+</faces-config>

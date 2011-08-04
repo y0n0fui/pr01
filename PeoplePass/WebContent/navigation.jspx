@@ -1,0 +1,146 @@
+<!--
+~ Version: MPL 1.1/GPL 2.0/LGPL 2.1
+~
+~ "The contents of this file are subject to the Mozilla Public License
+~ Version 1.1 (the "License"); you may not use this file except in
+~ compliance with the License. You may obtain a copy of the License at
+~ http://www.mozilla.org/MPL/
+~
+~ Software distributed under the License is distributed on an "AS IS"
+~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+~ License for the specific language governing rights and limitations under
+~ the License.
+~
+~ The Original Code is ICEfaces 1.5 open source software code, released
+~ November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+~ Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+~ 2004-2006 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+~
+~ Contributor(s): _____________________.
+~
+~ Alternatively, the contents of this file may be used under the terms of
+~ the GNU Lesser General Public License Version 2.1 or later (the "LGPL"
+~ License), in which case the provisions of the LGPL License are
+~ applicable instead of those above. If you wish to allow use of your
+~ version of this file only under the terms of the LGPL License and not to
+~ allow others to use your version of this file under the MPL, indicate
+~ your decision by deleting the provisions above and replace them with
+~ the notice and other provisions required by the LGPL License. If you do
+~ not delete the provisions above, a recipient may use your version of
+~ this file under either the MPL or the LGPL License."
+~
+-->
+
+<ice:form xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	id="navigationMenuForm">
+	<ice:panelGroup>
+		<!-- standard components-->
+
+
+		<ice:panelCollapsible id="extendedCompClpsbl" expanded="false"
+			styleClass="navPnlClpsbl">
+			<f:facet name="header">
+				<ice:panelGroup>
+					<ice:outputText value="#{msg['menu.menu1.admin']}" />
+				</ice:panelGroup>
+			</f:facet>
+
+			<ice:commandLink id="userPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="userPanel" />
+				<ice:outputText value="#{msg['menu.menu12.user']}" />
+			</ice:commandLink>
+			<br />
+			<ice:commandLink id="rolePanel"
+				actionListener="#{navigationBean.navigationStackChange}"
+				enabledOnUserRole="ROLE_ADMIN">
+
+				<f:param name="stackName" value="rolePanel" />
+				<ice:outputText value="#{msg['menu.menu12.role']}" />
+			</ice:commandLink>
+			<br />
+			<ice:commandLink id="empresaPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="empresaPanel" />
+				<ice:outputText value="#{msg['menu.menu12.empresa']}" />
+			</ice:commandLink>
+			
+			<br />
+
+		</ice:panelCollapsible>
+		<!-- Form input based expandable panel demo -->
+		<ice:panelCollapsible id="enterprisePanel" expanded="false"
+			styleClass="navPnlClpsbl">
+			<f:facet name="header">
+				<ice:panelGroup>
+					<ice:outputText value="#{msg['menu.menu2.admin']}" />
+				</ice:panelGroup>
+			</f:facet>
+			<ice:commandLink id="usuarioempresaPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="usuarioempresaPanel" />
+				<ice:outputText value="#{msg['menu.menu21.usuarioempresa']}" />
+			</ice:commandLink>
+			<br />
+			<ice:commandLink id="usuariofuncionesPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="usuariofuncionesPanel" />
+				<ice:outputText value="#{msg['menu.menu12.ufunciones']}" />
+			</ice:commandLink>
+			
+
+		</ice:panelCollapsible>
+
+		<!-- Form input based expandable panel demo -->
+		<ice:panelCollapsible id="corporatePanel" expanded="false"
+			styleClass="navPnlClpsbl">
+			<f:facet name="header">
+				<ice:panelGroup>
+					<ice:outputText value="#{msg['menu.menu3.admin']}" />
+				</ice:panelGroup>
+			</f:facet>
+			<ice:commandLink id="cityPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="cityPanel" />
+				<ice:outputText value="#{msg['menu.menu31.city']}" />
+			</ice:commandLink>
+			<br />
+			<ice:commandLink id="tipoCargoPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="tipocargoPanel" />
+				<ice:outputText value="#{msg['menu.menu32.tipocargo']}" />
+			</ice:commandLink>
+			<br />
+			<ice:commandLink id="tipoIdPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="tipoidPanel" />
+				<ice:outputText value="#{msg['menu.menu33.tipoid']}" />
+			</ice:commandLink>
+			<br />
+			<ice:commandLink id="condicionesespecialesPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="condicionesespecialesPanel" />
+				<ice:outputText value="#{msg['menu.menu13.cespeciales']}" />
+			</ice:commandLink>
+			<br/>
+			<ice:commandLink id="tipoubicacionPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="tipoubicacionPanel" />
+				<ice:outputText value="#{msg['menu.menu33.tipoubicacion']}" />
+			</ice:commandLink>
+						
+		</ice:panelCollapsible>
+
+	</ice:panelGroup>
+</ice:form>

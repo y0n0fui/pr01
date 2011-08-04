@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 25, 2011 11:41:28 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pp.admin.hibernate.KEmpresas" table="k_empresas" catalog="pp">
+        <id name="codigoInternoEmpresa" type="int">
+            <column name="codigo_interno_empresa" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="tipoIdentificacion" class="com.pp.admin.hibernate.CTipoIdentificacion" fetch="select">
+            <column name="tipo_identificacion" not-null="true" />
+        </many-to-one>
+        <property name="nroIdentificacion" type="string">
+            <column name="nro_identificacion" length="16" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="16" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="60" />
+        </property>
+        <property name="correoElectronico" type="string">
+            <column name="correo_electronico" length="30" />
+        </property>
+        <property name="cupoSobregiro" type="big_decimal">
+            <column name="cupo_sobregiro" precision="16" />
+        </property>
+        <property name="facturaImpresa" type="string">
+            <column name="factura_impresa" length="1" not-null="true" />
+        </property>
+        <property name="umbralDiasAviso" type="int">
+            <column name="umbral_dias_aviso" not-null="true" />
+        </property>
+        <property name="fechaPagoActual" type="timestamp">
+            <column name="fecha_pago_actual" length="0" />
+        </property>
+        <property name="fechaInsercion" type="timestamp">
+            <column name="fecha_insercion" length="0" />
+        </property>
+        <property name="usuarioInsercion" type="java.lang.Integer">
+            <column name="usuario_insercion" />
+        </property>
+        <property name="ipInsercion" type="string">
+            <column name="ip_insercion" length="16" />
+        </property>
+        <property name="fechaActualizacion" type="timestamp">
+            <column name="fecha_actualizacion" length="0" />
+        </property>
+        <property name="usuarioActualizacion" type="java.lang.Integer">
+            <column name="usuario_actualizacion" />
+        </property>
+        <property name="ipActualizacion" type="string">
+            <column name="ip_actualizacion" length="16" />
+        </property>
+        <set name="KCondicionesEspecialeses" table="k_condiciones_especiales" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_empresa" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KCondicionesEspeciales" />
+        </set>
+        <set name="KUsuariosEmpresases" table="k_usuarios_empresas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_empresa" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KUsuariosEmpresas" />
+        </set>
+        <set name="KDefinicionProductoses" table="k_definicion_productos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_empresa" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KDefinicionProductos" />
+        </set>
+        <one-to-one name="KSaldosXEmpresas" class="com.pp.admin.hibernate.KSaldosXEmpresas"></one-to-one>
+        <set name="KPivotGteCuentaEmpresases" table="k_pivot_gte_cuenta_empresas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_empresa" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KPivotGteCuentaEmpresas" />
+        </set>
+        <set name="KPivotCoorPros" table="k_pivot_coor_pro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_empresa" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KPivotCoorPro" />
+        </set>
+        <set name="KCiclosProyectadoses" table="k_ciclos_proyectados" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_empresa" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KCiclosProyectados" />
+        </set>
+        <set name="KMovimientoSaldoClienteses" table="k_movimiento_saldo_clientes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_empresa" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KMovimientoSaldoClientes" />
+        </set>
+        <set name="KMvtoBeneficiadoses" table="k_mvto_beneficiados" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_empresa" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KMvtoBeneficiados" />
+        </set>
+        <set name="KRolesEmpresases" table="k_roles_empresas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_empresa" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KRolesEmpresas" />
+        </set>
+        <set name="KFacturases" table="k_facturas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo_interno_empresa" not-null="true" />
+            </key>
+            <one-to-many class="com.pp.admin.hibernate.KFacturas" />
+        </set>
+    </class>
+</hibernate-mapping>

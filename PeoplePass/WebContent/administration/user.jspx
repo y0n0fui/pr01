@@ -1,0 +1,32 @@
+<ice:panelGroup styleClass="componentBox" 
+            xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:f="http://java.sun.com/jsf/core"
+            xmlns:ice="http://www.icesoft.com/icefaces/component"
+            xmlns:jsp="http://java.sun.com/JSP/Page">
+
+   
+   
+		
+		<ice:panelGroup styleClass="synopsisBox inputFileContainer">
+        	<ice:outputText value="#{msg['adminuser.title']}"/>
+        	<ice:outputText value="#{msg['adminuser.desc']}"/>
+		</ice:panelGroup>
+		<ice:panelGroup styleClass="basicBox" >
+			<table>	
+				<tr>
+				<td>
+				<b>
+				<ice:outputText id="labeltext" value="#{msg['adminuser.text']}"/>
+				</b>
+				</td>
+				<td>
+		         <ice:outputText id="labelvalue" value="#{userWeb.text}"/>
+				</td>
+				</tr>
+			</table>
+		</ice:panelGroup>
+		<br/>
+			
+		
+    
+</ice:panelGroup>    

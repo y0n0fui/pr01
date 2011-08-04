@@ -1,0 +1,179 @@
+<ice:panelGroup styleClass="componentBox" 
+            xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:f="http://java.sun.com/jsf/core"
+            xmlns:ice="http://www.icesoft.com/icefaces/component"
+            xmlns:jsp="http://java.sun.com/JSP/Page"
+            xmlns:ui="http://java.sun.com/jsf/facelets">
+
+   
+   
+		
+		<ice:panelGroup styleClass="synopsisBox inputFileContainer">
+        	<ice:outputText value="#{msg['admincity.title']}"/>
+        	<ice:outputText value="#{msg['admincity.desc']}"/>
+		</ice:panelGroup>
+		<ice:panelGroup styleClass="basicBox" >
+		
+		
+			<ice:dataTable id="citylisttable"
+ 				  var="row"
+ 				  value="#{cityWeb.dataTable.data}"
+		  columnClasses="tableCol"
+		  scrollable="true"
+		  scrollHeight="250px"
+		  columnWidths="100px,80px,80px,80px,80px,80px,80px"
+		  sortAscending="#{cityWeb.dataTable.sortDataAscending}" 	
+		  sortColumn="#{cityWeb.dataTable.sortColumn}">
+		 <ice:column>
+			<ice:rowSelector id="selectedReg"
+                                 multiple="false"
+                                 selectionListener="#{cityWeb.selectRow}"
+                                 />
+			
+		          <f:facet name="header">
+		          	<ice:commandSortHeader id="c1Header"
+                                           columnName="c1" arrow="true">
+			              <ice:outputText id="lblc1"
+			                              value="#{msg['admincity.city.description']}"/>
+			        </ice:commandSortHeader>                      
+		     	  </f:facet>	
+		      <ice:outputText id="valuec1"
+		                         value="#{row[1]}" >
+		       </ice:outputText>                 
+			</ice:column>
+			
+			
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c2Header"
+                                           columnName="c2" arrow="true">
+		     		 <ice:outputText id="lblc2"
+		                         value="#{msg['admincity.city.dateAct']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec2"
+		                         value="#{row[2]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c3Header"
+                                           columnName="c3" arrow="true">
+		     		 <ice:outputText id="lblc3"
+		                         value="#{msg['admincity.city.ipAct']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec3"
+		                         value="#{row[3]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c4Header"
+                                           columnName="c4" arrow="true">
+		     		 <ice:outputText id="lblc4"
+		                         value="#{msg['admincity.city.userAct']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec4"
+		                         value="#{row[4]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c5Header"
+                                           columnName="c5" arrow="true">
+		     		 <ice:outputText id="lblc5"
+		                         value="#{msg['admincity.city.dateInsert']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec5"
+		                         value="#{row[5]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c6Header"
+                                           columnName="c6" arrow="true">
+		     		 <ice:outputText id="lblc6"
+		                         value="#{msg['admincity.city.ipInsert']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec6"
+		                         value="#{row[6]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c7Header"
+                                           columnName="c7" arrow="true">
+		     		 <ice:outputText id="lblc7"
+		                         value="#{msg['admincity.city.userInsert']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec7"
+		                         value="#{row[7]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			
+			
+		</ice:dataTable>	
+		<ice:panelGroup>
+		<ice:commandButton id="btnCreateCity" value="#{msg['admincity.city.create']}" actionListener="#{cityWeb.create}"></ice:commandButton>	
+		</ice:panelGroup>
+		</ice:panelGroup>
+		<br/>
+		
+		<ice:panelPopup 
+            id="idPopUpPanel"
+            styleClass="corePopup2"
+            autoCentre="true" 
+            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            visible="#{cityWeb.rederPopup}">
+            
+        <f:facet name="header">
+        <ice:panelGroup styleClass="popupHeaderWrapper">
+            <ice:outputText id="xytitle"
+                    value="#{msg['admincity.city']}"
+                    styleClass="popupHeaderText"/>
+            <ice:commandButton id="modalPnlCloseBtn" type="button"
+                               image="images/popupclose.gif"
+                               actionListener="#{cityWeb.toggleModal}" 
+                               styleClass="popupHeaderImage"
+                               title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
+        </ice:panelGroup>
+    	</f:facet>
+    	<f:facet name="body"> 
+        <ice:panelGroup styleClass="popupBody">
+        	<table>	
+        	<tr>
+        	<td>
+        	<ice:outputText value="#{msg['admincity.city.description']}"/>
+        	</td>
+        	<td>
+        	<ice:inputText id="description" value="#{cityWeb.ciudad.descripcion}"></ice:inputText>
+        	</td>
+        	</tr>
+        	<tr>
+        		<td colspan="2"><ice:commandButton id="btnSaveCity" value="#{msg['general.save']}" actionListener="#{cityWeb.onSave}"></ice:commandButton></td>
+        	</tr>
+        	</table>
+        </ice:panelGroup> 
+        </f:facet>
+ </ice:panelPopup>
+</ice:panelGroup>    

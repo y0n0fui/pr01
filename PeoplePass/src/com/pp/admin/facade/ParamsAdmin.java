@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pp.admin.hibernate.CTipoUbicacion;
+import com.pp.admin.hibernate.KConceptosFacturacion;
 import com.pp.admin.hibernate.KCondicionesEspeciales;
 
 @Repository
@@ -43,14 +44,13 @@ public class ParamsAdmin implements IParamsAdmin {
 		sessionFactory.getCurrentSession().delete(condicionesEspeciales);
 
 	}
-	
+
 	@Transactional(readOnly = true)
 	@SuppressWarnings("unchecked")
 	public List<CTipoUbicacion> getTipoUbicacion() {
 		Query query = sessionFactory.getCurrentSession().createQuery(
 				"select ce from CTipoUbicacion ce");
-		List<CTipoUbicacion> result = (List<CTipoUbicacion>) query
-				.list();
+		List<CTipoUbicacion> result = (List<CTipoUbicacion>) query.list();
 		return result;
 	}
 
@@ -67,6 +67,32 @@ public class ParamsAdmin implements IParamsAdmin {
 
 	public void delete(CTipoUbicacion tipoUbicacion) {
 		sessionFactory.getCurrentSession().delete(tipoUbicacion);
+
+	}
+
+	@Transactional(readOnly = true)
+	@SuppressWarnings("unchecked")
+	public List<KConceptosFacturacion> getConceptoFacturacion() {
+		Query query = sessionFactory.getCurrentSession().createQuery(
+				"select cf from KConceptosFacturacion cf");
+		List<KConceptosFacturacion> result = (List<KConceptosFacturacion>) query
+				.list();
+		return result;
+	}
+
+	@Transactional(readOnly = false)
+	public void save(KConceptosFacturacion conceptosFacturacion) {
+		sessionFactory.getCurrentSession().saveOrUpdate(conceptosFacturacion);
+	}
+
+	@Transactional(readOnly = true)
+	public KConceptosFacturacion getConceptoFacturacion(int idRole) {
+		return (KConceptosFacturacion) sessionFactory.getCurrentSession().get(
+				KConceptosFacturacion.class, idRole);
+	}
+
+	public void delete(KConceptosFacturacion conceptosFacturacion) {
+		sessionFactory.getCurrentSession().delete(conceptosFacturacion);
 
 	}
 

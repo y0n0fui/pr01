@@ -139,7 +139,13 @@
 				<f:param name="stackName" value="tipoubicacionPanel" />
 				<ice:outputText value="#{msg['menu.menu33.tipoubicacion']}" />
 			</ice:commandLink>
-						
+			<br/>
+			<ice:commandLink id="conceptofacturacionPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="conceptofacturacionPanel" />
+				<ice:outputText value="#{msg['menu.menu35.conceptofacturacion']}" />
+			</ice:commandLink>			
 		</ice:panelCollapsible>
 
 	</ice:panelGroup>

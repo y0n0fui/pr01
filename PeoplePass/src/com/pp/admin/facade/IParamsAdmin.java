@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pp.admin.hibernate.CTipoUbicacion;
+import com.pp.admin.hibernate.KBancosTerceros;
 import com.pp.admin.hibernate.KConceptosFacturacion;
 import com.pp.admin.hibernate.KCondicionesEspeciales;
 
@@ -45,4 +46,16 @@ public interface IParamsAdmin {
 	public KConceptosFacturacion getConceptoFacturacion(int idRole);
 	
 	public void delete(KConceptosFacturacion conceptosFacturacion);
+	
+	//KBancosTerceros
+	public List<KBancosTerceros> getBancosTerceros();
+
+	
+	public void save(KBancosTerceros bancosTerceros);
+
+	
+	public KBancosTerceros getBancosTerceros(int idRole);
+	
+	public void delete(KBancosTerceros bancosTerceros);
+	
 }

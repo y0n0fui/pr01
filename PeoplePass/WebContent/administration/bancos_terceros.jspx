@@ -1,0 +1,267 @@
+<ice:panelGroup styleClass="componentBox" 
+            xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:f="http://java.sun.com/jsf/core"
+            xmlns:ice="http://www.icesoft.com/icefaces/component"
+            xmlns:jsp="http://java.sun.com/JSP/Page"
+            xmlns:ui="http://java.sun.com/jsf/facelets">
+
+   
+   
+		
+		<ice:panelGroup styleClass="synopsisBox inputFileContainer">
+        	<ice:outputText value="#{msg['adminbancosterceros.title']}"/>
+        	<ice:outputText value="#{msg['adminbancosterceros.desc']}"/>
+		</ice:panelGroup>
+		<ice:panelGroup styleClass="basicBox" >
+		
+		
+			<ice:dataTable id="bancosterceroslisttable"
+ 				  var="row"
+ 				  value="#{bancosTercerosWeb.dataTable.data}"
+		  columnClasses="tableCol"
+		  scrollable="true"
+		  scrollHeight="250px"
+		  columnWidths="100px,100px,80px,250px,100px,80px,80px,80px,80px"
+		  sortAscending="#{bancosTercerosWeb.dataTable.sortDataAscending}" 	
+		  sortColumn="#{bancosTercerosWeb.dataTable.sortColumn}">
+		 <ice:column>
+		
+			
+		          <f:facet name="header">
+		          	<ice:commandSortHeader id="c1Header"
+                                           columnName="c1" arrow="true">
+			              <ice:outputText id="lblc1"
+			                              value="#{msg['adminbancosterceros.bancosterceros.razonsocial']}"/>
+			        </ice:commandSortHeader>                      
+		     	  </f:facet>	
+		      <ice:outputText id="valuec1"
+		                         value="#{row[1]}" >
+		       </ice:outputText>                 
+			</ice:column>
+			
+			
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c2Header"
+                                           columnName="c2" arrow="true">
+		     		 <ice:outputText id="lblc2"
+		                         value="#{msg['adminbancosterceros.bancosterceros.dateAct']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec2"
+		                         value="#{row[2]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c3Header"
+                                           columnName="c3" arrow="true">
+		     		 <ice:outputText id="lblc3"
+		                         value="#{msg['adminbancosterceros.bancosterceros.ipAct']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec3"
+		                         value="#{row[3]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c4Header"
+                                           columnName="c4" arrow="true">
+		     		 <ice:outputText id="lblc4"
+		                         value="#{msg['adminbancosterceros.bancosterceros.userAct']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec4"
+		                         value="#{row[4]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c5Header"
+                                           columnName="c5" arrow="true">
+		     		 <ice:outputText id="lblc5"
+		                         value="#{msg['adminbancosterceros.bancosterceros.dateInsert']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec5"
+		                         value="#{row[5]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c6Header"
+                                           columnName="c6" arrow="true">
+		     		 <ice:outputText id="lblc6"
+		                         value="#{msg['adminbancosterceros.bancosterceros.ipInsert']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec6"
+		                         value="#{row[6]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	<ice:commandSortHeader id="c7Header"
+                                           columnName="c7" arrow="true">
+		     		 <ice:outputText id="lblc7"
+		                         value="#{msg['adminbancosterceros.bancosterceros.userInsert']}"/>
+		         </ice:commandSortHeader>                
+		     </f:facet>
+		      <ice:outputText id="valuec7"
+		                         value="#{row[7]}">
+		                        
+		        </ice:outputText>                 
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	      <ice:outputText id="lblcE"
+		                         value="#{msg['general.edit']}"/>
+		     </f:facet>
+		     
+		            <ice:commandLink   actionListener="#{bancosTercerosWeb.edit}" value="#{msg['general.edit']}" >
+							<f:attribute name="row" value="#{row}"/>
+					</ice:commandLink>
+		                        
+		                      
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		              <ice:outputText id="lblcD"
+		                         value="#{msg['general.delete']}"/>
+		     </f:facet>
+		     
+		            <ice:commandLink actionListener="#{bancosTercerosWeb.prepareToDelete}" value="#{msg['general.delete']}" >
+							<f:attribute name="row" value="#{row}"/>
+					</ice:commandLink>
+		                        
+		                    
+			</ice:column>
+			
+		</ice:dataTable>	
+		<ice:panelGroup> 
+		<ice:commandButton id="btnCreateTipoUbicacion" value="#{msg['adminbancosterceros.bancosterceros.create']}" actionListener="#{bancosTercerosWeb.create}" ></ice:commandButton>
+			
+		</ice:panelGroup>
+		</ice:panelGroup>
+		<br/>
+		
+		<ice:panelPopup 
+            id="idPopUpPanel"
+            styleClass="corePopup2"
+            autoCentre="true" 
+            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            visible="#{bancosTercerosWeb.rederPopup}">
+            
+        <f:facet name="header">
+        <ice:panelGroup styleClass="popupHeaderWrapper">
+            <ice:outputText id="popuptitle"
+                    value="#{msg['adminbancosterceros.bancosterceros']}"
+                    styleClass="popupHeaderText"/>
+            <ice:commandButton id="modalpopUpCloseBtn" type="button"
+                               image="images/popupclose.gif"
+                               actionListener="#{bancosTercerosWeb.toggleModal}" 
+                               styleClass="popupHeaderImage"
+                               title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
+        </ice:panelGroup>
+    	</f:facet>
+		<f:facet name="body">
+			<ice:panelGroup styleClass="popupBody">
+				<table>
+					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.razonsocial']}" /></td>
+					    <td><ice:inputText id="razonsocial" value="#{bancosTercerosWeb.bancosTerceros.razonSocial}"></ice:inputText></td></tr>
+					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.nombreContacto']}" /></td>
+					    <td><ice:inputText id="nombreContacto" value="#{bancosTercerosWeb.bancosTerceros.nombreContacto}"></ice:inputText></td></tr>
+					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.nroIdentificacion']}" /></td>
+					    <td><ice:inputText id="nroIdentificacion" value="#{bancosTercerosWeb.bancosTerceros.nroIdentificacion}"></ice:inputText></td></tr>
+					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.telefono']}" /></td>
+					    <td><ice:inputText id="telefono" value="#{bancosTercerosWeb.bancosTerceros.telefono}"></ice:inputText></td></tr>
+					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.direccionIp']}" /></td>
+					    <td><ice:inputText id="direccionIp" value="#{bancosTercerosWeb.bancosTerceros.direccionIp}"></ice:inputText></td></tr>
+					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.url']}" /></td>
+					    <td><ice:inputText id="url" value="#{bancosTercerosWeb.bancosTerceros.url}"></ice:inputText></td></tr>
+					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.usuarioConexion']}" /></td>
+					    <td><ice:inputText id="usuarioConexion" value="#{bancosTercerosWeb.bancosTerceros.usuarioConexion}"></ice:inputText></td></tr>
+					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.clave']}" /></td>
+					    <td><ice:inputText id="clave" value="#{bancosTercerosWeb.bancosTerceros.clave}"></ice:inputText></td></tr>
+					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.tipoInterface']}" /></td>
+					    <td><ice:inputText id="tipoInterface" value="#{bancosTercerosWeb.bancosTerceros.tipoInterface}"></ice:inputText></td></tr>
+					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.tipoId']}" /></td>
+					    <td><ice:selectOneMenu id="tipoIdentificacion" value="#{bancosTercerosWeb.idTipo}" partialSubmit="true">
+                      <f:selectItems id="SlcttipoIdentificacion" value="#{bancosTercerosWeb.tiposId}"/></ice:selectOneMenu></td>
+                    </tr>
+					<tr>
+						<td><ice:commandButton id="btnSaveRole"
+								value="#{msg['general.save']}"
+								actionListener="#{bancosTercerosWeb.onSave}"></ice:commandButton>
+						</td>
+						<td><ice:commandButton id="btnCancelSaveRole"
+								value="#{msg['general.cancel']}"
+								actionListener="#{bancosTercerosWeb.toggleModal}"></ice:commandButton>
+						</td>
+					</tr>
+				</table>
+			</ice:panelGroup>
+		</f:facet>
+	</ice:panelPopup>
+ 
+ 
+ 
+ <ice:panelPopup 
+            id="idPopUpDelete"
+            styleClass="corePopup2"
+            autoCentre="true" 
+            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            visible="#{bancosTercerosWeb.renderDeleteAlert}">
+            
+        <f:facet name="header">
+        <ice:panelGroup styleClass="popupHeaderWrapper">
+            <ice:outputText id="xytitle"
+                    value="#{msg['general.delete']}"
+                    styleClass="popupHeaderText"/>
+            <ice:commandButton id="modalPnlCloseBtn" type="button"
+                               image="images/popupclose.gif"
+                               actionListener="#{bancosTercerosWeb.toggleModalDelete}" 
+                               styleClass="popupHeaderImage"
+                               title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
+        </ice:panelGroup>
+    	</f:facet>
+    	<f:facet name="body"> 
+        <ice:panelGroup styleClass="popupBody">
+        	<table>	
+        	<tr>
+        	<td colspan="2">
+        	<ice:outputText value="#{msg['general.delete.alert']}"/>
+        	</td>
+        	</tr>
+        	<tr>
+        		<td>
+        		<ice:commandButton id="btnAceptRole" value="#{msg['general.accept']}" actionListener="#{bancosTercerosWeb.delete}">
+        		</ice:commandButton>
+        		</td>
+        		<td>
+        		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{bancosTercerosWeb.toggleModalDelete}">
+        		</ice:commandButton>
+        		</td>
+        	</tr>
+        	</table>
+        </ice:panelGroup> 
+        </f:facet>
+ </ice:panelPopup>
+ 
+</ice:panelGroup>    

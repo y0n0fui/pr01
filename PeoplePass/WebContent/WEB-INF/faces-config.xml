@@ -148,6 +148,18 @@
 		</managed-property>
 	</managed-bean>
 	
-	
+	<managed-bean>
+		<managed-bean-name>bancosTercerosWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.BancosTercerosWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>paramsAdmin</property-name>
+			<value>#{paramsAdmin}</value>  
+		</managed-property>
+		<managed-property>
+			<property-name>userAdmin</property-name>
+			<value>#{userAdmin}</value>  
+		</managed-property>
+	</managed-bean>
 		
 </faces-config>

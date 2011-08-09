@@ -188,7 +188,8 @@
         	<ice:outputText value="#{msg['adminrole.role.description']}"/>
         	</td>
         	<td>
-        	<ice:inputText id="description" value="#{roleWeb.role.descripcion}"></ice:inputText>
+        	<ice:inputText id="description" value="#{roleWeb.role.descripcion}" required="true" maxlength="16">
+        	</ice:inputText>
         	</td>
         	</tr>
         	<tr>

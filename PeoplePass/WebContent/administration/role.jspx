@@ -246,6 +246,15 @@
         		</ice:commandButton>
         		</td>
         	</tr>
+        	<tr>
+        	<td colspan="2">
+        	  <h:messages layout="table"
+                    globalOnly="false"
+				    
+                    showDetail="false"
+                    showSummary="true"/>
+        	</td>
+        	</tr>
         	</table>
         </ice:panelGroup> 
         </f:facet>

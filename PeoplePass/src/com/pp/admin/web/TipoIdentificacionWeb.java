@@ -4,6 +4,7 @@ package com.pp.admin.web;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.springframework.security.context.SecurityContextHolder;
 import com.pp.admin.facade.IUserAdmin;
 import com.pp.admin.hibernate.CTipoIdentificacion;
 import com.pp.util.DataTable;
+import com.pp.util.MessageUtil;
 
 
 
@@ -87,11 +89,18 @@ public class TipoIdentificacionWeb extends CRUDWeb{
 
 	public void delete(ActionEvent evnt){
 		this.tipoIdentificacion=userAdmin.getTipoIdentificacion((Integer)selectData[0]);
+		try{
 		userAdmin.delete(this.tipoIdentificacion);
 		this.tipoIdentificacion=new CTipoIdentificacion();
 		this.selectData=null;
 		init();
 		toggleModalDelete(evnt);
+		}catch (org.springframework.dao.DataIntegrityViolationException e) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			logger.error("Error en constrain",e);	
+        	FacesContext.getCurrentInstance().addMessage(FacesMessage.SEVERITY_ERROR.toString(),  
+    				MessageUtil.getMessageStringFaces("admintipoid.tipoid.error.delete", context ));
+		}
 	}
 	
 

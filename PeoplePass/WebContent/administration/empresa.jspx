@@ -165,7 +165,7 @@
             id="idPopUpPanel"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 400px;"
+            draggable="true" modal="true" style="width: 350px;height: 450px;"
             visible="#{empresaWeb.rederPopup}">
             
         <f:facet name="header">
@@ -177,69 +177,125 @@
                                image="images/popupclose.gif"
                                actionListener="#{empresaWeb.toggleModal}" 
                                styleClass="popupHeaderImage"
+                               partialSubmit="true"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
         </ice:panelGroup>
     	</f:facet>
     	<f:facet name="body"> 
         <ice:panelGroup styleClass="popupBody">
         	<table>	
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminempresa.empresa.noid']}"/>
-        	</td><td>
-        	<ice:inputText id="nroIdentificacion" value="#{empresaWeb.empresa.nroIdentificacion}"></ice:inputText>
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminempresa.empresa.noid']}"/> *
+        	</td><td align="left">
+        	<ice:inputText id="nroIdentificacion" value="#{empresaWeb.empresa.nroIdentificacion}" required="#{empresaWeb.rederPopup}" maxlength="16"></ice:inputText>
         	</td></tr>
         	
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminempresa.empresa.tipoid']}"/>
-        	</td><td>
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="nroIdentificacion"/>		
+			</td>
+			</tr>
+        	
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminempresa.empresa.tipoid']}"/> *
+        	</td><td align="left">
         	 <ice:selectOneMenu id="tipoIdentificacion"
                         value="#{empresaWeb.idTipo}"
-                        partialSubmit="true">
+                        partialSubmit="true" required="#{empresaWeb.rederPopup}">
                     <f:selectItems id="SlcttipoIdentificacion"
                                    value="#{empresaWeb.tiposId}"/>
                 </ice:selectOneMenu>
         	
         	</td></tr>
         	
-        	<tr><td>
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="tipoIdentificacion"/>		
+			</td>
+			</tr>
+        	
+        	
+        	<tr><td align="left">
         	<ice:outputText value="#{msg['adminempresa.empresa.tel']}"/>
-        	</td><td>
-        	<ice:inputText id="telefono" value="#{empresaWeb.empresa.telefono}"></ice:inputText>
-        	</td></tr>
-        	
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminempresa.empresa.address']}"/>
-        	</td><td>
-        	<ice:inputText id="direccion" value="#{empresaWeb.empresa.direccion}"></ice:inputText>
-        	</td></tr>
-        	
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminempresa.empresa.email']}"/>
-        	</td><td>
-        	<ice:inputText id="correoElectronico" value="#{empresaWeb.empresa.correoElectronico}"></ice:inputText>
-        	</td></tr>
-        	
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminempresa.empresa.cuposobregiro']}"/>
-        	</td><td>
-        	<ice:inputText id="cupoSobregiro" value="#{empresaWeb.empresa.cupoSobregiro}"></ice:inputText>
-        	</td></tr>
-        	
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminempresa.empresa.printbilling']}"/>
-        	</td><td>
-        	<ice:inputText id="facturaImpresa" value="#{empresaWeb.empresa.facturaImpresa}"></ice:inputText>
-        	</td></tr>
-        	
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminempresa.empresa.umbraldiasaviso']}"/>
-        	</td><td>
-        	<ice:inputText id="umbralDiasAviso" value="#{empresaWeb.empresa.umbralDiasAviso}"></ice:inputText>
+        	</td><td align="left">
+        	<ice:inputText id="telefono" value="#{empresaWeb.empresa.telefono}" maxlength="16"></ice:inputText>
         	</td></tr>
         	
         	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="telefono"/>		
+			</td>
+			</tr>
+			
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminempresa.empresa.address']}"/>
+        	</td><td align="left">
+        	<ice:inputText id="direccion" value="#{empresaWeb.empresa.direccion}" maxlength="60"></ice:inputText>
+        	</td></tr>
+        	
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="direccion"/>		
+			</td>
+			</tr>
+			
+			
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminempresa.empresa.email']}"/>
+        	</td><td align="left">
+        	<ice:inputText id="correoElectronico" value="#{empresaWeb.empresa.correoElectronico}" maxlength="30"></ice:inputText>
+        	</td></tr>
+        	
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="correoElectronico"/>		
+			</td>
+			</tr>
+        	
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminempresa.empresa.cuposobregiro']}"/>
+        	</td><td align="left">
+        	<ice:inputText id="cupoSobregiro" value="#{empresaWeb.empresa.cupoSobregiro}" maxlength="18">
+        		
+        	</ice:inputText>
+        	</td></tr>
+        	
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="cupoSobregiro"/>		
+			</td>
+			</tr>
+			
+        	
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminempresa.empresa.printbilling']}"/> *
+        	</td><td align="left">
+        	<ice:inputText id="facturaImpresa" value="#{empresaWeb.empresa.facturaImpresa}" required="#{empresaWeb.rederPopup}"></ice:inputText>
+        	</td></tr>
+        	
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="facturaImpresa"/>		
+			</td>
+			</tr>
+			
+			<tr><td align="left">
+        	<ice:outputText value="#{msg['adminempresa.empresa.umbraldiasaviso']}"/> *
+        	</td><td align="left">
+        	<ice:inputText id="umbralDiasAviso" value="#{empresaWeb.empresa.umbralDiasAviso}" required="#{empresaWeb.rederPopup}" maxlength="2" size="3">
+        		<f:validateLongRange minimum="0" maximum="99"></f:validateLongRange>
+        	</ice:inputText>
+        	</td></tr>
+        	
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="umbralDiasAviso"/>		
+			</td>
+			</tr>
+			
+        	<tr>
         		<td><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{empresaWeb.onSave}"></ice:commandButton></td>
-        		<td><ice:commandButton id="btnCancelSaveRole" value="#{msg['general.cancel']}" actionListener="#{empresaWeb.toggleModal}"></ice:commandButton></td>
+        		<td><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{empresaWeb.toggleModal}" ></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 
@@ -252,7 +308,7 @@
             id="idPopUpDelete"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            draggable="true" modal="true" style="width: 300px;height: 200px;"
             visible="#{empresaWeb.renderDeleteAlert}">
             
         <f:facet name="header">
@@ -264,6 +320,7 @@
                                image="images/popupclose.gif"
                                actionListener="#{empresaWeb.toggleModalDelete}" 
                                styleClass="popupHeaderImage"
+                               partialSubmit="true"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
         </ice:panelGroup>
     	</f:facet>
@@ -284,6 +341,15 @@
         		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{empresaWeb.toggleModalDelete}">
         		</ice:commandButton>
         		</td>
+        	</tr>
+        	<tr>
+        	<td colspan="2">
+        	  <h:messages layout="table"
+                    globalOnly="false"
+				    
+                    showDetail="false"
+                    showSummary="true"/>
+        	</td>
         	</tr>
         	</table>
         </ice:panelGroup> 

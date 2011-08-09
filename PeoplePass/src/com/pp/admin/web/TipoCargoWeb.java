@@ -4,6 +4,7 @@ package com.pp.admin.web;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.springframework.security.context.SecurityContextHolder;
 import com.pp.admin.facade.IUserAdmin;
 import com.pp.admin.hibernate.CTipoCargo;
 import com.pp.util.DataTable;
+import com.pp.util.MessageUtil;
 
 
 
@@ -88,11 +90,18 @@ public class TipoCargoWeb extends CRUDWeb{
 
 	public void delete(ActionEvent evnt){
 		this.tipoCargo=userAdmin.getTipoCargo((Integer)selectData[0]);
+		try{
 		userAdmin.delete(this.tipoCargo);
 		this.tipoCargo=new CTipoCargo();
 		this.selectData=null;
 		init();
 		toggleModalDelete(evnt);
+		}catch (org.springframework.dao.DataIntegrityViolationException e) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			logger.error("Error en constrain",e);	
+        	FacesContext.getCurrentInstance().addMessage(FacesMessage.SEVERITY_ERROR.toString(),  
+    				MessageUtil.getMessageStringFaces("admintipocargo.tipocargo.error.delete", context ));
+		}
 	}
 	
 

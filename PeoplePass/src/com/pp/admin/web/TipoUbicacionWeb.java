@@ -3,6 +3,7 @@ package com.pp.admin.web;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import com.pp.admin.facade.IParamsAdmin;
 
 import com.pp.admin.hibernate.CTipoUbicacion;
 import com.pp.util.DataTable;
+import com.pp.util.MessageUtil;
 
 /**
  * 
@@ -86,11 +88,18 @@ public class TipoUbicacionWeb extends CRUDWeb {
 	public void delete(ActionEvent evnt) {
 		this.tipoUbicacion = paramsAdmin
 				.getTipoUbicacion((Integer) selectData[0]);
+		try{
 		paramsAdmin.delete(this.tipoUbicacion);
 		this.tipoUbicacion = new CTipoUbicacion();
 		this.selectData = null;
 		init();
 		toggleModalDelete(evnt);
+		}catch (org.springframework.dao.DataIntegrityViolationException e) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			logger.error("Error en constrain",e);	
+        	FacesContext.getCurrentInstance().addMessage(FacesMessage.SEVERITY_ERROR.toString(),  
+    				MessageUtil.getMessageStringFaces("admintipoubicacion.tipoubic.error.delete", context ));
+		}
 	}
 
 	public CTipoUbicacion getTipoUbicacion() {

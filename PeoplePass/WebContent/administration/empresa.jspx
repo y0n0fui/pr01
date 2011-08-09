@@ -183,7 +183,7 @@
     	</f:facet>
     	<f:facet name="body"> 
         <ice:panelGroup styleClass="popupBody">
-        	<table>	
+        	<table style="width: 100px;">	
         	<tr><td align="left">
         	<ice:outputText value="#{msg['adminempresa.empresa.noid']}"/> *
         	</td><td align="left">
@@ -294,8 +294,8 @@
 			</tr>
 			
         	<tr>
-        		<td><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{empresaWeb.onSave}"></ice:commandButton></td>
-        		<td><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{empresaWeb.toggleModal}" ></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{empresaWeb.onSave}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{empresaWeb.toggleModal}" ></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 

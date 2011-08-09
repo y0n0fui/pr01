@@ -198,8 +198,8 @@
 			</td>
 			</tr>
         	<tr>
-        		<td><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{tipoIdentificacionWeb.onSave}"></ice:commandButton></td>
-        		<td><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}"  actionListener="#{tipoIdentificacionWeb.toggleModal}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{tipoIdentificacionWeb.onSave}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}"  actionListener="#{tipoIdentificacionWeb.toggleModal}"></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 

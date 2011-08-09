@@ -165,7 +165,7 @@
             id="idPopUpPanel"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            draggable="true" modal="true" style="width: 300px;height: 150px;"
             visible="#{tipoUbicacionWeb.rederPopup}">
             
         <f:facet name="header">
@@ -177,6 +177,7 @@
                                image="images/popupclose.gif"
                                actionListener="#{tipoUbicacionWeb.toggleModal}" 
                                styleClass="popupHeaderImage"
+                               partialSubmit="true"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
         </ice:panelGroup>
     	</f:facet>
@@ -185,15 +186,20 @@
         	<table>	
         	<tr>
         	<td>
-        	<ice:outputText value="#{msg['admintipoubicacion.tipoubic.desc']}"/>
+        	<ice:outputText value="#{msg['admintipoubicacion.tipoubic.desc']}"/> *
         	</td>
         	<td>
-        	<ice:inputText id="description" value="#{tipoUbicacionWeb.tipoCargo.descripcion}"></ice:inputText>
+        	<ice:inputText id="description" value="#{tipoUbicacionWeb.tipoCargo.descripcion}" required="#{tipoUbicacionWeb.rederPopup}" maxlength="16"></ice:inputText>
         	</td>
         	</tr>
         	<tr>
-        		<td><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{tipoUbicacionWeb.onSave}"></ice:commandButton></td>
-        		<td><ice:commandButton id="btnCancelSaveRole" value="#{msg['general.cancel']}" actionListener="#{tipoUbicacionWeb.toggleModal}"></ice:commandButton></td>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="description"/>		
+			</td>
+			</tr>
+        	<tr>
+        		<td align="center"><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{tipoUbicacionWeb.onSave}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{tipoUbicacionWeb.toggleModal}"></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 
@@ -230,14 +236,23 @@
         	</td>
         	</tr>
         	<tr>
-        		<td>
+        		<td align="center">
         		<ice:commandButton id="btnAceptRole" value="#{msg['general.accept']}" actionListener="#{tipoUbicacionWeb.delete}">
         		</ice:commandButton>
         		</td>
-        		<td>
+        		<td align="center">
         		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{tipoUbicacionWeb.toggleModalDelete}">
         		</ice:commandButton>
         		</td>
+        	</tr>
+        	<tr>
+        	<td colspan="2">
+        	  <h:messages layout="table"
+                    globalOnly="false"
+				    
+                    showDetail="false"
+                    showSummary="true"/>
+        	</td>
         	</tr>
         	</table>
         </ice:panelGroup> 

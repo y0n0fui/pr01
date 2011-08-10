@@ -165,7 +165,7 @@
             id="idPopUpPanel"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            draggable="true" modal="true" style="width: 300px;height: 150px;"
             visible="#{conceptoFacturacionWeb.rederPopup}">
             
         <f:facet name="header">
@@ -177,6 +177,7 @@
                                image="images/popupclose.gif"
                                actionListener="#{conceptoFacturacionWeb.toggleModal}" 
                                styleClass="popupHeaderImage"
+                               partialSubmit="true"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
         </ice:panelGroup>
     	</f:facet>
@@ -185,15 +186,20 @@
         	<table>	
         	<tr>
         	<td>
-        	<ice:outputText value="#{msg['adminconcepfacturacion.concepfac.desc']}"/>
+        	<ice:outputText value="#{msg['adminconcepfacturacion.concepfac.desc']}"/> *
         	</td>
         	<td>
-        	<ice:inputText id="description" value="#{conceptoFacturacionWeb.conceptoFacturacion.descripcion}"></ice:inputText>
+        	<ice:inputText id="description" value="#{conceptoFacturacionWeb.conceptoFacturacion.descripcion}" required="#{conceptoFacturacionWeb.rederPopup}" maxlength="60"></ice:inputText>
         	</td>
         	</tr>
         	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="description"/>		
+			</td>
+			</tr>
+        	<tr>
         		<td><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{conceptoFacturacionWeb.onSave}"></ice:commandButton></td>
-        		<td><ice:commandButton id="btnCancelSaveRole" value="#{msg['general.cancel']}" actionListener="#{conceptoFacturacionWeb.toggleModal}"></ice:commandButton></td>
+        		<td><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{conceptoFacturacionWeb.toggleModal}"></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 
@@ -206,7 +212,7 @@
             id="idPopUpDelete"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            draggable="true" modal="true" style="width: 300px;height: 150px;"
             visible="#{conceptoFacturacionWeb.renderDeleteAlert}">
             
         <f:facet name="header">
@@ -238,6 +244,15 @@
         		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{conceptoFacturacionWeb.toggleModalDelete}">
         		</ice:commandButton>
         		</td>
+        	</tr>
+        	<tr>
+        	<td colspan="2">
+        	  <h:messages layout="table"
+                    globalOnly="false"
+				    
+                    showDetail="false"
+                    showSummary="true"/>
+        	</td>
         	</tr>
         	</table>
         </ice:panelGroup> 

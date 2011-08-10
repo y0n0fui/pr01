@@ -165,7 +165,7 @@
             id="idPopUpPanel"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 350px;height: 450px;"
+            draggable="true" modal="true" style="width: 400px;height: 450px;"
             visible="#{empresaWeb.rederPopup}">
             
         <f:facet name="header">
@@ -183,7 +183,7 @@
     	</f:facet>
     	<f:facet name="body"> 
         <ice:panelGroup styleClass="popupBody">
-        	<table style="width: 100px;">	
+        	<table style="width: 100%;">	
         	<tr><td align="left">
         	<ice:outputText value="#{msg['adminempresa.empresa.noid']}"/> *
         	</td><td align="left">

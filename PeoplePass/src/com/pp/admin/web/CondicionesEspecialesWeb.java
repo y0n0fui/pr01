@@ -4,6 +4,7 @@ package com.pp.admin.web;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
@@ -19,6 +20,7 @@ import com.pp.admin.facade.IUserAdmin;
 import com.pp.admin.hibernate.KCondicionesEspeciales;
 import com.pp.admin.hibernate.KEmpresas;
 import com.pp.util.DataTable;
+import com.pp.util.MessageUtil;
 
 
 
@@ -111,11 +113,18 @@ public class CondicionesEspecialesWeb extends CRUDWeb{
 
 	public void delete(ActionEvent evnt){
 		this.condicionesEspeciales=paramsAdmin.getCondicionesEspeciales((Integer)selectData[0]);
+		try{
 		paramsAdmin.delete(this.condicionesEspeciales);
 		this.condicionesEspeciales=new KCondicionesEspeciales();
 		this.selectData=null;
 		init();
 		toggleModalDelete(evnt);
+		}catch (org.springframework.dao.DataIntegrityViolationException e) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			logger.error("Error en constrain",e);	
+        	FacesContext.getCurrentInstance().addMessage(FacesMessage.SEVERITY_ERROR.toString(),  
+    				MessageUtil.getMessageStringFaces("admincondespeciales.condespeciales.error.delete", context ));
+		}
 	}
 
 

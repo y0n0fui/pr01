@@ -243,7 +243,9 @@
         	<tr><td align="left">
         	<ice:outputText value="#{msg['adminempresa.empresa.email']}"/>
         	</td><td align="left">
-        	<ice:inputText id="correoElectronico" value="#{empresaWeb.empresa.correoElectronico}" maxlength="30"></ice:inputText>
+        	<ice:inputText id="correoElectronico" value="#{empresaWeb.empresa.correoElectronico}" maxlength="30">
+				<f:validator validatorId="EmailValidator"/>        	
+        	</ice:inputText>
         	</td></tr>
         	
         	<tr>

@@ -5,6 +5,11 @@
     "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
 
 <faces-config>
+    
+    <validator>
+    	<validator-id>EmailValidator</validator-id>
+    	<validator-class>com.pp.util.validator.EmailValidator</validator-class>
+    </validator>
 	<application>
 		<variable-resolver>
 			org.springframework.web.jsf.DelegatingVariableResolver

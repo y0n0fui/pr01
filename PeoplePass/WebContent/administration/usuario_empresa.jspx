@@ -177,67 +177,101 @@
                                image="images/popupclose.gif"
                                actionListener="#{usuarioEmpresaWeb.toggleModal}" 
                                styleClass="popupHeaderImage"
+                               partialSubmit="true"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
         </ice:panelGroup>
     	</f:facet>
     	<f:facet name="body"> 
         <ice:panelGroup styleClass="popupBody">
         	<table>	
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminuserempresa.usuarioempresa.nombre']}"/>
-        	</td><td>
-        	<ice:inputText id="txtnombre" value="#{usuarioEmpresaWeb.usuarioEmpresas.nombreFuncionario}"></ice:inputText>
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminuserempresa.usuarioempresa.nombre']}"/> *
+        	</td><td align="left">
+        	<ice:inputText id="txtnombre" value="#{usuarioEmpresaWeb.usuarioEmpresas.nombreFuncionario}" required="#{usuarioEmpresaWeb.rederPopup}"></ice:inputText>
         	</td></tr>
         	
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminuserempresa.usuarioempresa.empresa']}"/>
-        	</td><td>
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="txtnombre"/>		
+			</td>
+			</tr>
+			
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminuserempresa.usuarioempresa.empresa']}"/> *
+        	</td><td align="left">
         	 <ice:selectOneMenu id="slcempresa"
                         value="#{usuarioEmpresaWeb.empresasid}"
-                        partialSubmit="true">
+                        partialSubmit="true" required="#{usuarioEmpresaWeb.rederPopup}">
                     <f:selectItems id="Slctempresas"
                                    value="#{usuarioEmpresaWeb.empresas}"/>
                 </ice:selectOneMenu>
         	
         	</td></tr>
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminuserempresa.usuarioempresa.cargo']}"/>
-        	</td><td>
+        	
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="slcempresa"/>		
+			</td>
+			</tr>
+        	
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminuserempresa.usuarioempresa.cargo']}"/> *
+        	</td><td align="left">
         	 <ice:selectOneMenu id="slctipocargo"
                         value="#{usuarioEmpresaWeb.tipoCargoid}"
-                        partialSubmit="true">
+                        partialSubmit="true" required="#{usuarioEmpresaWeb.rederPopup}">
                     <f:selectItems id="Slcttipocargo"
                                    value="#{usuarioEmpresaWeb.tipoCargos}"/>
                 </ice:selectOneMenu>
         	
         	</td></tr>
         	
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="slctipocargo"/>		
+			</td>
+			</tr>
         	        	
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminuserempresa.usuarioempresa.direccion']}"/>
-        	</td><td>
-        	<ice:inputText id="txtdireccion" value="#{usuarioEmpresaWeb.usuarioEmpresas.direccion}"></ice:inputText>
-        	</td></tr>
-        	
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminuserempresa.usuarioempresa.email']}"/>
-        	</td><td>
-        	<ice:inputText id="txtcorreoElectronico" value="#{usuarioEmpresaWeb.usuarioEmpresas.correoElectronico}"></ice:inputText>
-        	</td></tr>
-        	
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminuserempresa.usuarioempresa.dependencia']}"/>
-        	</td><td>
-        	<ice:inputText id="txtdependencia" value="#{usuarioEmpresaWeb.usuarioEmpresas.dependencia}"></ice:inputText>
-        	</td></tr>
-        	
-        	<tr><td colspan="2">
-        		<h:messages globalOnly="false"  showDetail="false" showSummary="true"></h:messages> 
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminuserempresa.usuarioempresa.direccion']}"/> *
+        	</td><td align="left">
+        	<ice:inputText id="txtdireccion" value="#{usuarioEmpresaWeb.usuarioEmpresas.direccion}" required="#{usuarioEmpresaWeb.rederPopup}" maxlength="60"></ice:inputText>
         	</td></tr>
         	
         	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="txtdireccion"/>		
+			</td>
+			</tr>
+			
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminuserempresa.usuarioempresa.email']}"/> *
+        	</td><td align="left">
+        	<ice:inputText id="txtcorreoElectronico" value="#{usuarioEmpresaWeb.usuarioEmpresas.correoElectronico}" required="#{usuarioEmpresaWeb.rederPopup}" maxlength="20"></ice:inputText>
+        	</td></tr>
+        	
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="txtcorreoElectronico"/>		
+			</td>
+			</tr>
+			
+			        	
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminuserempresa.usuarioempresa.dependencia']}"/> *
+        	</td><td align="left">
+        	<ice:inputText id="txtdependencia" value="#{usuarioEmpresaWeb.usuarioEmpresas.dependencia}" required="#{usuarioEmpresaWeb.rederPopup}" maxlength="20"></ice:inputText>
+        	</td></tr>
+        	
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="txtdependencia"/>		
+			</td>
+			</tr>
+        	
+        	<tr>
         		<td><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{usuarioEmpresaWeb.onSave}"></ice:commandButton></td>
-        		<td><ice:commandButton id="btnCancelSaveRole" value="#{msg['general.cancel']}" actionListener="#{usuarioEmpresaWeb.toggleModal}"></ice:commandButton></td>
+        		<td><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{usuarioEmpresaWeb.toggleModal}"></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 
@@ -250,7 +284,7 @@
             id="idPopUpDelete"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            draggable="true" modal="true" style="width: 300px;height: 170px;"
             visible="#{usuarioEmpresaWeb.renderDeleteAlert}">
             
         <f:facet name="header">
@@ -282,6 +316,15 @@
         		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{usuarioEmpresaWeb.toggleModalDelete}">
         		</ice:commandButton>
         		</td>
+        	</tr>
+        	<tr>
+        	<td colspan="2">
+        	  <h:messages layout="table"
+                    globalOnly="false"
+				    
+                    showDetail="false"
+                    showSummary="true"/>
+        	</td>
         	</tr>
         	</table>
         </ice:panelGroup> 

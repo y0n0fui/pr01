@@ -308,7 +308,7 @@
             id="idPopUpDelete"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 200px;"
+            draggable="true" modal="true" style="width: 300px;height: 170px;"
             visible="#{empresaWeb.renderDeleteAlert}">
             
         <f:facet name="header">

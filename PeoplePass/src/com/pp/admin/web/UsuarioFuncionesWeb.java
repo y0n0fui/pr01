@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
@@ -21,6 +22,7 @@ import com.pp.admin.hibernate.KEmpresas;
 import com.pp.admin.hibernate.KUsuariosEmpresas;
 import com.pp.admin.hibernate.KUsuariosFunciones;
 import com.pp.util.DataTable;
+import com.pp.util.MessageUtil;
 
 
 
@@ -133,12 +135,18 @@ public class UsuarioFuncionesWeb extends CRUDWeb{
 
 	public void delete(ActionEvent evnt){
 		this.usuarioFunciones=userAdmin.getUsuarioFunciones((Integer)selectData[0]);
-		userAdmin.delete(this.usuarioFunciones);
-		this.usuarioFunciones=new KUsuariosFunciones();
-		this.selectData=null;
-		
-		init();
-		toggleModalDelete(evnt);
+		try{
+			userAdmin.delete(this.usuarioFunciones);
+			this.usuarioFunciones=new KUsuariosFunciones();
+			this.selectData=null;
+			init();
+			toggleModalDelete(evnt);
+		}catch (org.springframework.dao.DataIntegrityViolationException e) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			logger.error("Error en constrain",e);	
+        	FacesContext.getCurrentInstance().addMessage(FacesMessage.SEVERITY_ERROR.toString(),  
+    				MessageUtil.getMessageStringFaces("adminufunciones.ufunciones.error.delete", context ));
+		}
 	}
 	
 

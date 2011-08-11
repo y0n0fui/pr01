@@ -1,7 +1,6 @@
 
 package com.pp.exceptions;
 
-import java.io.Serializable;
 
 
 public class ApplicationException  extends RuntimeException {

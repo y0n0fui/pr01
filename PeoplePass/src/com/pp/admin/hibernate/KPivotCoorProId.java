@@ -21,30 +21,6 @@ public class KPivotCoorProId implements java.io.Serializable {
 		this.codigoInternoDefinicion = codigoInternoDefinicion;
 	}
 
-	public int getCodigoInternoEmpresa() {
-		return this.codigoInternoEmpresa;
-	}
-
-	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
-		this.codigoInternoEmpresa = codigoInternoEmpresa;
-	}
-
-	public int getCodigoInternoFuncionario() {
-		return this.codigoInternoFuncionario;
-	}
-
-	public void setCodigoInternoFuncionario(int codigoInternoFuncionario) {
-		this.codigoInternoFuncionario = codigoInternoFuncionario;
-	}
-
-	public int getCodigoInternoDefinicion() {
-		return this.codigoInternoDefinicion;
-	}
-
-	public void setCodigoInternoDefinicion(int codigoInternoDefinicion) {
-		this.codigoInternoDefinicion = codigoInternoDefinicion;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -62,6 +38,18 @@ public class KPivotCoorProId implements java.io.Serializable {
 						.getCodigoInternoDefinicion());
 	}
 
+	public int getCodigoInternoDefinicion() {
+		return this.codigoInternoDefinicion;
+	}
+
+	public int getCodigoInternoEmpresa() {
+		return this.codigoInternoEmpresa;
+	}
+
+	public int getCodigoInternoFuncionario() {
+		return this.codigoInternoFuncionario;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
@@ -69,6 +57,18 @@ public class KPivotCoorProId implements java.io.Serializable {
 		result = 37 * result + this.getCodigoInternoFuncionario();
 		result = 37 * result + this.getCodigoInternoDefinicion();
 		return result;
+	}
+
+	public void setCodigoInternoDefinicion(int codigoInternoDefinicion) {
+		this.codigoInternoDefinicion = codigoInternoDefinicion;
+	}
+
+	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
+		this.codigoInternoEmpresa = codigoInternoEmpresa;
+	}
+
+	public void setCodigoInternoFuncionario(int codigoInternoFuncionario) {
+		this.codigoInternoFuncionario = codigoInternoFuncionario;
 	}
 
 }

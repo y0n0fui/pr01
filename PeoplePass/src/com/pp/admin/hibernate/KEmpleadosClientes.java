@@ -81,172 +81,172 @@ public class KEmpleadosClientes implements java.io.Serializable {
 		this.KEmpleadosClienteses = KEmpleadosClienteses;
 	}
 
-	public int getCodigoInternoEmpleado() {
-		return this.codigoInternoEmpleado;
-	}
-
-	public void setCodigoInternoEmpleado(int codigoInternoEmpleado) {
-		this.codigoInternoEmpleado = codigoInternoEmpleado;
-	}
-
-	public KEmpleadosClientes getKEmpleadosClientes() {
-		return this.KEmpleadosClientes;
-	}
-
-	public void setKEmpleadosClientes(KEmpleadosClientes KEmpleadosClientes) {
-		this.KEmpleadosClientes = KEmpleadosClientes;
-	}
-
-	public CTipoIdentificacion getCTipoIdentificacion() {
-		return this.CTipoIdentificacion;
-	}
-
-	public void setCTipoIdentificacion(CTipoIdentificacion CTipoIdentificacion) {
-		this.CTipoIdentificacion = CTipoIdentificacion;
-	}
-
-	public CParentesco getCParentesco() {
-		return this.CParentesco;
-	}
-
-	public void setCParentesco(CParentesco CParentesco) {
-		this.CParentesco = CParentesco;
-	}
-
-	public String getNroIdentificacion() {
-		return this.nroIdentificacion;
-	}
-
-	public void setNroIdentificacion(String nroIdentificacion) {
-		this.nroIdentificacion = nroIdentificacion;
-	}
-
-	public String getNombre() {
-		return this.nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
 	public int getCargo() {
 		return this.cargo;
 	}
 
-	public void setCargo(int cargo) {
-		this.cargo = cargo;
-	}
-
-	public String getDummy() {
-		return this.dummy;
-	}
-
-	public void setDummy(String dummy) {
-		this.dummy = dummy;
-	}
-
-	public String getEstado() {
-		return this.estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public int getCodigoInternoEmpleado() {
+		return this.codigoInternoEmpleado;
 	}
 
 	public String getCorreoElectronico() {
 		return this.correoElectronico;
 	}
 
-	public void setCorreoElectronico(String correoElectronico) {
-		this.correoElectronico = correoElectronico;
+	public CParentesco getCParentesco() {
+		return this.CParentesco;
+	}
+
+	public CTipoIdentificacion getCTipoIdentificacion() {
+		return this.CTipoIdentificacion;
 	}
 
 	public Integer getDireccionExtracto() {
 		return this.direccionExtracto;
 	}
 
-	public void setDireccionExtracto(Integer direccionExtracto) {
-		this.direccionExtracto = direccionExtracto;
-	}
-
 	public Integer getDireccionPersonal() {
 		return this.direccionPersonal;
 	}
 
-	public void setDireccionPersonal(Integer direccionPersonal) {
-		this.direccionPersonal = direccionPersonal;
+	public String getDummy() {
+		return this.dummy;
 	}
 
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
+	public String getEstado() {
+		return this.estado;
 	}
 
 	public Date getFechaActualizacion() {
 		return this.fechaActualizacion;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
+	public String getIpInsercion() {
+		return this.ipInsercion;
 	}
 
 	public Set getKDireccioneses() {
 		return this.KDireccioneses;
 	}
 
-	public void setKDireccioneses(Set KDireccioneses) {
-		this.KDireccioneses = KDireccioneses;
-	}
-
-	public Set getKMvtoBeneficiadoses() {
-		return this.KMvtoBeneficiadoses;
-	}
-
-	public void setKMvtoBeneficiadoses(Set KMvtoBeneficiadoses) {
-		this.KMvtoBeneficiadoses = KMvtoBeneficiadoses;
+	public KEmpleadosClientes getKEmpleadosClientes() {
+		return this.KEmpleadosClientes;
 	}
 
 	public Set getKEmpleadosClienteses() {
 		return this.KEmpleadosClienteses;
 	}
 
+	public Set getKMvtoBeneficiadoses() {
+		return this.KMvtoBeneficiadoses;
+	}
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public String getNroIdentificacion() {
+		return this.nroIdentificacion;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setCargo(int cargo) {
+		this.cargo = cargo;
+	}
+
+	public void setCodigoInternoEmpleado(int codigoInternoEmpleado) {
+		this.codigoInternoEmpleado = codigoInternoEmpleado;
+	}
+
+	public void setCorreoElectronico(String correoElectronico) {
+		this.correoElectronico = correoElectronico;
+	}
+
+	public void setCParentesco(CParentesco CParentesco) {
+		this.CParentesco = CParentesco;
+	}
+
+	public void setCTipoIdentificacion(CTipoIdentificacion CTipoIdentificacion) {
+		this.CTipoIdentificacion = CTipoIdentificacion;
+	}
+
+	public void setDireccionExtracto(Integer direccionExtracto) {
+		this.direccionExtracto = direccionExtracto;
+	}
+
+	public void setDireccionPersonal(Integer direccionPersonal) {
+		this.direccionPersonal = direccionPersonal;
+	}
+
+	public void setDummy(String dummy) {
+		this.dummy = dummy;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setKDireccioneses(Set KDireccioneses) {
+		this.KDireccioneses = KDireccioneses;
+	}
+
+	public void setKEmpleadosClientes(KEmpleadosClientes KEmpleadosClientes) {
+		this.KEmpleadosClientes = KEmpleadosClientes;
+	}
+
 	public void setKEmpleadosClienteses(Set KEmpleadosClienteses) {
 		this.KEmpleadosClienteses = KEmpleadosClienteses;
+	}
+
+	public void setKMvtoBeneficiadoses(Set KMvtoBeneficiadoses) {
+		this.KMvtoBeneficiadoses = KMvtoBeneficiadoses;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setNroIdentificacion(String nroIdentificacion) {
+		this.nroIdentificacion = nroIdentificacion;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

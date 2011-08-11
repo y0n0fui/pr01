@@ -9,21 +9,21 @@
    
 		
 		<ice:panelGroup styleClass="synopsisBox inputFileContainer">
-        	<ice:outputText value="#{msg['adminempresa.title']}"/>
-        	<ice:outputText value="#{msg['adminempresa.desc']}"/>
+        	<ice:outputText value="#{msg['adminempresacorreo.title']}"/>
+        	<ice:outputText value="#{msg['adminempresacorreo.desc']}"/>
 		</ice:panelGroup>
 		<ice:panelGroup styleClass="basicBox" >
 		
 		
-			<ice:dataTable id="empresalisttable"
+			<ice:dataTable id="ecorreolisttable"
  				  var="row"
- 				  value="#{empresaWeb.dataTable.data}"
+ 				  value="#{empresaCorreoWeb.dataTable.data}"
 		  columnClasses="tableCol"
 		  scrollable="true"
 		  scrollHeight="250px"
 		  columnWidths="100px,100px,80px,250px,100px,80px,80px,80px,80px"
-		  sortAscending="#{empresaWeb.dataTable.sortDataAscending}" 	
-		  sortColumn="#{empresaWeb.dataTable.sortColumn}">
+		  sortAscending="#{empresaCorreoWeb.dataTable.sortDataAscending}" 	
+		  sortColumn="#{empresaCorreoWeb.dataTable.sortColumn}">
 		 <ice:column>
 		
 			
@@ -31,7 +31,7 @@
 		          	<ice:commandSortHeader id="c1Header"
                                            columnName="c1" arrow="true">
 			              <ice:outputText id="lblc1"
-			                              value="#{msg['adminempresa.empresa.noid']}"/>
+			                              value="#{msg['adminempresacorreo.ecorreo.razonsocial']}"/>
 			        </ice:commandSortHeader>                      
 		     	  </f:facet>	
 		      <ice:outputText id="valuec1"
@@ -46,7 +46,7 @@
 		     	<ice:commandSortHeader id="c2Header"
                                            columnName="c2" arrow="true">
 		     		 <ice:outputText id="lblc2"
-		                         value="#{msg['adminempresa.empresa.dateAct']}"/>
+		                         value="#{msg['adminempresacorreo.ecorreo.dateAct']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec2"
@@ -60,7 +60,7 @@
 		     	<ice:commandSortHeader id="c3Header"
                                            columnName="c3" arrow="true">
 		     		 <ice:outputText id="lblc3"
-		                         value="#{msg['adminempresa.empresa.ipAct']}"/>
+		                         value="#{msg['adminempresacorreo.ecorreo.ipAct']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec3"
@@ -75,7 +75,7 @@
 		     	<ice:commandSortHeader id="c4Header"
                                            columnName="c4" arrow="true">
 		     		 <ice:outputText id="lblc4"
-		                         value="#{msg['adminempresa.empresa.userAct']}"/>
+		                         value="#{msg['adminempresacorreo.ecorreo.userAct']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec4"
@@ -89,7 +89,7 @@
 		     	<ice:commandSortHeader id="c5Header"
                                            columnName="c5" arrow="true">
 		     		 <ice:outputText id="lblc5"
-		                         value="#{msg['adminempresa.empresa.dateInsert']}"/>
+		                         value="#{msg['adminempresacorreo.ecorreo.dateInsert']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec5"
@@ -104,7 +104,7 @@
 		     	<ice:commandSortHeader id="c6Header"
                                            columnName="c6" arrow="true">
 		     		 <ice:outputText id="lblc6"
-		                         value="#{msg['adminempresa.empresa.ipInsert']}"/>
+		                         value="#{msg['adminempresacorreo.ecorreo.ipInsert']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec6"
@@ -118,7 +118,7 @@
 		     	<ice:commandSortHeader id="c7Header"
                                            columnName="c7" arrow="true">
 		     		 <ice:outputText id="lblc7"
-		                         value="#{msg['adminempresa.empresa.userInsert']}"/>
+		                         value="#{msg['adminempresacorreo.ecorreo.userInsert']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec7"
@@ -133,7 +133,7 @@
 		                         value="#{msg['general.edit']}"/>
 		     </f:facet>
 		     
-		            <ice:commandLink   actionListener="#{empresaWeb.edit}" value="#{msg['general.edit']}" >
+		            <ice:commandLink   actionListener="#{empresaCorreoWeb.edit}" value="#{msg['general.edit']}" >
 							<f:attribute name="row" value="#{row}"/>
 					</ice:commandLink>
 		                        
@@ -146,7 +146,7 @@
 		                         value="#{msg['general.delete']}"/>
 		     </f:facet>
 		     
-		            <ice:commandLink actionListener="#{empresaWeb.prepareToDelete}" value="#{msg['general.delete']}" >
+		            <ice:commandLink actionListener="#{empresaCorreoWeb.prepareToDelete}" value="#{msg['general.delete']}" >
 							<f:attribute name="row" value="#{row}"/>
 					</ice:commandLink>
 		                        
@@ -155,7 +155,7 @@
 			
 		</ice:dataTable>	
 		<ice:panelGroup> 
-		<ice:commandButton id="btnCreateRole" value="#{msg['adminempresa.empresa.create']}" actionListener="#{empresaWeb.create}" ></ice:commandButton>
+		<ice:commandButton id="btnCreateRole" value="#{msg['adminempresacorreo.ecorreo.create']}" actionListener="#{empresaCorreoWeb.create}" ></ice:commandButton>
 			
 		</ice:panelGroup>
 		</ice:panelGroup>
@@ -165,17 +165,17 @@
             id="idPopUpPanel"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 400px;height: 450px;"
-            visible="#{empresaWeb.rederPopup}">
+            draggable="true" modal="true" style="width: 300px;height: 250px;"
+            visible="#{empresaCorreoWeb.rederPopup}">
             
         <f:facet name="header">
         <ice:panelGroup styleClass="popupHeaderWrapper">
             <ice:outputText id="popuptitle"
-                    value="#{msg['adminempresa.empresa']}"
+                    value="#{msg['adminempresacorreo.ecorreo']}"
                     styleClass="popupHeaderText"/>
             <ice:commandButton id="modalpopUpCloseBtn" type="button"
                                image="images/popupclose.gif"
-                               actionListener="#{empresaWeb.toggleModal}" 
+                               actionListener="#{empresaCorreoWeb.toggleModal}" 
                                styleClass="popupHeaderImage"
                                partialSubmit="true"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
@@ -183,121 +183,40 @@
     	</f:facet>
     	<f:facet name="body"> 
         <ice:panelGroup styleClass="popupBody">
-        	<table style="width: 100%;">	
-        	<tr><td align="left">
-        	<ice:outputText value="#{msg['adminempresa.empresa.noid']}"/> *
-        	</td><td align="left">
-        	<ice:inputText id="nroIdentificacion" value="#{empresaWeb.empresa.nroIdentificacion}" required="#{empresaWeb.rederPopup}" maxlength="16"></ice:inputText>
-        	</td></tr>
-        	
+        	<table width="100%">	
+        	<tr>
+        	<td align="left">
+        	<ice:outputText value="#{msg['adminempresacorreo.ecorreo.razonsocial']}"/> *
+        	</td>
+        	<td align="left">
+        	<ice:inputText id="razonsocial" value="#{empresaCorreoWeb.empresaCorreo.razonSocial}" required="#{empresaCorreoWeb.rederPopup}" maxlength="60">
+        	</ice:inputText>
+        	</td>
+        	</tr>
         	<tr>
         	<td colspan="2">
-        			<ice:message errorClass="error" for="nroIdentificacion"/>		
+        			<ice:message errorClass="error" for="razonsocial"/>		
 			</td>
 			</tr>
-        	
-        	<tr><td align="left">
-        	<ice:outputText value="#{msg['adminempresa.empresa.tipoid']}"/> *
-        	</td><td align="left">
-        	 <ice:selectOneMenu id="tipoIdentificacion"
-                        value="#{empresaWeb.idTipo}"
-                        partialSubmit="true" required="#{empresaWeb.rederPopup}">
-                    <f:selectItems id="SlcttipoIdentificacion"
-                                   value="#{empresaWeb.tiposId}"/>
-                </ice:selectOneMenu>
-        	
-        	</td></tr>
-        	
-        	<tr>
-        	<td colspan="2">
-        			<ice:message errorClass="error" for="tipoIdentificacion"/>		
-			</td>
-			</tr>
-        	
-        	
-        	<tr><td align="left">
-        	<ice:outputText value="#{msg['adminempresa.empresa.tel']}"/>
-        	</td><td align="left">
-        	<ice:inputText id="telefono" value="#{empresaWeb.empresa.telefono}" maxlength="16"></ice:inputText>
-        	</td></tr>
-        	
+			
+			<tr>
+        	<td align="left">
+        	<ice:outputText value="#{msg['adminempresacorreo.ecorreo.telefono']}"/> *
+        	</td>
+        	<td align="left">
+        	<ice:inputText id="telefono" value="#{empresaCorreoWeb.empresaCorreo.telefono}" required="#{empresaCorreoWeb.rederPopup}" maxlength="16">
+        	</ice:inputText>
+        	</td>
+        	</tr>
         	<tr>
         	<td colspan="2">
         			<ice:message errorClass="error" for="telefono"/>		
 			</td>
 			</tr>
 			
-        	<tr><td align="left">
-        	<ice:outputText value="#{msg['adminempresa.empresa.address']}"/>
-        	</td><td align="left">
-        	<ice:inputText id="direccion" value="#{empresaWeb.empresa.direccion}" maxlength="60"></ice:inputText>
-        	</td></tr>
-        	
         	<tr>
-        	<td colspan="2">
-        			<ice:message errorClass="error" for="direccion"/>		
-			</td>
-			</tr>
-			
-			
-        	<tr><td align="left">
-        	<ice:outputText value="#{msg['adminempresa.empresa.email']}"/>
-        	</td><td align="left">
-        	<ice:inputText id="correoElectronico" value="#{empresaWeb.empresa.correoElectronico}" maxlength="30">
-				<f:validator validatorId="EmailValidator"/>        	
-        	</ice:inputText>
-        	</td></tr>
-        	
-        	<tr>
-        	<td colspan="2">
-        			<ice:message errorClass="error" for="correoElectronico"/>		
-			</td>
-			</tr>
-        	
-        	<tr><td align="left">
-        	<ice:outputText value="#{msg['adminempresa.empresa.cuposobregiro']}"/>
-        	</td><td align="left">
-        	<ice:inputText id="cupoSobregiro" value="#{empresaWeb.empresa.cupoSobregiro}" maxlength="19">
-        		<f:validateDoubleRange minimum="0.00" maximum="9999999999999999.99"> </f:validateDoubleRange>
-        	</ice:inputText>
-        	</td></tr>
-        	
-        	<tr>
-        	<td colspan="2">
-        			<ice:message errorClass="error" for="cupoSobregiro"/>		
-			</td>
-			</tr>
-			
-        	
-        	<tr><td align="left">
-        	<ice:outputText value="#{msg['adminempresa.empresa.printbilling']}"/> *
-        	</td><td align="left">
-        	<ice:inputText id="facturaImpresa" value="#{empresaWeb.empresa.facturaImpresa}" required="#{empresaWeb.rederPopup}"></ice:inputText>
-        	</td></tr>
-        	
-        	<tr>
-        	<td colspan="2">
-        			<ice:message errorClass="error" for="facturaImpresa"/>		
-			</td>
-			</tr>
-			
-			<tr><td align="left">
-        	<ice:outputText value="#{msg['adminempresa.empresa.umbraldiasaviso']}"/> *
-        	</td><td align="left">
-        	<ice:inputText id="umbralDiasAviso" value="#{empresaWeb.empresa.umbralDiasAviso}" required="#{empresaWeb.rederPopup}" maxlength="2" size="3">
-        		<f:validateLongRange minimum="0" maximum="99"></f:validateLongRange>
-        	</ice:inputText>
-        	</td></tr>
-        	
-        	<tr>
-        	<td colspan="2">
-        			<ice:message errorClass="error" for="umbralDiasAviso"/>		
-			</td>
-			</tr>
-			
-        	<tr>
-        		<td align="center"><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{empresaWeb.onSave}"></ice:commandButton></td>
-        		<td align="center"><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{empresaWeb.toggleModal}" ></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{empresaCorreoWeb.onSave}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{empresaCorreoWeb.toggleModal}"></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 
@@ -311,7 +230,7 @@
             styleClass="corePopup2"
             autoCentre="true" 
             draggable="true" modal="true" style="width: 300px;height: 170px;"
-            visible="#{empresaWeb.renderDeleteAlert}">
+            visible="#{empresaCorreoWeb.renderDeleteAlert}">
             
         <f:facet name="header">
         <ice:panelGroup styleClass="popupHeaderWrapper">
@@ -320,9 +239,8 @@
                     styleClass="popupHeaderText"/>
             <ice:commandButton id="modalPnlCloseBtn" type="button"
                                image="images/popupclose.gif"
-                               actionListener="#{empresaWeb.toggleModalDelete}" 
+                               actionListener="#{empresaCorreoWeb.toggleModalDelete}" 
                                styleClass="popupHeaderImage"
-                               partialSubmit="true"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
         </ice:panelGroup>
     	</f:facet>
@@ -336,11 +254,11 @@
         	</tr>
         	<tr>
         		<td>
-        		<ice:commandButton id="btnAceptRole" value="#{msg['general.accept']}" actionListener="#{empresaWeb.delete}">
+        		<ice:commandButton id="btnAceptRole" value="#{msg['general.accept']}" actionListener="#{empresaCorreoWeb.delete}">
         		</ice:commandButton>
         		</td>
         		<td>
-        		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{empresaWeb.toggleModalDelete}">
+        		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{empresaCorreoWeb.toggleModalDelete}">
         		</ice:commandButton>
         		</td>
         	</tr>

@@ -47,25 +47,60 @@ public class KProductosDeducciones implements java.io.Serializable {
 		this.ipActualizacion = ipActualizacion;
 	}
 
+	public Date getFechaActualizacion() {
+		return this.fechaActualizacion;
+	}
+
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
+	}
+
 	public KProductosDeduccionesId getId() {
 		return this.id;
 	}
 
-	public void setId(KProductosDeduccionesId id) {
-		this.id = id;
+	public String getIpActualizacion() {
+		return this.ipActualizacion;
+	}
+
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KDefinicionDeducciones getKDefinicionDeducciones() {
+		return this.KDefinicionDeducciones;
 	}
 
 	public KDefinicionProductos getKDefinicionProductos() {
 		return this.KDefinicionProductos;
 	}
 
-	public void setKDefinicionProductos(
-			KDefinicionProductos KDefinicionProductos) {
-		this.KDefinicionProductos = KDefinicionProductos;
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
 	}
 
-	public KDefinicionDeducciones getKDefinicionDeducciones() {
-		return this.KDefinicionDeducciones;
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setId(KProductosDeduccionesId id) {
+		this.id = id;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
 	}
 
 	public void setKDefinicionDeducciones(
@@ -73,52 +108,17 @@ public class KProductosDeducciones implements java.io.Serializable {
 		this.KDefinicionDeducciones = KDefinicionDeducciones;
 	}
 
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
-	}
-
-	public Date getFechaActualizacion() {
-		return this.fechaActualizacion;
-	}
-
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
+	public void setKDefinicionProductos(
+			KDefinicionProductos KDefinicionProductos) {
+		this.KDefinicionProductos = KDefinicionProductos;
 	}
 
 	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
 		this.usuarioActualizacion = usuarioActualizacion;
 	}
 
-	public String getIpActualizacion() {
-		return this.ipActualizacion;
-	}
-
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

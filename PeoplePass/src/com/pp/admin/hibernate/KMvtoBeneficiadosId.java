@@ -28,46 +28,6 @@ public class KMvtoBeneficiadosId implements java.io.Serializable {
 		this.fechaPago = fechaPago;
 	}
 
-	public int getCodigoInternoEmpresa() {
-		return this.codigoInternoEmpresa;
-	}
-
-	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
-		this.codigoInternoEmpresa = codigoInternoEmpresa;
-	}
-
-	public int getCodigoInternoUsuario() {
-		return this.codigoInternoUsuario;
-	}
-
-	public void setCodigoInternoUsuario(int codigoInternoUsuario) {
-		this.codigoInternoUsuario = codigoInternoUsuario;
-	}
-
-	public int getCodigoInternoDefinicion() {
-		return this.codigoInternoDefinicion;
-	}
-
-	public void setCodigoInternoDefinicion(int codigoInternoDefinicion) {
-		this.codigoInternoDefinicion = codigoInternoDefinicion;
-	}
-
-	public int getCodigoInternoEmpleado() {
-		return this.codigoInternoEmpleado;
-	}
-
-	public void setCodigoInternoEmpleado(int codigoInternoEmpleado) {
-		this.codigoInternoEmpleado = codigoInternoEmpleado;
-	}
-
-	public Date getFechaPago() {
-		return this.fechaPago;
-	}
-
-	public void setFechaPago(Date fechaPago) {
-		this.fechaPago = fechaPago;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -91,6 +51,26 @@ public class KMvtoBeneficiadosId implements java.io.Serializable {
 						.getFechaPago().equals(castOther.getFechaPago())));
 	}
 
+	public int getCodigoInternoDefinicion() {
+		return this.codigoInternoDefinicion;
+	}
+
+	public int getCodigoInternoEmpleado() {
+		return this.codigoInternoEmpleado;
+	}
+
+	public int getCodigoInternoEmpresa() {
+		return this.codigoInternoEmpresa;
+	}
+
+	public int getCodigoInternoUsuario() {
+		return this.codigoInternoUsuario;
+	}
+
+	public Date getFechaPago() {
+		return this.fechaPago;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
@@ -101,6 +81,26 @@ public class KMvtoBeneficiadosId implements java.io.Serializable {
 		result = 37 * result
 				+ (getFechaPago() == null ? 0 : this.getFechaPago().hashCode());
 		return result;
+	}
+
+	public void setCodigoInternoDefinicion(int codigoInternoDefinicion) {
+		this.codigoInternoDefinicion = codigoInternoDefinicion;
+	}
+
+	public void setCodigoInternoEmpleado(int codigoInternoEmpleado) {
+		this.codigoInternoEmpleado = codigoInternoEmpleado;
+	}
+
+	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
+		this.codigoInternoEmpresa = codigoInternoEmpresa;
+	}
+
+	public void setCodigoInternoUsuario(int codigoInternoUsuario) {
+		this.codigoInternoUsuario = codigoInternoUsuario;
+	}
+
+	public void setFechaPago(Date fechaPago) {
+		this.fechaPago = fechaPago;
 	}
 
 }

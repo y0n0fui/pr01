@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.context.SecurityContextHolder;
 
 import com.pp.admin.facade.IParamsAdmin;
-
 import com.pp.admin.hibernate.CTipoUbicacion;
 import com.pp.util.DataTable;
 import com.pp.util.MessageUtil;
@@ -27,10 +26,6 @@ public class TipoUbicacionWeb extends CRUDWeb {
 
 	private CTipoUbicacion tipoUbicacion;
 
-	public TipoUbicacionWeb() {
-		tipoUbicacion = new CTipoUbicacion();
-	}
-
 	/**
 	 * Herramienta logger
 	 */
@@ -38,6 +33,51 @@ public class TipoUbicacionWeb extends CRUDWeb {
 
 	@Autowired
 	private IParamsAdmin paramsAdmin;
+
+	public TipoUbicacionWeb() {
+		tipoUbicacion = new CTipoUbicacion();
+	}
+
+	public void create(ActionEvent evnt) {
+		this.tipoUbicacion = new CTipoUbicacion();
+		toggleModal(evnt);
+	}
+
+	public void delete(ActionEvent evnt) {
+		this.tipoUbicacion = paramsAdmin
+				.getTipoUbicacion((Integer) selectData[0]);
+		try{
+		paramsAdmin.delete(this.tipoUbicacion);
+		this.tipoUbicacion = new CTipoUbicacion();
+		this.selectData = null;
+		init();
+		toggleModalDelete(evnt);
+		}catch (org.springframework.dao.DataIntegrityViolationException e) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			logger.error("Error en constrain",e);	
+        	FacesContext.getCurrentInstance().addMessage(FacesMessage.SEVERITY_ERROR.toString(),  
+    				MessageUtil.getMessageStringFaces("admintipoubicacion.tipoubic.error.delete", context ));
+		}
+	}
+
+	public void edit(ActionEvent evnt) {
+		selectData = (Object[]) evnt.getComponent().getAttributes().get("row");
+		this.tipoUbicacion = paramsAdmin
+				.getTipoUbicacion((Integer) selectData[0]);
+		toggleModal(null);
+	}
+
+	public IParamsAdmin getParamsAdmin() {
+		return paramsAdmin;
+	}
+
+	public CTipoUbicacion getTipoCargo() {
+		return tipoUbicacion;
+	}
+
+	public CTipoUbicacion getTipoUbicacion() {
+		return tipoUbicacion;
+	}
 
 	public void init() {
 		dataTable = new DataTable();
@@ -73,57 +113,16 @@ public class TipoUbicacionWeb extends CRUDWeb {
 
 	}
 
-	public void create(ActionEvent evnt) {
-		this.tipoUbicacion = new CTipoUbicacion();
-		toggleModal(evnt);
-	}
-
-	public void edit(ActionEvent evnt) {
-		selectData = (Object[]) evnt.getComponent().getAttributes().get("row");
-		this.tipoUbicacion = paramsAdmin
-				.getTipoUbicacion((Integer) selectData[0]);
-		toggleModal(null);
-	}
-
-	public void delete(ActionEvent evnt) {
-		this.tipoUbicacion = paramsAdmin
-				.getTipoUbicacion((Integer) selectData[0]);
-		try{
-		paramsAdmin.delete(this.tipoUbicacion);
-		this.tipoUbicacion = new CTipoUbicacion();
-		this.selectData = null;
-		init();
-		toggleModalDelete(evnt);
-		}catch (org.springframework.dao.DataIntegrityViolationException e) {
-			FacesContext context = FacesContext.getCurrentInstance();
-			logger.error("Error en constrain",e);	
-        	FacesContext.getCurrentInstance().addMessage(FacesMessage.SEVERITY_ERROR.toString(),  
-    				MessageUtil.getMessageStringFaces("admintipoubicacion.tipoubic.error.delete", context ));
-		}
-	}
-
-	public CTipoUbicacion getTipoUbicacion() {
-		return tipoUbicacion;
-	}
-
-	public void setTipoUbicacion(CTipoUbicacion tipoUbicacion) {
-		this.tipoUbicacion = tipoUbicacion;
-	}
-
-	public IParamsAdmin getParamsAdmin() {
-		return paramsAdmin;
-	}
-
 	public void setParamsAdmin(IParamsAdmin paramsAdmin) {
 		this.paramsAdmin = paramsAdmin;
 	}
 
-	public CTipoUbicacion getTipoCargo() {
-		return tipoUbicacion;
-	}
-
 	public void setTipoCargo(CTipoUbicacion tipoCargo) {
 		this.tipoUbicacion = tipoCargo;
+	}
+
+	public void setTipoUbicacion(CTipoUbicacion tipoUbicacion) {
+		this.tipoUbicacion = tipoUbicacion;
 	}
 
 }

@@ -49,84 +49,84 @@ public class KMovimientoSaldoClientes implements java.io.Serializable {
 		this.ipActualizacion = ipActualizacion;
 	}
 
-	public KMovimientoSaldoClientesId getId() {
-		return this.id;
-	}
-
-	public void setId(KMovimientoSaldoClientesId id) {
-		this.id = id;
-	}
-
-	public KEmpresas getKEmpresas() {
-		return this.KEmpresas;
-	}
-
-	public void setKEmpresas(KEmpresas KEmpresas) {
-		this.KEmpresas = KEmpresas;
-	}
-
 	public Date getFechaAbono() {
 		return this.fechaAbono;
-	}
-
-	public void setFechaAbono(Date fechaAbono) {
-		this.fechaAbono = fechaAbono;
-	}
-
-	public BigDecimal getValorAbono() {
-		return this.valorAbono;
-	}
-
-	public void setValorAbono(BigDecimal valorAbono) {
-		this.valorAbono = valorAbono;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
 	}
 
 	public Date getFechaActualizacion() {
 		return this.fechaActualizacion;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
 	}
 
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public KMovimientoSaldoClientesId getId() {
+		return this.id;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KEmpresas getKEmpresas() {
+		return this.KEmpresas;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public BigDecimal getValorAbono() {
+		return this.valorAbono;
+	}
+
+	public void setFechaAbono(Date fechaAbono) {
+		this.fechaAbono = fechaAbono;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setId(KMovimientoSaldoClientesId id) {
+		this.id = id;
+	}
+
 	public void setIpActualizacion(String ipActualizacion) {
 		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setKEmpresas(KEmpresas KEmpresas) {
+		this.KEmpresas = KEmpresas;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
+	}
+
+	public void setValorAbono(BigDecimal valorAbono) {
+		this.valorAbono = valorAbono;
 	}
 
 }

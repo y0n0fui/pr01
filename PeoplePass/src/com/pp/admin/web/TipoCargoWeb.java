@@ -30,10 +30,6 @@ public class TipoCargoWeb extends CRUDWeb{
 	
 	
 	
-	public TipoCargoWeb() {
-		tipoCargo=new CTipoCargo();
-	}
-	
 	/**
 	 * Herramienta logger
 	 */
@@ -41,40 +37,10 @@ public class TipoCargoWeb extends CRUDWeb{
 	
 	@Autowired
 	private IUserAdmin userAdmin;
-
 	
-	public void init(){
-		dataTable=new DataTable();
-		List<CTipoCargo> roles=userAdmin.getTipoCargo();
-		if(roles!=null)
-		for (CTipoCargo kRole : roles) {
-			dataTable.addReg(kRole.getCodigoInternoCargo(),kRole.getDescripcion(),kRole.getFechaActualizacion(),
-					kRole.getIpActualizacion(),kRole.getUsuarioActualizacion(),
-					kRole.getFechaInsercion(),kRole.getIpInsercion(),kRole.getUsuarioInsercion());
-		}
+	public TipoCargoWeb() {
+		tipoCargo=new CTipoCargo();
 	}
-	
-	
-	
-	
-	public void onSave(ActionEvent evnt){
-		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		if(this.tipoCargo.getCodigoInternoCargo()==0){
-		this.tipoCargo.setFechaInsercion(new Date());
-		this.tipoCargo.setIpInsercion(request.getRemoteAddr());
-		SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		this.tipoCargo.setUsuarioInsercion(1);
-		}else{
-		this.tipoCargo.setFechaActualizacion(new Date());
-		this.tipoCargo.setIpActualizacion(request.getRemoteAddr());
-		this.tipoCargo.setUsuarioActualizacion(1);
-		}
-		userAdmin.save(tipoCargo);
-		init();
-		toggleModal(evnt);
-		
-	}
-	
 
 	
 	public void create(ActionEvent evnt){
@@ -82,12 +48,9 @@ public class TipoCargoWeb extends CRUDWeb{
 		toggleModal(evnt);
 	}
 	
-	public void edit(ActionEvent evnt){
-		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
-		this.tipoCargo=userAdmin.getTipoCargo((Integer)selectData[0]);
-		toggleModal(null);
-	}
-
+	
+	
+	
 	public void delete(ActionEvent evnt){
 		this.tipoCargo=userAdmin.getTipoCargo((Integer)selectData[0]);
 		try{
@@ -105,20 +68,50 @@ public class TipoCargoWeb extends CRUDWeb{
 	}
 	
 
+	
+	public void edit(ActionEvent evnt){
+		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
+		this.tipoCargo=userAdmin.getTipoCargo((Integer)selectData[0]);
+		toggleModal(null);
+	}
+	
+	public CTipoCargo getTipoCargo() {
+		return tipoCargo;
+	}
 
 	public IUserAdmin getUserAdmin() {
 		return userAdmin;
 	}
+	
 
-	public void setUserAdmin(IUserAdmin userAdmin) {
-		this.userAdmin = userAdmin;
+
+	public void init(){
+		dataTable=new DataTable();
+		List<CTipoCargo> roles=userAdmin.getTipoCargo();
+		if(roles!=null)
+		for (CTipoCargo kRole : roles) {
+			dataTable.addReg(kRole.getCodigoInternoCargo(),kRole.getDescripcion(),kRole.getFechaActualizacion(),
+					kRole.getIpActualizacion(),kRole.getUsuarioActualizacion(),
+					kRole.getFechaInsercion(),kRole.getIpInsercion(),kRole.getUsuarioInsercion());
+		}
 	}
 
-
-
-
-	public CTipoCargo getTipoCargo() {
-		return tipoCargo;
+	public void onSave(ActionEvent evnt){
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		if(this.tipoCargo.getCodigoInternoCargo()==0){
+		this.tipoCargo.setFechaInsercion(new Date());
+		this.tipoCargo.setIpInsercion(request.getRemoteAddr());
+		SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		this.tipoCargo.setUsuarioInsercion(1);
+		}else{
+		this.tipoCargo.setFechaActualizacion(new Date());
+		this.tipoCargo.setIpActualizacion(request.getRemoteAddr());
+		this.tipoCargo.setUsuarioActualizacion(1);
+		}
+		userAdmin.save(tipoCargo);
+		init();
+		toggleModal(evnt);
+		
 	}
 
 
@@ -126,6 +119,13 @@ public class TipoCargoWeb extends CRUDWeb{
 
 	public void setTipoCargo(CTipoCargo tipoCargo) {
 		this.tipoCargo = tipoCargo;
+	}
+
+
+
+
+	public void setUserAdmin(IUserAdmin userAdmin) {
+		this.userAdmin = userAdmin;
 	}
 
 	

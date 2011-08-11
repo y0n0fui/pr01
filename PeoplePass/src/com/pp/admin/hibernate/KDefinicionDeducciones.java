@@ -64,116 +64,116 @@ public class KDefinicionDeducciones implements java.io.Serializable {
 		this.KFacturacionDeduccioneses = KFacturacionDeduccioneses;
 	}
 
-	public int getCodigoInternoDeduccion() {
-		return this.codigoInternoDeduccion;
-	}
-
-	public void setCodigoInternoDeduccion(int codigoInternoDeduccion) {
-		this.codigoInternoDeduccion = codigoInternoDeduccion;
-	}
-
-	public String getDescripcion() {
-		return this.descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
 	public String getAbreviado() {
 		return this.abreviado;
 	}
 
-	public void setAbreviado(String abreviado) {
-		this.abreviado = abreviado;
-	}
-
-	public String getFormaLiquidar() {
-		return this.formaLiquidar;
-	}
-
-	public void setFormaLiquidar(String formaLiquidar) {
-		this.formaLiquidar = formaLiquidar;
-	}
-
-	public BigDecimal getValor() {
-		return this.valor;
-	}
-
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
+	public int getCodigoInternoDeduccion() {
+		return this.codigoInternoDeduccion;
 	}
 
 	public String getConcepto() {
 		return this.concepto;
 	}
 
-	public void setConcepto(String concepto) {
-		this.concepto = concepto;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
+	public String getDescripcion() {
+		return this.descripcion;
 	}
 
 	public Date getFechaActualizacion() {
 		return this.fechaActualizacion;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
 	}
 
-	public BigDecimal getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(BigDecimal usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public String getFormaLiquidar() {
+		return this.formaLiquidar;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
-	}
-
-	public Set getKProductosDeduccioneses() {
-		return this.KProductosDeduccioneses;
-	}
-
-	public void setKProductosDeduccioneses(Set KProductosDeduccioneses) {
-		this.KProductosDeduccioneses = KProductosDeduccioneses;
+	public String getIpInsercion() {
+		return this.ipInsercion;
 	}
 
 	public Set getKFacturacionDeduccioneses() {
 		return this.KFacturacionDeduccioneses;
 	}
 
+	public Set getKProductosDeduccioneses() {
+		return this.KProductosDeduccioneses;
+	}
+
+	public BigDecimal getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public BigDecimal getValor() {
+		return this.valor;
+	}
+
+	public void setAbreviado(String abreviado) {
+		this.abreviado = abreviado;
+	}
+
+	public void setCodigoInternoDeduccion(int codigoInternoDeduccion) {
+		this.codigoInternoDeduccion = codigoInternoDeduccion;
+	}
+
+	public void setConcepto(String concepto) {
+		this.concepto = concepto;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setFormaLiquidar(String formaLiquidar) {
+		this.formaLiquidar = formaLiquidar;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
 	public void setKFacturacionDeduccioneses(Set KFacturacionDeduccioneses) {
 		this.KFacturacionDeduccioneses = KFacturacionDeduccioneses;
+	}
+
+	public void setKProductosDeduccioneses(Set KProductosDeduccioneses) {
+		this.KProductosDeduccioneses = KProductosDeduccioneses;
+	}
+
+	public void setUsuarioActualizacion(BigDecimal usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
 	}
 
 }

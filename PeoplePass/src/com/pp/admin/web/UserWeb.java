@@ -11,21 +11,21 @@ public class UserWeb {
 
 	
 	
-	public UserWeb() {
-		
-	}
-	
 	/**
 	 * Herramienta logger
 	 */
 	static Logger logger = Logger.getLogger(UserWeb.class);
 	
-	
 	private String text;
-		
+	
 	
 	@Autowired
 	private IUserAdmin userAdmin;
+		
+	
+	public UserWeb() {
+		
+	}
 
 
 
@@ -36,8 +36,8 @@ public class UserWeb {
 	}
 
 
-	public void setText(String text) {
-		this.text = text;
+	public IUserAdmin getUserAdmin() {
+		return userAdmin;
 	}
 	    
 			
@@ -46,8 +46,8 @@ public class UserWeb {
 	}
 
 
-	public IUserAdmin getUserAdmin() {
-		return userAdmin;
+	public void setText(String text) {
+		this.text = text;
 	}
 
 

@@ -18,22 +18,6 @@ public class KAfectacionFacturasId implements java.io.Serializable {
 		this.codIntConcepto = codIntConcepto;
 	}
 
-	public int getNumeroPedido() {
-		return this.numeroPedido;
-	}
-
-	public void setNumeroPedido(int numeroPedido) {
-		this.numeroPedido = numeroPedido;
-	}
-
-	public int getCodIntConcepto() {
-		return this.codIntConcepto;
-	}
-
-	public void setCodIntConcepto(int codIntConcepto) {
-		this.codIntConcepto = codIntConcepto;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -47,12 +31,28 @@ public class KAfectacionFacturasId implements java.io.Serializable {
 				&& (this.getCodIntConcepto() == castOther.getCodIntConcepto());
 	}
 
+	public int getCodIntConcepto() {
+		return this.codIntConcepto;
+	}
+
+	public int getNumeroPedido() {
+		return this.numeroPedido;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
 		result = 37 * result + this.getNumeroPedido();
 		result = 37 * result + this.getCodIntConcepto();
 		return result;
+	}
+
+	public void setCodIntConcepto(int codIntConcepto) {
+		this.codIntConcepto = codIntConcepto;
+	}
+
+	public void setNumeroPedido(int numeroPedido) {
+		this.numeroPedido = numeroPedido;
 	}
 
 }

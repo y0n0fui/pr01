@@ -56,104 +56,104 @@ public class KSaldosXEmpresas implements java.io.Serializable {
 		return this.codigoInternoEmpresa;
 	}
 
-	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
-		this.codigoInternoEmpresa = codigoInternoEmpresa;
-	}
-
-	public KEmpresas getKEmpresas() {
-		return this.KEmpresas;
-	}
-
-	public void setKEmpresas(KEmpresas KEmpresas) {
-		this.KEmpresas = KEmpresas;
-	}
-
 	public String getEstadoSaldo() {
 		return this.estadoSaldo;
-	}
-
-	public void setEstadoSaldo(String estadoSaldo) {
-		this.estadoSaldo = estadoSaldo;
-	}
-
-	public BigDecimal getSaldoAnterior() {
-		return this.saldoAnterior;
-	}
-
-	public void setSaldoAnterior(BigDecimal saldoAnterior) {
-		this.saldoAnterior = saldoAnterior;
-	}
-
-	public BigDecimal getSaldoActual() {
-		return this.saldoActual;
-	}
-
-	public void setSaldoActual(BigDecimal saldoActual) {
-		this.saldoActual = saldoActual;
-	}
-
-	public Date getFechaSobregiroActual() {
-		return this.fechaSobregiroActual;
-	}
-
-	public void setFechaSobregiroActual(Date fechaSobregiroActual) {
-		this.fechaSobregiroActual = fechaSobregiroActual;
-	}
-
-	public Date getFechaUltimoSobregiro() {
-		return this.fechaUltimoSobregiro;
-	}
-
-	public void setFechaUltimoSobregiro(Date fechaUltimoSobregiro) {
-		this.fechaUltimoSobregiro = fechaUltimoSobregiro;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
 	}
 
 	public Date getFechaActualizacion() {
 		return this.fechaActualizacion;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
 	}
 
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
+	public Date getFechaSobregiroActual() {
+		return this.fechaSobregiroActual;
 	}
 
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public Date getFechaUltimoSobregiro() {
+		return this.fechaUltimoSobregiro;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KEmpresas getKEmpresas() {
+		return this.KEmpresas;
+	}
+
+	public BigDecimal getSaldoActual() {
+		return this.saldoActual;
+	}
+
+	public BigDecimal getSaldoAnterior() {
+		return this.saldoAnterior;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
+		this.codigoInternoEmpresa = codigoInternoEmpresa;
+	}
+
+	public void setEstadoSaldo(String estadoSaldo) {
+		this.estadoSaldo = estadoSaldo;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setFechaSobregiroActual(Date fechaSobregiroActual) {
+		this.fechaSobregiroActual = fechaSobregiroActual;
+	}
+
+	public void setFechaUltimoSobregiro(Date fechaUltimoSobregiro) {
+		this.fechaUltimoSobregiro = fechaUltimoSobregiro;
+	}
+
 	public void setIpActualizacion(String ipActualizacion) {
 		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setKEmpresas(KEmpresas KEmpresas) {
+		this.KEmpresas = KEmpresas;
+	}
+
+	public void setSaldoActual(BigDecimal saldoActual) {
+		this.saldoActual = saldoActual;
+	}
+
+	public void setSaldoAnterior(BigDecimal saldoAnterior) {
+		this.saldoAnterior = saldoAnterior;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

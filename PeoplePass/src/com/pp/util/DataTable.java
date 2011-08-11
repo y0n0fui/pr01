@@ -34,16 +34,15 @@ public class DataTable {
 
 
 	
-	public List<Object[]> getData() {
-		if(data!=null)
-		if(!oldSortColumn.equals(sortColumn)||
-				oldSortDataAscending!=sortDataAscending){
-			sort(sortDataAscending, 
-					getColumnIndex(sortColumn), data);
-			oldSortColumn = sortColumn;
-			oldSortDataAscending = sortDataAscending;
+	/**
+	 * Agrega un registro al data table 
+	 * @param reg
+	 */
+	public void addReg(Object... reg) {
+		if(data==null){
+			data = new ArrayList<Object[]>();
 		}
-		return data;
+		data.add(reg);
 	}
 
 	
@@ -67,6 +66,61 @@ public class DataTable {
 	}
 	
 	
+	public List<Object[]> getData() {
+		if(data!=null)
+		if(!oldSortColumn.equals(sortColumn)||
+				oldSortDataAscending!=sortDataAscending){
+			sort(sortDataAscending, 
+					getColumnIndex(sortColumn), data);
+			oldSortColumn = sortColumn;
+			oldSortDataAscending = sortDataAscending;
+		}
+		return data;
+	}
+
+
+		
+	
+	public String getOldSortColumn() {
+		return oldSortColumn;
+	}
+
+
+	public String getSortColumn() {
+		return sortColumn;
+	}
+
+
+	public boolean isOldSortDataAscending() {
+		return oldSortDataAscending;
+	}
+
+
+	public boolean isSortDataAscending() {
+		return sortDataAscending;
+	}
+
+
+	public void setOldSortColumn(String oldSortColumn) {
+		this.oldSortColumn = oldSortColumn;
+	}
+
+
+	public void setOldSortDataAscending(boolean oldSortDataAscending) {
+		this.oldSortDataAscending = oldSortDataAscending;
+	}
+
+
+	public void setSortColumn(String sortColumn) {
+		this.sortColumn = sortColumn;
+	}
+
+
+	public void setSortDataAscending(boolean sortDataAscending) {
+		this.sortDataAscending = sortDataAscending;
+	}
+
+
 	/**
 	 * Ordenaci�n de datos contenidos en una
 	 * lista de datos tipo Object[]
@@ -113,60 +167,6 @@ public class DataTable {
         //data.
         List list =  Arrays.asList(dataArray);
         data.addAll(list);
-	}
-
-
-		
-	
-	/**
-	 * Agrega un registro al data table 
-	 * @param reg
-	 */
-	public void addReg(Object... reg) {
-		if(data==null){
-			data = new ArrayList<Object[]>();
-		}
-		data.add(reg);
-	}
-
-
-	public boolean isSortDataAscending() {
-		return sortDataAscending;
-	}
-
-
-	public void setSortDataAscending(boolean sortDataAscending) {
-		this.sortDataAscending = sortDataAscending;
-	}
-
-
-	public boolean isOldSortDataAscending() {
-		return oldSortDataAscending;
-	}
-
-
-	public void setOldSortDataAscending(boolean oldSortDataAscending) {
-		this.oldSortDataAscending = oldSortDataAscending;
-	}
-
-
-	public String getSortColumn() {
-		return sortColumn;
-	}
-
-
-	public void setSortColumn(String sortColumn) {
-		this.sortColumn = sortColumn;
-	}
-
-
-	public String getOldSortColumn() {
-		return oldSortColumn;
-	}
-
-
-	public void setOldSortColumn(String oldSortColumn) {
-		this.oldSortColumn = oldSortColumn;
 	}
 	
 	

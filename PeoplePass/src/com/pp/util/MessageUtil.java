@@ -17,6 +17,20 @@ public class MessageUtil {
 	
 	
 	/**
+	 * Obtener un mensaje para faces.
+	 * @param keyString Key del mensaje
+	 * @param context Contexto de faces 
+	 * @return String
+	 */
+	public static String getMessageString(String keyString, 
+			FacesContext context){
+			String text = MessageUtil.getMessageString(keyString,
+				context.getViewRoot().getLocale()
+				, context.getApplication().getMessageBundle()); 
+			return text;
+	}
+	
+	/**
 	 * Obtener un mensaje dado un key
 	 * @param keyMsg key
 	 * @param locale location
@@ -35,20 +49,6 @@ public class MessageUtil {
 			text = "?? key " + keyMsg + " not found ??";
 		}
 		return text;
-	}
-	
-	/**
-	 * Obtener un mensaje para faces.
-	 * @param keyString Key del mensaje
-	 * @param context Contexto de faces 
-	 * @return String
-	 */
-	public static String getMessageString(String keyString, 
-			FacesContext context){
-			String text = MessageUtil.getMessageString(keyString,
-				context.getViewRoot().getLocale()
-				, context.getApplication().getMessageBundle()); 
-			return text;
 	}	
 	
 	/**

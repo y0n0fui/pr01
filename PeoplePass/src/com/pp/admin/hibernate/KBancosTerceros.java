@@ -75,156 +75,156 @@ public class KBancosTerceros implements java.io.Serializable {
 		this.KDefinicionInterfaceses = KDefinicionInterfaceses;
 	}
 
-	public int getCodIntBkoTer() {
-		return this.codIntBkoTer;
+	public String getClave() {
+		return this.clave;
 	}
 
-	public void setCodIntBkoTer(int codIntBkoTer) {
-		this.codIntBkoTer = codIntBkoTer;
+	public int getCodIntBkoTer() {
+		return this.codIntBkoTer;
 	}
 
 	public CTipoIdentificacion getCTipoIdentificacion() {
 		return this.CTipoIdentificacion;
 	}
 
-	public void setCTipoIdentificacion(CTipoIdentificacion CTipoIdentificacion) {
-		this.CTipoIdentificacion = CTipoIdentificacion;
-	}
-
-	public String getRazonSocial() {
-		return this.razonSocial;
-	}
-
-	public void setRazonSocial(String razonSocial) {
-		this.razonSocial = razonSocial;
-	}
-
-	public String getNombreContacto() {
-		return this.nombreContacto;
-	}
-
-	public void setNombreContacto(String nombreContacto) {
-		this.nombreContacto = nombreContacto;
-	}
-
-	public String getNroIdentificacion() {
-		return this.nroIdentificacion;
-	}
-
-	public void setNroIdentificacion(String nroIdentificacion) {
-		this.nroIdentificacion = nroIdentificacion;
-	}
-
-	public String getTelefono() {
-		return this.telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
 	public String getDireccionIp() {
 		return this.direccionIp;
-	}
-
-	public void setDireccionIp(String direccionIp) {
-		this.direccionIp = direccionIp;
-	}
-
-	public String getUrl() {
-		return this.url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public String getUsuarioConexion() {
-		return this.usuarioConexion;
-	}
-
-	public void setUsuarioConexion(String usuarioConexion) {
-		this.usuarioConexion = usuarioConexion;
-	}
-
-	public String getClave() {
-		return this.clave;
-	}
-
-	public void setClave(String clave) {
-		this.clave = clave;
-	}
-
-	public String getTipoInterface() {
-		return this.tipoInterface;
-	}
-
-	public void setTipoInterface(String tipoInterface) {
-		this.tipoInterface = tipoInterface;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
 	}
 
 	public Date getFechaActualizacion() {
 		return this.fechaActualizacion;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
-	}
-
-	public Set getKDefinicionProductoses() {
-		return this.KDefinicionProductoses;
-	}
-
-	public void setKDefinicionProductoses(Set KDefinicionProductoses) {
-		this.KDefinicionProductoses = KDefinicionProductoses;
+	public String getIpInsercion() {
+		return this.ipInsercion;
 	}
 
 	public Set getKDefinicionInterfaceses() {
 		return this.KDefinicionInterfaceses;
 	}
 
+	public Set getKDefinicionProductoses() {
+		return this.KDefinicionProductoses;
+	}
+
+	public String getNombreContacto() {
+		return this.nombreContacto;
+	}
+
+	public String getNroIdentificacion() {
+		return this.nroIdentificacion;
+	}
+
+	public String getRazonSocial() {
+		return this.razonSocial;
+	}
+
+	public String getTelefono() {
+		return this.telefono;
+	}
+
+	public String getTipoInterface() {
+		return this.tipoInterface;
+	}
+
+	public String getUrl() {
+		return this.url;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public String getUsuarioConexion() {
+		return this.usuarioConexion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
+
+	public void setCodIntBkoTer(int codIntBkoTer) {
+		this.codIntBkoTer = codIntBkoTer;
+	}
+
+	public void setCTipoIdentificacion(CTipoIdentificacion CTipoIdentificacion) {
+		this.CTipoIdentificacion = CTipoIdentificacion;
+	}
+
+	public void setDireccionIp(String direccionIp) {
+		this.direccionIp = direccionIp;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
 	public void setKDefinicionInterfaceses(Set KDefinicionInterfaceses) {
 		this.KDefinicionInterfaceses = KDefinicionInterfaceses;
+	}
+
+	public void setKDefinicionProductoses(Set KDefinicionProductoses) {
+		this.KDefinicionProductoses = KDefinicionProductoses;
+	}
+
+	public void setNombreContacto(String nombreContacto) {
+		this.nombreContacto = nombreContacto;
+	}
+
+	public void setNroIdentificacion(String nroIdentificacion) {
+		this.nroIdentificacion = nroIdentificacion;
+	}
+
+	public void setRazonSocial(String razonSocial) {
+		this.razonSocial = razonSocial;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public void setTipoInterface(String tipoInterface) {
+		this.tipoInterface = tipoInterface;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioConexion(String usuarioConexion) {
+		this.usuarioConexion = usuarioConexion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

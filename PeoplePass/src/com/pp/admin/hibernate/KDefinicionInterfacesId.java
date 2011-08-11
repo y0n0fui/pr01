@@ -19,22 +19,6 @@ public class KDefinicionInterfacesId implements java.io.Serializable {
 		this.codigoInternoBanco3ro = codigoInternoBanco3ro;
 	}
 
-	public int getCodigoInternoInterface() {
-		return this.codigoInternoInterface;
-	}
-
-	public void setCodigoInternoInterface(int codigoInternoInterface) {
-		this.codigoInternoInterface = codigoInternoInterface;
-	}
-
-	public int getCodigoInternoBanco3ro() {
-		return this.codigoInternoBanco3ro;
-	}
-
-	public void setCodigoInternoBanco3ro(int codigoInternoBanco3ro) {
-		this.codigoInternoBanco3ro = codigoInternoBanco3ro;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -50,12 +34,28 @@ public class KDefinicionInterfacesId implements java.io.Serializable {
 						.getCodigoInternoBanco3ro());
 	}
 
+	public int getCodigoInternoBanco3ro() {
+		return this.codigoInternoBanco3ro;
+	}
+
+	public int getCodigoInternoInterface() {
+		return this.codigoInternoInterface;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
 		result = 37 * result + this.getCodigoInternoInterface();
 		result = 37 * result + this.getCodigoInternoBanco3ro();
 		return result;
+	}
+
+	public void setCodigoInternoBanco3ro(int codigoInternoBanco3ro) {
+		this.codigoInternoBanco3ro = codigoInternoBanco3ro;
+	}
+
+	public void setCodigoInternoInterface(int codigoInternoInterface) {
+		this.codigoInternoInterface = codigoInternoInterface;
 	}
 
 }

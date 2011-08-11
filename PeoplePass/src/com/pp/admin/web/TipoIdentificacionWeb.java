@@ -29,10 +29,6 @@ public class TipoIdentificacionWeb extends CRUDWeb{
 	
 	
 	
-	public TipoIdentificacionWeb() {
-		tipoIdentificacion=new CTipoIdentificacion();
-	}
-	
 	/**
 	 * Herramienta logger
 	 */
@@ -40,40 +36,10 @@ public class TipoIdentificacionWeb extends CRUDWeb{
 	
 	@Autowired
 	private IUserAdmin userAdmin;
-
 	
-	public void init(){
-		dataTable=new DataTable();
-		List<CTipoIdentificacion> tiposId=userAdmin.getTipoIdentificacion();
-		if(tiposId!=null)
-		for (CTipoIdentificacion tipid : tiposId) {
-			dataTable.addReg(tipid.getCodIntTipoId(),tipid.getDescripcion(),tipid.getFechaActualizacion(),
-					tipid.getIpActualizacion(),tipid.getUsuarioActualizacion(),
-					tipid.getFechaInsercion(),tipid.getIpInsercion(),tipid.getUsuarioInsercion());
-		}
+	public TipoIdentificacionWeb() {
+		tipoIdentificacion=new CTipoIdentificacion();
 	}
-	
-	
-	
-	
-	public void onSave(ActionEvent evnt){
-		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		if(this.tipoIdentificacion.getCodIntTipoId()==0){
-		this.tipoIdentificacion.setFechaInsercion(new Date());
-		this.tipoIdentificacion.setIpInsercion(request.getRemoteAddr());
-		SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		this.tipoIdentificacion.setUsuarioInsercion(1);
-		}else{
-		this.tipoIdentificacion.setFechaActualizacion(new Date());
-		this.tipoIdentificacion.setIpActualizacion(request.getRemoteAddr());
-		this.tipoIdentificacion.setUsuarioActualizacion(1);
-		}
-		userAdmin.save(tipoIdentificacion);
-		init();
-		toggleModal(evnt);
-		
-	}
-	
 
 	
 	public void create(ActionEvent evnt){
@@ -81,12 +47,9 @@ public class TipoIdentificacionWeb extends CRUDWeb{
 		toggleModal(evnt);
 	}
 	
-	public void edit(ActionEvent evnt){
-		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
-		this.tipoIdentificacion=userAdmin.getTipoIdentificacion((Integer)selectData[0]);
-		toggleModal(null);
-	}
-
+	
+	
+	
 	public void delete(ActionEvent evnt){
 		this.tipoIdentificacion=userAdmin.getTipoIdentificacion((Integer)selectData[0]);
 		try{
@@ -104,20 +67,50 @@ public class TipoIdentificacionWeb extends CRUDWeb{
 	}
 	
 
+	
+	public void edit(ActionEvent evnt){
+		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
+		this.tipoIdentificacion=userAdmin.getTipoIdentificacion((Integer)selectData[0]);
+		toggleModal(null);
+	}
+	
+	public CTipoIdentificacion getTipoIdentificacion() {
+		return tipoIdentificacion;
+	}
 
 	public IUserAdmin getUserAdmin() {
 		return userAdmin;
 	}
+	
 
-	public void setUserAdmin(IUserAdmin userAdmin) {
-		this.userAdmin = userAdmin;
+
+	public void init(){
+		dataTable=new DataTable();
+		List<CTipoIdentificacion> tiposId=userAdmin.getTipoIdentificacion();
+		if(tiposId!=null)
+		for (CTipoIdentificacion tipid : tiposId) {
+			dataTable.addReg(tipid.getCodIntTipoId(),tipid.getDescripcion(),tipid.getFechaActualizacion(),
+					tipid.getIpActualizacion(),tipid.getUsuarioActualizacion(),
+					tipid.getFechaInsercion(),tipid.getIpInsercion(),tipid.getUsuarioInsercion());
+		}
 	}
 
-
-
-
-	public CTipoIdentificacion getTipoIdentificacion() {
-		return tipoIdentificacion;
+	public void onSave(ActionEvent evnt){
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		if(this.tipoIdentificacion.getCodIntTipoId()==0){
+		this.tipoIdentificacion.setFechaInsercion(new Date());
+		this.tipoIdentificacion.setIpInsercion(request.getRemoteAddr());
+		SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		this.tipoIdentificacion.setUsuarioInsercion(1);
+		}else{
+		this.tipoIdentificacion.setFechaActualizacion(new Date());
+		this.tipoIdentificacion.setIpActualizacion(request.getRemoteAddr());
+		this.tipoIdentificacion.setUsuarioActualizacion(1);
+		}
+		userAdmin.save(tipoIdentificacion);
+		init();
+		toggleModal(evnt);
+		
 	}
 
 
@@ -125,6 +118,13 @@ public class TipoIdentificacionWeb extends CRUDWeb{
 
 	public void setTipoIdentificacion(CTipoIdentificacion tipoIdentificacion) {
 		this.tipoIdentificacion = tipoIdentificacion;
+	}
+
+
+
+
+	public void setUserAdmin(IUserAdmin userAdmin) {
+		this.userAdmin = userAdmin;
 	}
 
 

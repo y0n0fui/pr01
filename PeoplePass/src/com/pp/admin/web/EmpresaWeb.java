@@ -27,20 +27,6 @@ public class EmpresaWeb extends CRUDWeb {
 
 	private Integer idTipo = 0;
 
-	public SelectItem[] getTiposId() {
-		return tiposId;
-	}
-
-	public void setTiposId(SelectItem[] tiposId) {
-		this.tiposId = tiposId;
-	}
-
-	public EmpresaWeb() {
-		this.tiposId = new SelectItem[0];
-		this.empresa = new KEmpresas();
-		this.empresa.setTipoIdentificacion(new CTipoIdentificacion());
-	}
-
 	/**
 	 * Herramienta logger
 	 */
@@ -48,6 +34,58 @@ public class EmpresaWeb extends CRUDWeb {
 
 	@Autowired
 	private IUserAdmin userAdmin;
+
+	public EmpresaWeb() {
+		this.tiposId = new SelectItem[0];
+		this.empresa = new KEmpresas();
+		this.empresa.setTipoIdentificacion(new CTipoIdentificacion());
+	}
+
+	public void create(ActionEvent evnt) {
+		this.empresa = new KEmpresas();
+		toggleModal(evnt);
+	}
+
+	public void delete(ActionEvent evnt) {
+		this.empresa = userAdmin.getEmpresa((Integer) selectData[0]);
+		try{
+		userAdmin.delete(this.empresa);
+		this.empresa = new KEmpresas();
+		this.empresa.setTipoIdentificacion(new CTipoIdentificacion());
+		this.selectData = null;
+		init();
+		toggleModalDelete(evnt);
+		}catch (org.springframework.dao.DataIntegrityViolationException e) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			logger.error("Error en constrain",e);	
+        	FacesContext.getCurrentInstance().addMessage(FacesMessage.SEVERITY_ERROR.toString(),  
+    				MessageUtil.getMessageStringFaces("adminempresa.empresa.error.delete", context ));
+		}
+		
+	}
+
+	public void edit(ActionEvent evnt) {
+		selectData = (Object[]) evnt.getComponent().getAttributes().get("row");
+		this.empresa = userAdmin.getEmpresa((Integer) selectData[0]);
+		idTipo = this.empresa.getTipoIdentificacion().getCodIntTipoId();
+		toggleModal(null);
+	}
+
+	public KEmpresas getEmpresa() {
+		return empresa;
+	}
+
+	public Integer getIdTipo() {
+		return idTipo;
+	}
+
+	public SelectItem[] getTiposId() {
+		return tiposId;
+	}
+
+	public IUserAdmin getUserAdmin() {
+		return userAdmin;
+	}
 
 	public void init() {
 		dataTable = new DataTable();
@@ -100,58 +138,20 @@ public class EmpresaWeb extends CRUDWeb {
 
 	}
 
-	public void create(ActionEvent evnt) {
-		this.empresa = new KEmpresas();
-		toggleModal(evnt);
-	}
-
-	public void edit(ActionEvent evnt) {
-		selectData = (Object[]) evnt.getComponent().getAttributes().get("row");
-		this.empresa = userAdmin.getEmpresa((Integer) selectData[0]);
-		idTipo = this.empresa.getTipoIdentificacion().getCodIntTipoId();
-		toggleModal(null);
-	}
-
-	public void delete(ActionEvent evnt) {
-		this.empresa = userAdmin.getEmpresa((Integer) selectData[0]);
-		try{
-		userAdmin.delete(this.empresa);
-		this.empresa = new KEmpresas();
-		this.empresa.setTipoIdentificacion(new CTipoIdentificacion());
-		this.selectData = null;
-		init();
-		toggleModalDelete(evnt);
-		}catch (org.springframework.dao.DataIntegrityViolationException e) {
-			FacesContext context = FacesContext.getCurrentInstance();
-			logger.error("Error en constrain",e);	
-        	FacesContext.getCurrentInstance().addMessage(FacesMessage.SEVERITY_ERROR.toString(),  
-    				MessageUtil.getMessageStringFaces("adminempresa.empresa.error.delete", context ));
-		}
-		
-	}
-
-	public IUserAdmin getUserAdmin() {
-		return userAdmin;
-	}
-
-	public void setUserAdmin(IUserAdmin userAdmin) {
-		this.userAdmin = userAdmin;
-	}
-
-	public KEmpresas getEmpresa() {
-		return empresa;
-	}
-
 	public void setEmpresa(KEmpresas empresa) {
 		this.empresa = empresa;
 	}
 
-	public Integer getIdTipo() {
-		return idTipo;
-	}
-
 	public void setIdTipo(Integer idTipo) {
 		this.idTipo = idTipo;
+	}
+
+	public void setTiposId(SelectItem[] tiposId) {
+		this.tiposId = tiposId;
+	}
+
+	public void setUserAdmin(IUserAdmin userAdmin) {
+		this.userAdmin = userAdmin;
 	}
 
 }

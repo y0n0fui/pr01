@@ -29,10 +29,6 @@ public class RoleWeb extends CRUDWeb{
 	
 	
 	
-	public RoleWeb() {
-		role=new KRoles();
-	}
-	
 	/**
 	 * Herramienta logger
 	 */
@@ -40,40 +36,10 @@ public class RoleWeb extends CRUDWeb{
 	
 	@Autowired
 	private IUserAdmin userAdmin;
-
 	
-	public void init(){
-		dataTable=new DataTable();
-		List<KRoles> roles=userAdmin.getRoles();
-		if(roles!=null)
-		for (KRoles kRole : roles) {
-			dataTable.addReg(kRole.getCodigoInternoRole(),kRole.getDescripcion(),kRole.getFechaActualizacion(),
-					kRole.getIpActualizacion(),kRole.getUsuarioActualizacion(),
-					kRole.getFechaInsercion(),kRole.getIpInsercion(),kRole.getUsuarioInsercion());
-		}
+	public RoleWeb() {
+		role=new KRoles();
 	}
-	
-	
-	
-	
-	public void onSave(ActionEvent evnt){
-		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		if(this.role.getCodigoInternoRole()==0){
-		this.role.setFechaInsercion(new Date());
-		this.role.setIpInsercion(request.getRemoteAddr());
-		SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		this.role.setUsuarioInsercion(1);
-		}else{
-		this.role.setFechaActualizacion(new Date());
-		this.role.setIpActualizacion(request.getRemoteAddr());
-		this.role.setUsuarioActualizacion(1);
-		}
-		userAdmin.save(role);
-		init();
-		toggleModal(evnt);
-		
-	}
-	
 
 	
 	public void create(ActionEvent evnt){
@@ -81,12 +47,9 @@ public class RoleWeb extends CRUDWeb{
 		toggleModal(evnt);
 	}
 	
-	public void edit(ActionEvent evnt){
-		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
-		this.role=userAdmin.getRoles((Integer)selectData[0]);
-		toggleModal(null);
-	}
-
+	
+	
+	
 	public void delete(ActionEvent evnt){
 		this.role=userAdmin.getRoles((Integer)selectData[0]);
 		try{
@@ -104,22 +67,59 @@ public class RoleWeb extends CRUDWeb{
 	}
 	
 
-
-	public IUserAdmin getUserAdmin() {
-		return userAdmin;
+	
+	public void edit(ActionEvent evnt){
+		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
+		this.role=userAdmin.getRoles((Integer)selectData[0]);
+		toggleModal(null);
 	}
-
-	public void setUserAdmin(IUserAdmin userAdmin) {
-		this.userAdmin = userAdmin;
-	}
-
+	
 	public KRoles getRole() {
 		return role;
 	}
 
+	public IUserAdmin getUserAdmin() {
+		return userAdmin;
+	}
+	
+
+
+	public void init(){
+		dataTable=new DataTable();
+		List<KRoles> roles=userAdmin.getRoles();
+		if(roles!=null)
+		for (KRoles kRole : roles) {
+			dataTable.addReg(kRole.getCodigoInternoRole(),kRole.getDescripcion(),kRole.getFechaActualizacion(),
+					kRole.getIpActualizacion(),kRole.getUsuarioActualizacion(),
+					kRole.getFechaInsercion(),kRole.getIpInsercion(),kRole.getUsuarioInsercion());
+		}
+	}
+
+	public void onSave(ActionEvent evnt){
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		if(this.role.getCodigoInternoRole()==0){
+		this.role.setFechaInsercion(new Date());
+		this.role.setIpInsercion(request.getRemoteAddr());
+		SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		this.role.setUsuarioInsercion(1);
+		}else{
+		this.role.setFechaActualizacion(new Date());
+		this.role.setIpActualizacion(request.getRemoteAddr());
+		this.role.setUsuarioActualizacion(1);
+		}
+		userAdmin.save(role);
+		init();
+		toggleModal(evnt);
+		
+	}
 
 	public void setRole(KRoles role) {
 		this.role = role;
+	}
+
+
+	public void setUserAdmin(IUserAdmin userAdmin) {
+		this.userAdmin = userAdmin;
 	}
 
 	

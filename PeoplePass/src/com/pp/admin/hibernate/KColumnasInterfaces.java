@@ -43,16 +43,56 @@ public class KColumnasInterfaces implements java.io.Serializable {
 		this.ipActualizacion = ipActualizacion;
 	}
 
+	public Date getFechaActualizacion() {
+		return this.fechaActualizacion;
+	}
+
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
+	}
+
 	public KColumnasInterfacesId getId() {
 		return this.id;
+	}
+
+	public String getIpActualizacion() {
+		return this.ipActualizacion;
+	}
+
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KDefinicionInterfaces getKDefinicionInterfaces() {
+		return this.KDefinicionInterfaces;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public BigDecimal getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
 	}
 
 	public void setId(KColumnasInterfacesId id) {
 		this.id = id;
 	}
 
-	public KDefinicionInterfaces getKDefinicionInterfaces() {
-		return this.KDefinicionInterfaces;
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
 	}
 
 	public void setKDefinicionInterfaces(
@@ -60,52 +100,12 @@ public class KColumnasInterfaces implements java.io.Serializable {
 		this.KDefinicionInterfaces = KDefinicionInterfaces;
 	}
 
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public BigDecimal getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(BigDecimal usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
-	}
-
-	public Date getFechaActualizacion() {
-		return this.fechaActualizacion;
-	}
-
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
 	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
 		this.usuarioActualizacion = usuarioActualizacion;
 	}
 
-	public String getIpActualizacion() {
-		return this.ipActualizacion;
-	}
-
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
+	public void setUsuarioInsercion(BigDecimal usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

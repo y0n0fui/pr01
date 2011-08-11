@@ -165,7 +165,7 @@
             id="idPopUpPanel"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            draggable="true" modal="true" style="width: 300px;height: 200px;"
             visible="#{condicionesEspecialesWeb.rederPopup}">
             
         <f:facet name="header">
@@ -177,37 +177,46 @@
                                image="images/popupclose.gif"
                                actionListener="#{condicionesEspecialesWeb.toggleModal}" 
                                styleClass="popupHeaderImage"
+                               partialSubmit="true"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
         </ice:panelGroup>
     	</f:facet>
     	<f:facet name="body"> 
         <ice:panelGroup styleClass="popupBody">
         	<table>	
-        	<tr><td> 
-        	<ice:outputText value="#{msg['admincondespeciales.condespeciales.empresa']}"/>
-        	</td><td>
+        	<tr><td align="left"> 
+        	<ice:outputText value="#{msg['admincondespeciales.condespeciales.empresa']}"/> *
+        	</td><td align="left">
         	 <ice:selectOneMenu id="slcempresa"
                         value="#{condicionesEspecialesWeb.idempresa}"
-                        partialSubmit="true">
+                        partialSubmit="true"
+                        rendered="#{condicionesEspecialesWeb.rederPopup}">
                     <f:selectItems id="Slctempresas"
                                    value="#{condicionesEspecialesWeb.empresas}"/>
                 </ice:selectOneMenu>
         	
         	</td></tr>
         	<tr>
-        	<td>
-        	<ice:outputText value="#{msg['admincondespeciales.condespeciales.desc']}"/>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="slcempresa"/>		
+			</td>
+			</tr>
+        	<tr>
+        	<td align="left">
+        	<ice:outputText value="#{msg['admincondespeciales.condespeciales.desc']}"/> *
         	</td>
-        	<td>
-        	<ice:inputText id="description" value="#{condicionesEspecialesWeb.condicionesEspeciales.descripcion}"></ice:inputText>
+        	<td align="left">
+        	<ice:inputText id="description" value="#{condicionesEspecialesWeb.condicionesEspeciales.descripcion}" maxlength="60" required="#{condicionesEspecialesWeb.rederPopup}"></ice:inputText>
         	</td>
         	</tr>
         	<tr>
-        	<td colspan="2"><h:messages globalOnly="false"  showDetail="false" showSummary="true"></h:messages> </td>
-        	</tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="description"/>		
+			</td>
+			</tr>
         	<tr>
         		<td><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{condicionesEspecialesWeb.onSave}"></ice:commandButton></td>
-        		<td><ice:commandButton id="btnCancelSaveRole" value="#{msg['general.cancel']}" actionListener="#{condicionesEspecialesWeb.toggleModal}"></ice:commandButton></td>
+        		<td><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{condicionesEspecialesWeb.toggleModal}"></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 
@@ -220,7 +229,7 @@
             id="idPopUpDelete"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            draggable="true" modal="true" style="width: 300px;height: 170px;"
             visible="#{condicionesEspecialesWeb.renderDeleteAlert}">
             
         <f:facet name="header">
@@ -252,6 +261,15 @@
         		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{condicionesEspecialesWeb.toggleModalDelete}">
         		</ice:commandButton>
         		</td>
+        	</tr>
+        	<tr>
+        	<td colspan="2">
+        	  <h:messages layout="table"
+                    globalOnly="false"
+				    
+                    showDetail="false"
+                    showSummary="true"/>
+        	</td>
         	</tr>
         	</table>
         </ice:panelGroup> 

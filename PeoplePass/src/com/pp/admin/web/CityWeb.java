@@ -8,9 +8,7 @@ import javax.faces.event.ActionEvent;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.context.SecurityContextHolder;
 
-import com.icesoft.faces.component.ext.RowSelectorEvent;
 import com.pp.admin.facade.ICityAdmin;
 import com.pp.admin.hibernate.CCiudad;
 import com.pp.util.DataTable;
@@ -26,10 +24,6 @@ public class CityWeb extends CRUDWeb{
 	
 	
 	
-	public CityWeb() {
-		ciudad=new CCiudad();
-	}
-	
 	/**
 	 * Herramienta logger
 	 */
@@ -37,7 +31,28 @@ public class CityWeb extends CRUDWeb{
 	
 	@Autowired
 	private ICityAdmin cityAdmin;
+	
+	public CityWeb() {
+		ciudad=new CCiudad();
+	}
 
+	
+	public void create(ActionEvent evnt){
+		this.ciudad=new CCiudad();
+		toggleModal(evnt);
+	}
+	
+	
+	
+	
+	public ICityAdmin getCityAdmin() {
+		return cityAdmin;
+	}
+	
+	
+	public CCiudad getCiudad() {
+		return ciudad;
+	}
 	
 	public void init(){
 		dataTable=new DataTable();
@@ -49,10 +64,8 @@ public class CityWeb extends CRUDWeb{
 					cCiudad.getFechaInsercion(),cCiudad.getIpInsercion(),cCiudad.getUsuarioInsercion());
 		}
 	}
-	
-	
-	
-	
+
+
 	public void onSave(ActionEvent evnt){
 		if(this.ciudad.getCodigoInternoCiudad()!=-1){
 		this.ciudad.setFechaInsercion(new Date());
@@ -68,28 +81,13 @@ public class CityWeb extends CRUDWeb{
 		toggleModal(evnt);
 		
 	}
+
+
 	
-	
-	public void create(ActionEvent evnt){
-		this.ciudad=new CCiudad();
-		toggleModal(evnt);
-	}
-	
-	public ICityAdmin getCityAdmin() {
-		return cityAdmin;
-	}
 
 
 	public void setCityAdmin(ICityAdmin cityAdmin) {
 		this.cityAdmin = cityAdmin;
-	}
-
-
-	
-
-
-	public CCiudad getCiudad() {
-		return ciudad;
 	}
 
 

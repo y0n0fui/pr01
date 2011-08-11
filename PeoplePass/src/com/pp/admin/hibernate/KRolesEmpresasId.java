@@ -21,30 +21,6 @@ public class KRolesEmpresasId implements java.io.Serializable {
 		this.codigoInternoRole = codigoInternoRole;
 	}
 
-	public int getCodigoInternoEmpresa() {
-		return this.codigoInternoEmpresa;
-	}
-
-	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
-		this.codigoInternoEmpresa = codigoInternoEmpresa;
-	}
-
-	public int getCodigoInternoUsuario() {
-		return this.codigoInternoUsuario;
-	}
-
-	public void setCodigoInternoUsuario(int codigoInternoUsuario) {
-		this.codigoInternoUsuario = codigoInternoUsuario;
-	}
-
-	public int getCodigoInternoRole() {
-		return this.codigoInternoRole;
-	}
-
-	public void setCodigoInternoRole(int codigoInternoRole) {
-		this.codigoInternoRole = codigoInternoRole;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -62,6 +38,18 @@ public class KRolesEmpresasId implements java.io.Serializable {
 						.getCodigoInternoRole());
 	}
 
+	public int getCodigoInternoEmpresa() {
+		return this.codigoInternoEmpresa;
+	}
+
+	public int getCodigoInternoRole() {
+		return this.codigoInternoRole;
+	}
+
+	public int getCodigoInternoUsuario() {
+		return this.codigoInternoUsuario;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
@@ -69,6 +57,18 @@ public class KRolesEmpresasId implements java.io.Serializable {
 		result = 37 * result + this.getCodigoInternoUsuario();
 		result = 37 * result + this.getCodigoInternoRole();
 		return result;
+	}
+
+	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
+		this.codigoInternoEmpresa = codigoInternoEmpresa;
+	}
+
+	public void setCodigoInternoRole(int codigoInternoRole) {
+		this.codigoInternoRole = codigoInternoRole;
+	}
+
+	public void setCodigoInternoUsuario(int codigoInternoUsuario) {
+		this.codigoInternoUsuario = codigoInternoUsuario;
 	}
 
 }

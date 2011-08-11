@@ -51,80 +51,80 @@ public class KConceptosFacturacion implements java.io.Serializable {
 		return this.codIntConcepto;
 	}
 
-	public void setCodIntConcepto(int codIntConcepto) {
-		this.codIntConcepto = codIntConcepto;
-	}
-
 	public String getDescripcion() {
 		return this.descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
 	}
 
 	public Date getFechaActualizacion() {
 		return this.fechaActualizacion;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
+	public String getIpInsercion() {
+		return this.ipInsercion;
 	}
 
 	public Set getKAfectacionFacturases() {
 		return this.KAfectacionFacturases;
 	}
 
-	public void setKAfectacionFacturases(Set KAfectacionFacturases) {
-		this.KAfectacionFacturases = KAfectacionFacturases;
-	}
-
 	public Set getKFacturacionDeduccioneses() {
 		return this.KFacturacionDeduccioneses;
 	}
 
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setCodIntConcepto(int codIntConcepto) {
+		this.codIntConcepto = codIntConcepto;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setKAfectacionFacturases(Set KAfectacionFacturases) {
+		this.KAfectacionFacturases = KAfectacionFacturases;
+	}
+
 	public void setKFacturacionDeduccioneses(Set KFacturacionDeduccioneses) {
 		this.KFacturacionDeduccioneses = KFacturacionDeduccioneses;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

@@ -48,72 +48,72 @@ public class KProductos implements java.io.Serializable {
 		return this.codigoInternoProducto;
 	}
 
-	public void setCodigoInternoProducto(int codigoInternoProducto) {
-		this.codigoInternoProducto = codigoInternoProducto;
-	}
-
 	public String getDescripcionProducto() {
 		return this.descripcionProducto;
-	}
-
-	public void setDescripcionProducto(String descripcionProducto) {
-		this.descripcionProducto = descripcionProducto;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
 	}
 
 	public Date getFechaActualizacion() {
 		return this.fechaActualizacion;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
+	public String getIpInsercion() {
+		return this.ipInsercion;
 	}
 
 	public Set getKDefinicionProductoses() {
 		return this.KDefinicionProductoses;
 	}
 
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setCodigoInternoProducto(int codigoInternoProducto) {
+		this.codigoInternoProducto = codigoInternoProducto;
+	}
+
+	public void setDescripcionProducto(String descripcionProducto) {
+		this.descripcionProducto = descripcionProducto;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
 	public void setKDefinicionProductoses(Set KDefinicionProductoses) {
 		this.KDefinicionProductoses = KDefinicionProductoses;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

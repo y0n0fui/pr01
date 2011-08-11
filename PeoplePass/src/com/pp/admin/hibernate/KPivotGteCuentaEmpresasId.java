@@ -19,22 +19,6 @@ public class KPivotGteCuentaEmpresasId implements java.io.Serializable {
 		this.codigoInternoFuncionario = codigoInternoFuncionario;
 	}
 
-	public int getCodigoInternoEmpresa() {
-		return this.codigoInternoEmpresa;
-	}
-
-	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
-		this.codigoInternoEmpresa = codigoInternoEmpresa;
-	}
-
-	public int getCodigoInternoFuncionario() {
-		return this.codigoInternoFuncionario;
-	}
-
-	public void setCodigoInternoFuncionario(int codigoInternoFuncionario) {
-		this.codigoInternoFuncionario = codigoInternoFuncionario;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -50,12 +34,28 @@ public class KPivotGteCuentaEmpresasId implements java.io.Serializable {
 						.getCodigoInternoFuncionario());
 	}
 
+	public int getCodigoInternoEmpresa() {
+		return this.codigoInternoEmpresa;
+	}
+
+	public int getCodigoInternoFuncionario() {
+		return this.codigoInternoFuncionario;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
 		result = 37 * result + this.getCodigoInternoEmpresa();
 		result = 37 * result + this.getCodigoInternoFuncionario();
 		return result;
+	}
+
+	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
+		this.codigoInternoEmpresa = codigoInternoEmpresa;
+	}
+
+	public void setCodigoInternoFuncionario(int codigoInternoFuncionario) {
+		this.codigoInternoFuncionario = codigoInternoFuncionario;
 	}
 
 }

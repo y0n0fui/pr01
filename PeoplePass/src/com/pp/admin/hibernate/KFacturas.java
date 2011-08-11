@@ -32,14 +32,6 @@ public class KFacturas implements java.io.Serializable {
 	}
 
 	public KFacturas(KFacturasId id, KEmpresas KEmpresas,
-			KDefinicionProductos KDefinicionProductos, int cantidad) {
-		this.id = id;
-		this.KEmpresas = KEmpresas;
-		this.KDefinicionProductos = KDefinicionProductos;
-		this.cantidad = cantidad;
-	}
-
-	public KFacturas(KFacturasId id, KEmpresas KEmpresas,
 			KDefinicionProductos KDefinicionProductos, Date fechaPago,
 			Date fechaFacturacion, Date fechaDispersion, int cantidad,
 			BigDecimal vlrUnitario, Date fechaItem, Integer facturaNumero,
@@ -65,24 +57,128 @@ public class KFacturas implements java.io.Serializable {
 		this.ipActualizacion = ipActualizacion;
 	}
 
+	public KFacturas(KFacturasId id, KEmpresas KEmpresas,
+			KDefinicionProductos KDefinicionProductos, int cantidad) {
+		this.id = id;
+		this.KEmpresas = KEmpresas;
+		this.KDefinicionProductos = KDefinicionProductos;
+		this.cantidad = cantidad;
+	}
+
+	public int getCantidad() {
+		return this.cantidad;
+	}
+
+	public String getDispersado() {
+		return this.dispersado;
+	}
+
+	public Integer getFacturaNumero() {
+		return this.facturaNumero;
+	}
+
+	public Date getFechaActualizacion() {
+		return this.fechaActualizacion;
+	}
+
+	public Date getFechaDispersion() {
+		return this.fechaDispersion;
+	}
+
+	public Date getFechaFacturacion() {
+		return this.fechaFacturacion;
+	}
+
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
+	}
+
+	public Date getFechaItem() {
+		return this.fechaItem;
+	}
+
+	public Date getFechaPago() {
+		return this.fechaPago;
+	}
+
 	public KFacturasId getId() {
 		return this.id;
 	}
 
-	public void setId(KFacturasId id) {
-		this.id = id;
+	public String getIpActualizacion() {
+		return this.ipActualizacion;
+	}
+
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KDefinicionProductos getKDefinicionProductos() {
+		return this.KDefinicionProductos;
 	}
 
 	public KEmpresas getKEmpresas() {
 		return this.KEmpresas;
 	}
 
-	public void setKEmpresas(KEmpresas KEmpresas) {
-		this.KEmpresas = KEmpresas;
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
 	}
 
-	public KDefinicionProductos getKDefinicionProductos() {
-		return this.KDefinicionProductos;
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public BigDecimal getVlrUnitario() {
+		return this.vlrUnitario;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public void setDispersado(String dispersado) {
+		this.dispersado = dispersado;
+	}
+
+	public void setFacturaNumero(Integer facturaNumero) {
+		this.facturaNumero = facturaNumero;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaDispersion(Date fechaDispersion) {
+		this.fechaDispersion = fechaDispersion;
+	}
+
+	public void setFechaFacturacion(Date fechaFacturacion) {
+		this.fechaFacturacion = fechaFacturacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setFechaItem(Date fechaItem) {
+		this.fechaItem = fechaItem;
+	}
+
+	public void setFechaPago(Date fechaPago) {
+		this.fechaPago = fechaPago;
+	}
+
+	public void setId(KFacturasId id) {
+		this.id = id;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
 	}
 
 	public void setKDefinicionProductos(
@@ -90,116 +186,20 @@ public class KFacturas implements java.io.Serializable {
 		this.KDefinicionProductos = KDefinicionProductos;
 	}
 
-	public Date getFechaPago() {
-		return this.fechaPago;
-	}
-
-	public void setFechaPago(Date fechaPago) {
-		this.fechaPago = fechaPago;
-	}
-
-	public Date getFechaFacturacion() {
-		return this.fechaFacturacion;
-	}
-
-	public void setFechaFacturacion(Date fechaFacturacion) {
-		this.fechaFacturacion = fechaFacturacion;
-	}
-
-	public Date getFechaDispersion() {
-		return this.fechaDispersion;
-	}
-
-	public void setFechaDispersion(Date fechaDispersion) {
-		this.fechaDispersion = fechaDispersion;
-	}
-
-	public int getCantidad() {
-		return this.cantidad;
-	}
-
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
-	}
-
-	public BigDecimal getVlrUnitario() {
-		return this.vlrUnitario;
-	}
-
-	public void setVlrUnitario(BigDecimal vlrUnitario) {
-		this.vlrUnitario = vlrUnitario;
-	}
-
-	public Date getFechaItem() {
-		return this.fechaItem;
-	}
-
-	public void setFechaItem(Date fechaItem) {
-		this.fechaItem = fechaItem;
-	}
-
-	public Integer getFacturaNumero() {
-		return this.facturaNumero;
-	}
-
-	public void setFacturaNumero(Integer facturaNumero) {
-		this.facturaNumero = facturaNumero;
-	}
-
-	public String getDispersado() {
-		return this.dispersado;
-	}
-
-	public void setDispersado(String dispersado) {
-		this.dispersado = dispersado;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
-	}
-
-	public Date getFechaActualizacion() {
-		return this.fechaActualizacion;
-	}
-
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
+	public void setKEmpresas(KEmpresas KEmpresas) {
+		this.KEmpresas = KEmpresas;
 	}
 
 	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
 		this.usuarioActualizacion = usuarioActualizacion;
 	}
 
-	public String getIpActualizacion() {
-		return this.ipActualizacion;
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
+	public void setVlrUnitario(BigDecimal vlrUnitario) {
+		this.vlrUnitario = vlrUnitario;
 	}
 
 }

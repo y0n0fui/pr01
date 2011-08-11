@@ -74,140 +74,140 @@ public class KDefinicionProductos implements java.io.Serializable {
 		this.KFacturases = KFacturases;
 	}
 
+	public String getAbreviado() {
+		return this.abreviado;
+	}
+
 	public int getCodigoInternoDefinicion() {
 		return this.codigoInternoDefinicion;
-	}
-
-	public void setCodigoInternoDefinicion(int codigoInternoDefinicion) {
-		this.codigoInternoDefinicion = codigoInternoDefinicion;
-	}
-
-	public KBancosTerceros getKBancosTerceros() {
-		return this.KBancosTerceros;
-	}
-
-	public void setKBancosTerceros(KBancosTerceros KBancosTerceros) {
-		this.KBancosTerceros = KBancosTerceros;
-	}
-
-	public KEmpresas getKEmpresas() {
-		return this.KEmpresas;
-	}
-
-	public void setKEmpresas(KEmpresas KEmpresas) {
-		this.KEmpresas = KEmpresas;
-	}
-
-	public KProductos getKProductos() {
-		return this.KProductos;
-	}
-
-	public void setKProductos(KProductos KProductos) {
-		this.KProductos = KProductos;
 	}
 
 	public String getDescripcionProducto() {
 		return this.descripcionProducto;
 	}
 
-	public void setDescripcionProducto(String descripcionProducto) {
-		this.descripcionProducto = descripcionProducto;
-	}
-
-	public BigDecimal getPorcAdministracion() {
-		return this.porcAdministracion;
-	}
-
-	public void setPorcAdministracion(BigDecimal porcAdministracion) {
-		this.porcAdministracion = porcAdministracion;
-	}
-
-	public String getAbreviado() {
-		return this.abreviado;
-	}
-
-	public void setAbreviado(String abreviado) {
-		this.abreviado = abreviado;
+	public Date getFechaActualizacion() {
+		return this.fechaActualizacion;
 	}
 
 	public Date getFechaInsercion() {
 		return this.fechaInsercion;
 	}
 
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
+	public String getIpActualizacion() {
+		return this.ipActualizacion;
 	}
 
 	public String getIpInsercion() {
 		return this.ipInsercion;
 	}
 
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
+	public KBancosTerceros getKBancosTerceros() {
+		return this.KBancosTerceros;
 	}
 
-	public Date getFechaActualizacion() {
-		return this.fechaActualizacion;
-	}
-
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
-	}
-
-	public String getIpActualizacion() {
-		return this.ipActualizacion;
-	}
-
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
-	}
-
-	public Set getKPivotCoorPros() {
-		return this.KPivotCoorPros;
-	}
-
-	public void setKPivotCoorPros(Set KPivotCoorPros) {
-		this.KPivotCoorPros = KPivotCoorPros;
-	}
-
-	public Set getKMvtoBeneficiadoses() {
-		return this.KMvtoBeneficiadoses;
-	}
-
-	public void setKMvtoBeneficiadoses(Set KMvtoBeneficiadoses) {
-		this.KMvtoBeneficiadoses = KMvtoBeneficiadoses;
-	}
-
-	public Set getKProductosDeduccioneses() {
-		return this.KProductosDeduccioneses;
-	}
-
-	public void setKProductosDeduccioneses(Set KProductosDeduccioneses) {
-		this.KProductosDeduccioneses = KProductosDeduccioneses;
+	public KEmpresas getKEmpresas() {
+		return this.KEmpresas;
 	}
 
 	public Set getKFacturases() {
 		return this.KFacturases;
 	}
 
+	public Set getKMvtoBeneficiadoses() {
+		return this.KMvtoBeneficiadoses;
+	}
+
+	public Set getKPivotCoorPros() {
+		return this.KPivotCoorPros;
+	}
+
+	public KProductos getKProductos() {
+		return this.KProductos;
+	}
+
+	public Set getKProductosDeduccioneses() {
+		return this.KProductosDeduccioneses;
+	}
+
+	public BigDecimal getPorcAdministracion() {
+		return this.porcAdministracion;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setAbreviado(String abreviado) {
+		this.abreviado = abreviado;
+	}
+
+	public void setCodigoInternoDefinicion(int codigoInternoDefinicion) {
+		this.codigoInternoDefinicion = codigoInternoDefinicion;
+	}
+
+	public void setDescripcionProducto(String descripcionProducto) {
+		this.descripcionProducto = descripcionProducto;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setKBancosTerceros(KBancosTerceros KBancosTerceros) {
+		this.KBancosTerceros = KBancosTerceros;
+	}
+
+	public void setKEmpresas(KEmpresas KEmpresas) {
+		this.KEmpresas = KEmpresas;
+	}
+
 	public void setKFacturases(Set KFacturases) {
 		this.KFacturases = KFacturases;
+	}
+
+	public void setKMvtoBeneficiadoses(Set KMvtoBeneficiadoses) {
+		this.KMvtoBeneficiadoses = KMvtoBeneficiadoses;
+	}
+
+	public void setKPivotCoorPros(Set KPivotCoorPros) {
+		this.KPivotCoorPros = KPivotCoorPros;
+	}
+
+	public void setKProductos(KProductos KProductos) {
+		this.KProductos = KProductos;
+	}
+
+	public void setKProductosDeduccioneses(Set KProductosDeduccioneses) {
+		this.KProductosDeduccioneses = KProductosDeduccioneses;
+	}
+
+	public void setPorcAdministracion(BigDecimal porcAdministracion) {
+		this.porcAdministracion = porcAdministracion;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

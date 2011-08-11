@@ -55,96 +55,96 @@ public class CTipoIdentificacion implements java.io.Serializable {
 		return this.codIntTipoId;
 	}
 
-	public void setCodIntTipoId(int codIntTipoId) {
-		this.codIntTipoId = codIntTipoId;
-	}
-
 	public String getDescripcion() {
 		return this.descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
 	}
 
 	public Date getFechaActualizacion() {
 		return this.fechaActualizacion;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
-	}
-
-	public Set getKEmpresases() {
-		return this.KEmpresases;
-	}
-
-	public void setKEmpresases(Set KEmpresases) {
-		this.KEmpresases = KEmpresases;
-	}
-
-	public Set getKEmpleadosClienteses() {
-		return this.KEmpleadosClienteses;
-	}
-
-	public void setKEmpleadosClienteses(Set KEmpleadosClienteses) {
-		this.KEmpleadosClienteses = KEmpleadosClienteses;
-	}
-
-	public Set getKMvtoBeneficiadoses() {
-		return this.KMvtoBeneficiadoses;
-	}
-
-	public void setKMvtoBeneficiadoses(Set KMvtoBeneficiadoses) {
-		this.KMvtoBeneficiadoses = KMvtoBeneficiadoses;
+	public String getIpInsercion() {
+		return this.ipInsercion;
 	}
 
 	public Set getKBancosTerceroses() {
 		return this.KBancosTerceroses;
 	}
 
+	public Set getKEmpleadosClienteses() {
+		return this.KEmpleadosClienteses;
+	}
+
+	public Set getKEmpresases() {
+		return this.KEmpresases;
+	}
+
+	public Set getKMvtoBeneficiadoses() {
+		return this.KMvtoBeneficiadoses;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setCodIntTipoId(int codIntTipoId) {
+		this.codIntTipoId = codIntTipoId;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
 	public void setKBancosTerceroses(Set KBancosTerceroses) {
 		this.KBancosTerceroses = KBancosTerceroses;
+	}
+
+	public void setKEmpleadosClienteses(Set KEmpleadosClienteses) {
+		this.KEmpleadosClienteses = KEmpleadosClienteses;
+	}
+
+	public void setKEmpresases(Set KEmpresases) {
+		this.KEmpresases = KEmpresases;
+	}
+
+	public void setKMvtoBeneficiadoses(Set KMvtoBeneficiadoses) {
+		this.KMvtoBeneficiadoses = KMvtoBeneficiadoses;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

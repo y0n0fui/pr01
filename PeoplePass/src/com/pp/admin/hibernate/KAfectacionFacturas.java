@@ -54,16 +54,72 @@ public class KAfectacionFacturas implements java.io.Serializable {
 		this.ipActualizacion = ipActualizacion;
 	}
 
+	public int getCantidad() {
+		return this.cantidad;
+	}
+
+	public Date getFechaActualizacion() {
+		return this.fechaActualizacion;
+	}
+
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
+	}
+
 	public KAfectacionFacturasId getId() {
 		return this.id;
+	}
+
+	public String getIpActualizacion() {
+		return this.ipActualizacion;
+	}
+
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KConceptosFacturacion getKConceptosFacturacion() {
+		return this.KConceptosFacturacion;
+	}
+
+	public int getNumeroFactura() {
+		return this.numeroFactura;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public BigDecimal getVlrUnitario() {
+		return this.vlrUnitario;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
 	}
 
 	public void setId(KAfectacionFacturasId id) {
 		this.id = id;
 	}
 
-	public KConceptosFacturacion getKConceptosFacturacion() {
-		return this.KConceptosFacturacion;
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
 	}
 
 	public void setKConceptosFacturacion(
@@ -71,76 +127,20 @@ public class KAfectacionFacturas implements java.io.Serializable {
 		this.KConceptosFacturacion = KConceptosFacturacion;
 	}
 
-	public int getNumeroFactura() {
-		return this.numeroFactura;
-	}
-
 	public void setNumeroFactura(int numeroFactura) {
 		this.numeroFactura = numeroFactura;
-	}
-
-	public BigDecimal getVlrUnitario() {
-		return this.vlrUnitario;
-	}
-
-	public void setVlrUnitario(BigDecimal vlrUnitario) {
-		this.vlrUnitario = vlrUnitario;
-	}
-
-	public int getCantidad() {
-		return this.cantidad;
-	}
-
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
-	}
-
-	public Date getFechaActualizacion() {
-		return this.fechaActualizacion;
-	}
-
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
 	}
 
 	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
 		this.usuarioActualizacion = usuarioActualizacion;
 	}
 
-	public String getIpActualizacion() {
-		return this.ipActualizacion;
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
+	public void setVlrUnitario(BigDecimal vlrUnitario) {
+		this.vlrUnitario = vlrUnitario;
 	}
 
 }

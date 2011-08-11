@@ -49,84 +49,84 @@ public class KRolesEmpresas implements java.io.Serializable {
 		this.ipActualizacion = ipActualizacion;
 	}
 
-	public KRolesEmpresasId getId() {
-		return this.id;
-	}
-
-	public void setId(KRolesEmpresasId id) {
-		this.id = id;
-	}
-
-	public KEmpresas getKEmpresas() {
-		return this.KEmpresas;
-	}
-
-	public void setKEmpresas(KEmpresas KEmpresas) {
-		this.KEmpresas = KEmpresas;
-	}
-
-	public KRoles getKRoles() {
-		return this.KRoles;
-	}
-
-	public void setKRoles(KRoles KRoles) {
-		this.KRoles = KRoles;
-	}
-
-	public KUsuariosEmpresas getKUsuariosEmpresas() {
-		return this.KUsuariosEmpresas;
-	}
-
-	public void setKUsuariosEmpresas(KUsuariosEmpresas KUsuariosEmpresas) {
-		this.KUsuariosEmpresas = KUsuariosEmpresas;
+	public Date getFechaActualizacion() {
+		return this.fechaActualizacion;
 	}
 
 	public Date getFechaInsercion() {
 		return this.fechaInsercion;
 	}
 
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public BigDecimal getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(BigDecimal usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
-	}
-
-	public Date getFechaActualizacion() {
-		return this.fechaActualizacion;
-	}
-
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public KRolesEmpresasId getId() {
+		return this.id;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KEmpresas getKEmpresas() {
+		return this.KEmpresas;
+	}
+
+	public KRoles getKRoles() {
+		return this.KRoles;
+	}
+
+	public KUsuariosEmpresas getKUsuariosEmpresas() {
+		return this.KUsuariosEmpresas;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public BigDecimal getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setId(KRolesEmpresasId id) {
+		this.id = id;
+	}
+
 	public void setIpActualizacion(String ipActualizacion) {
 		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setKEmpresas(KEmpresas KEmpresas) {
+		this.KEmpresas = KEmpresas;
+	}
+
+	public void setKRoles(KRoles KRoles) {
+		this.KRoles = KRoles;
+	}
+
+	public void setKUsuariosEmpresas(KUsuariosEmpresas KUsuariosEmpresas) {
+		this.KUsuariosEmpresas = KUsuariosEmpresas;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(BigDecimal usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

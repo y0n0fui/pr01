@@ -99,216 +99,216 @@ public class KEmpresas implements java.io.Serializable {
 		return this.codigoInternoEmpresa;
 	}
 
-	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
-		this.codigoInternoEmpresa = codigoInternoEmpresa;
-	}
-
-	public CTipoIdentificacion getTipoIdentificacion() {
-		return this.tipoIdentificacion;
-	}
-
-	public void setTipoIdentificacion(CTipoIdentificacion tipoIdentificacion) {
-		this.tipoIdentificacion = tipoIdentificacion;
-	}
-
-	public String getNroIdentificacion() {
-		return this.nroIdentificacion;
-	}
-
-	public void setNroIdentificacion(String nroIdentificacion) {
-		this.nroIdentificacion = nroIdentificacion;
-	}
-
-	public String getTelefono() {
-		return this.telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
-	public String getDireccion() {
-		return this.direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
 	public String getCorreoElectronico() {
 		return this.correoElectronico;
-	}
-
-	public void setCorreoElectronico(String correoElectronico) {
-		this.correoElectronico = correoElectronico;
 	}
 
 	public BigDecimal getCupoSobregiro() {
 		return this.cupoSobregiro;
 	}
 
-	public void setCupoSobregiro(BigDecimal cupoSobregiro) {
-		this.cupoSobregiro = cupoSobregiro;
+	public String getDireccion() {
+		return this.direccion;
 	}
 
 	public String getFacturaImpresa() {
 		return this.facturaImpresa;
 	}
 
-	public void setFacturaImpresa(String facturaImpresa) {
-		this.facturaImpresa = facturaImpresa;
-	}
-
-	public int getUmbralDiasAviso() {
-		return this.umbralDiasAviso;
-	}
-
-	public void setUmbralDiasAviso(int umbralDiasAviso) {
-		this.umbralDiasAviso = umbralDiasAviso;
-	}
-
-	public Date getFechaPagoActual() {
-		return this.fechaPagoActual;
-	}
-
-	public void setFechaPagoActual(Date fechaPagoActual) {
-		this.fechaPagoActual = fechaPagoActual;
+	public Date getFechaActualizacion() {
+		return this.fechaActualizacion;
 	}
 
 	public Date getFechaInsercion() {
 		return this.fechaInsercion;
 	}
 
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
-	}
-
-	public Date getFechaActualizacion() {
-		return this.fechaActualizacion;
-	}
-
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public Date getFechaPagoActual() {
+		return this.fechaPagoActual;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
-	}
-
-	public Set getKCondicionesEspecialeses() {
-		return this.KCondicionesEspecialeses;
-	}
-
-	public void setKCondicionesEspecialeses(Set KCondicionesEspecialeses) {
-		this.KCondicionesEspecialeses = KCondicionesEspecialeses;
-	}
-
-	public Set getKUsuariosEmpresases() {
-		return this.KUsuariosEmpresases;
-	}
-
-	public void setKUsuariosEmpresases(Set KUsuariosEmpresases) {
-		this.KUsuariosEmpresases = KUsuariosEmpresases;
-	}
-
-	public Set getKDefinicionProductoses() {
-		return this.KDefinicionProductoses;
-	}
-
-	public void setKDefinicionProductoses(Set KDefinicionProductoses) {
-		this.KDefinicionProductoses = KDefinicionProductoses;
-	}
-
-	public KSaldosXEmpresas getKSaldosXEmpresas() {
-		return this.KSaldosXEmpresas;
-	}
-
-	public void setKSaldosXEmpresas(KSaldosXEmpresas KSaldosXEmpresas) {
-		this.KSaldosXEmpresas = KSaldosXEmpresas;
-	}
-
-	public Set getKPivotGteCuentaEmpresases() {
-		return this.KPivotGteCuentaEmpresases;
-	}
-
-	public void setKPivotGteCuentaEmpresases(Set KPivotGteCuentaEmpresases) {
-		this.KPivotGteCuentaEmpresases = KPivotGteCuentaEmpresases;
-	}
-
-	public Set getKPivotCoorPros() {
-		return this.KPivotCoorPros;
-	}
-
-	public void setKPivotCoorPros(Set KPivotCoorPros) {
-		this.KPivotCoorPros = KPivotCoorPros;
+	public String getIpInsercion() {
+		return this.ipInsercion;
 	}
 
 	public Set getKCiclosProyectadoses() {
 		return this.KCiclosProyectadoses;
 	}
 
-	public void setKCiclosProyectadoses(Set KCiclosProyectadoses) {
-		this.KCiclosProyectadoses = KCiclosProyectadoses;
+	public Set getKCondicionesEspecialeses() {
+		return this.KCondicionesEspecialeses;
 	}
 
-	public Set getKMovimientoSaldoClienteses() {
-		return this.KMovimientoSaldoClienteses;
-	}
-
-	public void setKMovimientoSaldoClienteses(Set KMovimientoSaldoClienteses) {
-		this.KMovimientoSaldoClienteses = KMovimientoSaldoClienteses;
-	}
-
-	public Set getKMvtoBeneficiadoses() {
-		return this.KMvtoBeneficiadoses;
-	}
-
-	public void setKMvtoBeneficiadoses(Set KMvtoBeneficiadoses) {
-		this.KMvtoBeneficiadoses = KMvtoBeneficiadoses;
-	}
-
-	public Set getKRolesEmpresases() {
-		return this.KRolesEmpresases;
-	}
-
-	public void setKRolesEmpresases(Set KRolesEmpresases) {
-		this.KRolesEmpresases = KRolesEmpresases;
+	public Set getKDefinicionProductoses() {
+		return this.KDefinicionProductoses;
 	}
 
 	public Set getKFacturases() {
 		return this.KFacturases;
 	}
 
+	public Set getKMovimientoSaldoClienteses() {
+		return this.KMovimientoSaldoClienteses;
+	}
+
+	public Set getKMvtoBeneficiadoses() {
+		return this.KMvtoBeneficiadoses;
+	}
+
+	public Set getKPivotCoorPros() {
+		return this.KPivotCoorPros;
+	}
+
+	public Set getKPivotGteCuentaEmpresases() {
+		return this.KPivotGteCuentaEmpresases;
+	}
+
+	public Set getKRolesEmpresases() {
+		return this.KRolesEmpresases;
+	}
+
+	public KSaldosXEmpresas getKSaldosXEmpresas() {
+		return this.KSaldosXEmpresas;
+	}
+
+	public Set getKUsuariosEmpresases() {
+		return this.KUsuariosEmpresases;
+	}
+
+	public String getNroIdentificacion() {
+		return this.nroIdentificacion;
+	}
+
+	public String getTelefono() {
+		return this.telefono;
+	}
+
+	public CTipoIdentificacion getTipoIdentificacion() {
+		return this.tipoIdentificacion;
+	}
+
+	public int getUmbralDiasAviso() {
+		return this.umbralDiasAviso;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
+		this.codigoInternoEmpresa = codigoInternoEmpresa;
+	}
+
+	public void setCorreoElectronico(String correoElectronico) {
+		this.correoElectronico = correoElectronico;
+	}
+
+	public void setCupoSobregiro(BigDecimal cupoSobregiro) {
+		this.cupoSobregiro = cupoSobregiro;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public void setFacturaImpresa(String facturaImpresa) {
+		this.facturaImpresa = facturaImpresa;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setFechaPagoActual(Date fechaPagoActual) {
+		this.fechaPagoActual = fechaPagoActual;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setKCiclosProyectadoses(Set KCiclosProyectadoses) {
+		this.KCiclosProyectadoses = KCiclosProyectadoses;
+	}
+
+	public void setKCondicionesEspecialeses(Set KCondicionesEspecialeses) {
+		this.KCondicionesEspecialeses = KCondicionesEspecialeses;
+	}
+
+	public void setKDefinicionProductoses(Set KDefinicionProductoses) {
+		this.KDefinicionProductoses = KDefinicionProductoses;
+	}
+
 	public void setKFacturases(Set KFacturases) {
 		this.KFacturases = KFacturases;
+	}
+
+	public void setKMovimientoSaldoClienteses(Set KMovimientoSaldoClienteses) {
+		this.KMovimientoSaldoClienteses = KMovimientoSaldoClienteses;
+	}
+
+	public void setKMvtoBeneficiadoses(Set KMvtoBeneficiadoses) {
+		this.KMvtoBeneficiadoses = KMvtoBeneficiadoses;
+	}
+
+	public void setKPivotCoorPros(Set KPivotCoorPros) {
+		this.KPivotCoorPros = KPivotCoorPros;
+	}
+
+	public void setKPivotGteCuentaEmpresases(Set KPivotGteCuentaEmpresases) {
+		this.KPivotGteCuentaEmpresases = KPivotGteCuentaEmpresases;
+	}
+
+	public void setKRolesEmpresases(Set KRolesEmpresases) {
+		this.KRolesEmpresases = KRolesEmpresases;
+	}
+
+	public void setKSaldosXEmpresas(KSaldosXEmpresas KSaldosXEmpresas) {
+		this.KSaldosXEmpresas = KSaldosXEmpresas;
+	}
+
+	public void setKUsuariosEmpresases(Set KUsuariosEmpresases) {
+		this.KUsuariosEmpresases = KUsuariosEmpresases;
+	}
+
+	public void setNroIdentificacion(String nroIdentificacion) {
+		this.nroIdentificacion = nroIdentificacion;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public void setTipoIdentificacion(CTipoIdentificacion tipoIdentificacion) {
+		this.tipoIdentificacion = tipoIdentificacion;
+	}
+
+	public void setUmbralDiasAviso(int umbralDiasAviso) {
+		this.umbralDiasAviso = umbralDiasAviso;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

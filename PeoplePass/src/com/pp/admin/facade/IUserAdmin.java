@@ -3,11 +3,6 @@ package com.pp.admin.facade;
 
 import java.util.List;
 
-import org.hibernate.Query;
-import org.springframework.transaction.annotation.Transactional;
-
-
-
 import com.pp.admin.hibernate.CTipoCargo;
 import com.pp.admin.hibernate.CTipoIdentificacion;
 import com.pp.admin.hibernate.KEmpresas;
@@ -20,82 +15,82 @@ public interface IUserAdmin {
 	
 	
 	
-	public List<KRoles> getRoles();
-	
-	
-	public void save(KRoles role);
-	
-	
-	
-	
-	public KRoles getRoles(int idRole);
-	
-	public void delete(KRoles role);
-	
-	
-	
-	public List<CTipoCargo> getTipoCargo();
-	
-	
-	public void save(CTipoCargo tipoCargo);
-	
-	
-	public CTipoCargo getTipoCargo(int idTipoCargo);
-	
-	
 	public void delete(CTipoCargo tipoCargo);
-	
-	
-	
-	public List<CTipoIdentificacion> getTipoIdentificacion();
-	
-	
-	public void save(CTipoIdentificacion tipoIdentificacion);
-	
-	
-	public CTipoIdentificacion getTipoIdentificacion(int idTipoIdentificacion);
 	
 	
 	public void delete(CTipoIdentificacion tipoIdentificacion);
 	
 	
-	public List<KEmpresas> getEmpresas();
-	
-	
-	public void save(KEmpresas empresa);
-	
-	
-	public KEmpresas getEmpresa(int idEmpresa);
 	
 	
 	public void delete(KEmpresas empresa);
 	
+	public void delete(KRoles role);
 	
-	public List<KUsuariosEmpresas> getUsuarioEmpresas();
-	
-	
-	public void save(KUsuariosEmpresas usuarioEmpresas);
-	
-
-	public KUsuariosEmpresas getUsuarioEmpresas(int idUsuarioEmpresa);
 	
 	
 	public void delete(KUsuariosEmpresas usuariosEmpresas);
 	
 	
-	public List<KUsuariosFunciones> getUsuariosFunciones();
+	public void delete(KUsuariosFunciones usuariosFunciones);
 	
 	
-	public void save(KUsuariosFunciones usuarioFunciones);
+	public KEmpresas getEmpresa(int idEmpresa);
+	
+	
+	public List<KEmpresas> getEmpresas();
+	
+	
+	
+	public List<KRoles> getRoles();
+	
+	
+	public KRoles getRoles(int idRole);
+	
+	
+	public List<CTipoCargo> getTipoCargo();
+	
+	
+	public CTipoCargo getTipoCargo(int idTipoCargo);
+	
+	
+	public List<CTipoIdentificacion> getTipoIdentificacion();
+	
+	
+	public CTipoIdentificacion getTipoIdentificacion(int idTipoIdentificacion);
+	
+	
+	public List<KUsuariosEmpresas> getUsuarioEmpresas();
+	
+	
+	public KUsuariosEmpresas getUsuarioEmpresas(int idUsuarioEmpresa);
+	
+	
+	public List<KUsuariosEmpresas> getUsuarioEmpresasByEmpresa(int empresaId);
 	
 	
 	public KUsuariosFunciones getUsuarioFunciones(int idUsuarioFunciones);
 	
+
+	public List<KUsuariosFunciones> getUsuariosFunciones();
 	
-	public void delete(KUsuariosFunciones usuariosFunciones);
+	
+	public void save(CTipoCargo tipoCargo);
 	
 	
-	public List<KUsuariosEmpresas> getUsuarioEmpresasByEmpresa(int empresaId);
+	public void save(CTipoIdentificacion tipoIdentificacion);
+	
+	
+	public void save(KEmpresas empresa);
+	
+	
+	public void save(KRoles role);
+	
+	
+	public void save(KUsuariosEmpresas usuarioEmpresas);
+	
+	
+	public void save(KUsuariosFunciones usuarioFunciones);
 	
 	
 }

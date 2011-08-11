@@ -18,22 +18,6 @@ public class KRecursosXRolesId implements java.io.Serializable {
 		this.codigoInternoRecurso = codigoInternoRecurso;
 	}
 
-	public int getCodigoInternoRole() {
-		return this.codigoInternoRole;
-	}
-
-	public void setCodigoInternoRole(int codigoInternoRole) {
-		this.codigoInternoRole = codigoInternoRole;
-	}
-
-	public int getCodigoInternoRecurso() {
-		return this.codigoInternoRecurso;
-	}
-
-	public void setCodigoInternoRecurso(int codigoInternoRecurso) {
-		this.codigoInternoRecurso = codigoInternoRecurso;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -48,12 +32,28 @@ public class KRecursosXRolesId implements java.io.Serializable {
 						.getCodigoInternoRecurso());
 	}
 
+	public int getCodigoInternoRecurso() {
+		return this.codigoInternoRecurso;
+	}
+
+	public int getCodigoInternoRole() {
+		return this.codigoInternoRole;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
 		result = 37 * result + this.getCodigoInternoRole();
 		result = 37 * result + this.getCodigoInternoRecurso();
 		return result;
+	}
+
+	public void setCodigoInternoRecurso(int codigoInternoRecurso) {
+		this.codigoInternoRecurso = codigoInternoRecurso;
+	}
+
+	public void setCodigoInternoRole(int codigoInternoRole) {
+		this.codigoInternoRole = codigoInternoRole;
 	}
 
 }

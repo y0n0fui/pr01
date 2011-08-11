@@ -47,16 +47,60 @@ public class KFacturacionDeducciones implements java.io.Serializable {
 		this.ipActualizacion = ipActualizacion;
 	}
 
+	public Date getFechaActualizacion() {
+		return this.fechaActualizacion;
+	}
+
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
+	}
+
 	public KFacturacionDeduccionesId getId() {
 		return this.id;
+	}
+
+	public String getIpActualizacion() {
+		return this.ipActualizacion;
+	}
+
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KConceptosFacturacion getKConceptosFacturacion() {
+		return this.KConceptosFacturacion;
+	}
+
+	public KDefinicionDeducciones getKDefinicionDeducciones() {
+		return this.KDefinicionDeducciones;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
 	}
 
 	public void setId(KFacturacionDeduccionesId id) {
 		this.id = id;
 	}
 
-	public KConceptosFacturacion getKConceptosFacturacion() {
-		return this.KConceptosFacturacion;
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
 	}
 
 	public void setKConceptosFacturacion(
@@ -64,61 +108,17 @@ public class KFacturacionDeducciones implements java.io.Serializable {
 		this.KConceptosFacturacion = KConceptosFacturacion;
 	}
 
-	public KDefinicionDeducciones getKDefinicionDeducciones() {
-		return this.KDefinicionDeducciones;
-	}
-
 	public void setKDefinicionDeducciones(
 			KDefinicionDeducciones KDefinicionDeducciones) {
 		this.KDefinicionDeducciones = KDefinicionDeducciones;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
-	}
-
-	public Date getFechaActualizacion() {
-		return this.fechaActualizacion;
-	}
-
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
 	}
 
 	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
 		this.usuarioActualizacion = usuarioActualizacion;
 	}
 
-	public String getIpActualizacion() {
-		return this.ipActualizacion;
-	}
-
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

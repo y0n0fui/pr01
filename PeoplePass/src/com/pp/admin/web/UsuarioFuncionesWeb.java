@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
@@ -21,6 +21,7 @@ import com.pp.admin.hibernate.KEmpresas;
 import com.pp.admin.hibernate.KUsuariosEmpresas;
 import com.pp.admin.hibernate.KUsuariosFunciones;
 import com.pp.util.DataTable;
+import com.pp.util.MessageUtil;
 
 
 
@@ -41,13 +42,6 @@ public class UsuarioFuncionesWeb extends CRUDWeb{
 	
 	private Integer usuariosEmpresasid=0;	
 	
-	public UsuarioFuncionesWeb() {
-		usuarioFunciones=new KUsuariosFunciones();
-		usuarioFunciones.setUsuariosEmpresas(new KUsuariosEmpresas());
-		
-		
-	}
-	
 	/**
 	 * Herramienta logger
 	 */
@@ -55,8 +49,86 @@ public class UsuarioFuncionesWeb extends CRUDWeb{
 	
 	@Autowired
 	private IUserAdmin userAdmin;
+	
+	public UsuarioFuncionesWeb() {
+		usuarioFunciones=new KUsuariosFunciones();
+		usuarioFunciones.setUsuariosEmpresas(new KUsuariosEmpresas());
+		
+		
+	}
 
 	
+	public void create(ActionEvent evnt){
+		this.usuarioFunciones=new KUsuariosFunciones();
+		toggleModal(evnt);
+	}
+	
+	
+
+	
+	public void delete(ActionEvent evnt){
+		this.usuarioFunciones=userAdmin.getUsuarioFunciones((Integer)selectData[0]);
+		try{
+			userAdmin.delete(this.usuarioFunciones);
+			this.usuarioFunciones=new KUsuariosFunciones();
+			this.selectData=null;
+			init();
+			toggleModalDelete(evnt);
+		}catch (org.springframework.dao.DataIntegrityViolationException e) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			logger.error("Error en constrain",e);	
+        	FacesContext.getCurrentInstance().addMessage(FacesMessage.SEVERITY_ERROR.toString(),  
+    				MessageUtil.getMessageStringFaces("adminufunciones.ufunciones.error.delete", context ));
+		}
+	}
+	
+	
+	
+	public void edit(ActionEvent evnt){
+		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
+		this.usuarioFunciones=userAdmin.getUsuarioFunciones((Integer)selectData[0]);
+		empresasid=this.usuarioFunciones.getUsuariosEmpresas().getKEmpresas().getCodigoInternoEmpresa();
+		usuariosEmpresasid=this.usuarioFunciones.getUsuariosEmpresas().getCodigoInternoUsuario();
+		toggleModal(null);
+	}
+	 
+	
+	public SelectItem[] getEmpresas() {
+		return empresas;
+	}
+	
+
+	
+	public Integer getEmpresasid() {
+		return empresasid;
+	}
+	
+	public IUserAdmin getUserAdmin() {
+		return userAdmin;
+	}
+
+	public KUsuariosFunciones getUsuarioEmpresas() {
+		return usuarioFunciones;
+	}
+	
+
+
+	public KUsuariosFunciones getUsuarioFunciones() {
+		return usuarioFunciones;
+	}
+
+	public SelectItem[] getUsuariosEmpresas() {
+		return usuariosEmpresas;
+	}
+
+
+
+
+	public Integer getUsuariosEmpresasid() {
+		return usuariosEmpresasid;
+	}
+
+
 	public void init(){
 		dataTable=new DataTable();
 		List<KUsuariosFunciones> usuarioFunciones=userAdmin.getUsuariosFunciones();
@@ -69,10 +141,10 @@ public class UsuarioFuncionesWeb extends CRUDWeb{
 		
 		initEmpresas();
 	}
-	
-	
 
-	
+
+
+
 	private void initEmpresas(){
 		List<KEmpresas> listEmpresas=userAdmin.getEmpresas();
 		empresas=new SelectItem[listEmpresas.size()];
@@ -82,9 +154,8 @@ public class UsuarioFuncionesWeb extends CRUDWeb{
 			i++;
 		}
 	}
-	
-	
-	
+
+
 	public void loadUserEmpresas(ValueChangeEvent valueChangeEvent){
 		Integer newValue=(Integer)valueChangeEvent.getNewValue();
 		List<KUsuariosEmpresas> listUsuarioEmpresas=userAdmin.getUsuarioEmpresasByEmpresa(newValue);
@@ -95,8 +166,8 @@ public class UsuarioFuncionesWeb extends CRUDWeb{
  			i++;
 		}
 	}
-	 
-	
+
+
 	public void onSave(ActionEvent evnt){
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		this.usuarioFunciones.setUsuariosEmpresas(userAdmin.getUsuarioEmpresas(usuariosEmpresasid));
@@ -115,60 +186,6 @@ public class UsuarioFuncionesWeb extends CRUDWeb{
 		toggleModal(evnt);
 		
 	}
-	
-
-	
-	public void create(ActionEvent evnt){
-		this.usuarioFunciones=new KUsuariosFunciones();
-		toggleModal(evnt);
-	}
-	
-	public void edit(ActionEvent evnt){
-		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
-		this.usuarioFunciones=userAdmin.getUsuarioFunciones((Integer)selectData[0]);
-		empresasid=this.usuarioFunciones.getUsuariosEmpresas().getKEmpresas().getCodigoInternoEmpresa();
-		usuariosEmpresasid=this.usuarioFunciones.getUsuariosEmpresas().getCodigoInternoUsuario();
-		toggleModal(null);
-	}
-
-	public void delete(ActionEvent evnt){
-		this.usuarioFunciones=userAdmin.getUsuarioFunciones((Integer)selectData[0]);
-		userAdmin.delete(this.usuarioFunciones);
-		this.usuarioFunciones=new KUsuariosFunciones();
-		this.selectData=null;
-		
-		init();
-		toggleModalDelete(evnt);
-	}
-	
-
-
-	public IUserAdmin getUserAdmin() {
-		return userAdmin;
-	}
-
-	public void setUserAdmin(IUserAdmin userAdmin) {
-		this.userAdmin = userAdmin;
-	}
-
-
-
-
-	public KUsuariosFunciones getUsuarioEmpresas() {
-		return usuarioFunciones;
-	}
-
-
-	public void setUsuarioEmpresas(KUsuariosFunciones usuarioFunciones) {
-		this.usuarioFunciones = usuarioFunciones;
-	}
-
-
-
-
-	public SelectItem[] getEmpresas() {
-		return empresas;
-	}
 
 
 	public void setEmpresas(SelectItem[] empresas) {
@@ -176,9 +193,6 @@ public class UsuarioFuncionesWeb extends CRUDWeb{
 	}
 
 
-	public Integer getEmpresasid() {
-		return empresasid;
-	}
 
 
 	public void setEmpresasid(Integer empresasid) {
@@ -188,8 +202,15 @@ public class UsuarioFuncionesWeb extends CRUDWeb{
 
 
 
-	public KUsuariosFunciones getUsuarioFunciones() {
-		return usuarioFunciones;
+	public void setUserAdmin(IUserAdmin userAdmin) {
+		this.userAdmin = userAdmin;
+	}
+
+
+
+
+	public void setUsuarioEmpresas(KUsuariosFunciones usuarioFunciones) {
+		this.usuarioFunciones = usuarioFunciones;
 	}
 
 
@@ -202,22 +223,8 @@ public class UsuarioFuncionesWeb extends CRUDWeb{
 
 
 
-	public SelectItem[] getUsuariosEmpresas() {
-		return usuariosEmpresas;
-	}
-
-
-
-
 	public void setUsuariosEmpresas(SelectItem[] usuariosEmpresas) {
 		this.usuariosEmpresas = usuariosEmpresas;
-	}
-
-
-
-
-	public Integer getUsuariosEmpresasid() {
-		return usuariosEmpresasid;
 	}
 
 

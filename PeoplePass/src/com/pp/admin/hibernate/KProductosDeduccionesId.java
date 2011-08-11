@@ -19,22 +19,6 @@ public class KProductosDeduccionesId implements java.io.Serializable {
 		this.codigoInternoDefinicion = codigoInternoDefinicion;
 	}
 
-	public int getCodigoInternoDeduccion() {
-		return this.codigoInternoDeduccion;
-	}
-
-	public void setCodigoInternoDeduccion(int codigoInternoDeduccion) {
-		this.codigoInternoDeduccion = codigoInternoDeduccion;
-	}
-
-	public int getCodigoInternoDefinicion() {
-		return this.codigoInternoDefinicion;
-	}
-
-	public void setCodigoInternoDefinicion(int codigoInternoDefinicion) {
-		this.codigoInternoDefinicion = codigoInternoDefinicion;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -50,12 +34,28 @@ public class KProductosDeduccionesId implements java.io.Serializable {
 						.getCodigoInternoDefinicion());
 	}
 
+	public int getCodigoInternoDeduccion() {
+		return this.codigoInternoDeduccion;
+	}
+
+	public int getCodigoInternoDefinicion() {
+		return this.codigoInternoDefinicion;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
 		result = 37 * result + this.getCodigoInternoDeduccion();
 		result = 37 * result + this.getCodigoInternoDefinicion();
 		return result;
+	}
+
+	public void setCodigoInternoDeduccion(int codigoInternoDeduccion) {
+		this.codigoInternoDeduccion = codigoInternoDeduccion;
+	}
+
+	public void setCodigoInternoDefinicion(int codigoInternoDefinicion) {
+		this.codigoInternoDefinicion = codigoInternoDefinicion;
 	}
 
 }

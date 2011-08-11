@@ -52,80 +52,80 @@ public class KEmpresaCorreo implements java.io.Serializable {
 		return this.codEmpresaCorreo;
 	}
 
-	public void setCodEmpresaCorreo(int codEmpresaCorreo) {
-		this.codEmpresaCorreo = codEmpresaCorreo;
-	}
-
-	public String getRazonSocial() {
-		return this.razonSocial;
-	}
-
-	public void setRazonSocial(String razonSocial) {
-		this.razonSocial = razonSocial;
-	}
-
-	public String getTelefono() {
-		return this.telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+	public Date getFechaActualizacion() {
+		return this.fechaActualizacion;
 	}
 
 	public Date getFechaInsercion() {
 		return this.fechaInsercion;
 	}
 
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
+	public String getIpActualizacion() {
+		return this.ipActualizacion;
 	}
 
 	public String getIpInsercion() {
 		return this.ipInsercion;
 	}
 
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
+	public Set getKCorreos() {
+		return this.KCorreos;
 	}
 
-	public Date getFechaActualizacion() {
-		return this.fechaActualizacion;
+	public String getRazonSocial() {
+		return this.razonSocial;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
+	public String getTelefono() {
+		return this.telefono;
 	}
 
 	public Integer getUsuarioActualizacion() {
 		return this.usuarioActualizacion;
 	}
 
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
 	}
 
-	public String getIpActualizacion() {
-		return this.ipActualizacion;
+	public void setCodEmpresaCorreo(int codEmpresaCorreo) {
+		this.codEmpresaCorreo = codEmpresaCorreo;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
 	}
 
 	public void setIpActualizacion(String ipActualizacion) {
 		this.ipActualizacion = ipActualizacion;
 	}
 
-	public Set getKCorreos() {
-		return this.KCorreos;
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
 	}
 
 	public void setKCorreos(Set KCorreos) {
 		this.KCorreos = KCorreos;
+	}
+
+	public void setRazonSocial(String razonSocial) {
+		this.razonSocial = razonSocial;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

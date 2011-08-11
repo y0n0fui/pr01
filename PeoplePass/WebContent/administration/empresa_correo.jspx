@@ -9,21 +9,21 @@
    
 		
 		<ice:panelGroup styleClass="synopsisBox inputFileContainer">
-        	<ice:outputText value="#{msg['admintipoid.title']}"/>
-        	<ice:outputText value="#{msg['admintipoid.desc']}"/>
+        	<ice:outputText value="#{msg['adminempresacorreo.title']}"/>
+        	<ice:outputText value="#{msg['adminempresacorreo.desc']}"/>
 		</ice:panelGroup>
 		<ice:panelGroup styleClass="basicBox" >
 		
 		
-			<ice:dataTable id="tipoidlisttable"
+			<ice:dataTable id="ecorreolisttable"
  				  var="row"
- 				  value="#{tipoIdentificacionWeb.dataTable.data}"
+ 				  value="#{empresaCorreoWeb.dataTable.data}"
 		  columnClasses="tableCol"
 		  scrollable="true"
 		  scrollHeight="250px"
 		  columnWidths="100px,100px,80px,250px,100px,80px,80px,80px,80px"
-		  sortAscending="#{tipoIdentificacionWeb.dataTable.sortDataAscending}" 	
-		  sortColumn="#{tipoIdentificacionWeb.dataTable.sortColumn}">
+		  sortAscending="#{empresaCorreoWeb.dataTable.sortDataAscending}" 	
+		  sortColumn="#{empresaCorreoWeb.dataTable.sortColumn}">
 		 <ice:column>
 		
 			
@@ -31,7 +31,7 @@
 		          	<ice:commandSortHeader id="c1Header"
                                            columnName="c1" arrow="true">
 			              <ice:outputText id="lblc1"
-			                              value="#{msg['admintipoid.tipoid.description']}"/>
+			                              value="#{msg['adminempresacorreo.ecorreo.razonsocial']}"/>
 			        </ice:commandSortHeader>                      
 		     	  </f:facet>	
 		      <ice:outputText id="valuec1"
@@ -46,7 +46,7 @@
 		     	<ice:commandSortHeader id="c2Header"
                                            columnName="c2" arrow="true">
 		     		 <ice:outputText id="lblc2"
-		                         value="#{msg['admintipoid.tipoid.dateAct']}"/>
+		                         value="#{msg['adminempresacorreo.ecorreo.dateAct']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec2"
@@ -60,7 +60,7 @@
 		     	<ice:commandSortHeader id="c3Header"
                                            columnName="c3" arrow="true">
 		     		 <ice:outputText id="lblc3"
-		                         value="#{msg['admintipoid.tipoid.ipAct']}"/>
+		                         value="#{msg['adminempresacorreo.ecorreo.ipAct']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec3"
@@ -75,7 +75,7 @@
 		     	<ice:commandSortHeader id="c4Header"
                                            columnName="c4" arrow="true">
 		     		 <ice:outputText id="lblc4"
-		                         value="#{msg['admintipoid.tipoid.userAct']}"/>
+		                         value="#{msg['adminempresacorreo.ecorreo.userAct']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec4"
@@ -89,7 +89,7 @@
 		     	<ice:commandSortHeader id="c5Header"
                                            columnName="c5" arrow="true">
 		     		 <ice:outputText id="lblc5"
-		                         value="#{msg['admintipoid.tipoid.dateInsert']}"/>
+		                         value="#{msg['adminempresacorreo.ecorreo.dateInsert']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec5"
@@ -104,7 +104,7 @@
 		     	<ice:commandSortHeader id="c6Header"
                                            columnName="c6" arrow="true">
 		     		 <ice:outputText id="lblc6"
-		                         value="#{msg['admintipoid.tipoid.ipInsert']}"/>
+		                         value="#{msg['adminempresacorreo.ecorreo.ipInsert']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec6"
@@ -118,7 +118,7 @@
 		     	<ice:commandSortHeader id="c7Header"
                                            columnName="c7" arrow="true">
 		     		 <ice:outputText id="lblc7"
-		                         value="#{msg['admintipoid.tipoid.userInsert']}"/>
+		                         value="#{msg['adminempresacorreo.ecorreo.userInsert']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec7"
@@ -133,7 +133,7 @@
 		                         value="#{msg['general.edit']}"/>
 		     </f:facet>
 		     
-		            <ice:commandLink   actionListener="#{tipoIdentificacionWeb.edit}" value="#{msg['general.edit']}" >
+		            <ice:commandLink   actionListener="#{empresaCorreoWeb.edit}" value="#{msg['general.edit']}" >
 							<f:attribute name="row" value="#{row}"/>
 					</ice:commandLink>
 		                        
@@ -146,7 +146,7 @@
 		                         value="#{msg['general.delete']}"/>
 		     </f:facet>
 		     
-		            <ice:commandLink actionListener="#{tipoIdentificacionWeb.prepareToDelete}" value="#{msg['general.delete']}" >
+		            <ice:commandLink actionListener="#{empresaCorreoWeb.prepareToDelete}" value="#{msg['general.delete']}" >
 							<f:attribute name="row" value="#{row}"/>
 					</ice:commandLink>
 		                        
@@ -155,7 +155,7 @@
 			
 		</ice:dataTable>	
 		<ice:panelGroup> 
-		<ice:commandButton id="btnCreateRole" value="#{msg['admintipoid.tipoid.create']}" actionListener="#{tipoIdentificacionWeb.create}" ></ice:commandButton>
+		<ice:commandButton id="btnCreateRole" value="#{msg['adminempresacorreo.ecorreo.create']}" actionListener="#{empresaCorreoWeb.create}" ></ice:commandButton>
 			
 		</ice:panelGroup>
 		</ice:panelGroup>
@@ -165,17 +165,17 @@
             id="idPopUpPanel"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 170px;"
-            visible="#{tipoIdentificacionWeb.rederPopup}">
+            draggable="true" modal="true" style="width: 300px;height: 250px;"
+            visible="#{empresaCorreoWeb.rederPopup}">
             
         <f:facet name="header">
         <ice:panelGroup styleClass="popupHeaderWrapper">
             <ice:outputText id="popuptitle"
-                    value="#{msg['admintipoid.tipoid']}"
+                    value="#{msg['adminempresacorreo.ecorreo']}"
                     styleClass="popupHeaderText"/>
             <ice:commandButton id="modalpopUpCloseBtn" type="button"
                                image="images/popupclose.gif"
-                               actionListener="#{tipoIdentificacionWeb.toggleModal}" 
+                               actionListener="#{empresaCorreoWeb.toggleModal}" 
                                styleClass="popupHeaderImage"
                                partialSubmit="true"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
@@ -183,23 +183,40 @@
     	</f:facet>
     	<f:facet name="body"> 
         <ice:panelGroup styleClass="popupBody">
-        	<table>	
+        	<table width="100%">	
         	<tr>
-        	<td>
-        	<ice:outputText value="#{msg['admintipoid.tipoid.description']}"/> *
+        	<td align="left">
+        	<ice:outputText value="#{msg['adminempresacorreo.ecorreo.razonsocial']}"/> *
         	</td>
-        	<td>
-        	<ice:inputText id="description" value="#{tipoIdentificacionWeb.tipoIdentificacion.descripcion}" required="#{tipoIdentificacionWeb.rederPopup}" maxlength="16"></ice:inputText>
+        	<td align="left">
+        	<ice:inputText id="razonsocial" value="#{empresaCorreoWeb.empresaCorreo.razonSocial}" required="#{empresaCorreoWeb.rederPopup}" maxlength="60">
+        	</ice:inputText>
         	</td>
         	</tr>
         	<tr>
         	<td colspan="2">
-        			<ice:message errorClass="error" for="description"/>		
+        			<ice:message errorClass="error" for="razonsocial"/>		
 			</td>
 			</tr>
+			
+			<tr>
+        	<td align="left">
+        	<ice:outputText value="#{msg['adminempresacorreo.ecorreo.telefono']}"/> *
+        	</td>
+        	<td align="left">
+        	<ice:inputText id="telefono" value="#{empresaCorreoWeb.empresaCorreo.telefono}" required="#{empresaCorreoWeb.rederPopup}" maxlength="16">
+        	</ice:inputText>
+        	</td>
+        	</tr>
         	<tr>
-        		<td align="center"><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{tipoIdentificacionWeb.onSave}"></ice:commandButton></td>
-        		<td align="center"><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}"  actionListener="#{tipoIdentificacionWeb.toggleModal}"></ice:commandButton></td>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="telefono"/>		
+			</td>
+			</tr>
+			
+        	<tr>
+        		<td align="center"><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{empresaCorreoWeb.onSave}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{empresaCorreoWeb.toggleModal}"></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 
@@ -212,8 +229,8 @@
             id="idPopUpDelete"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
-            visible="#{tipoIdentificacionWeb.renderDeleteAlert}">
+            draggable="true" modal="true" style="width: 300px;height: 170px;"
+            visible="#{empresaCorreoWeb.renderDeleteAlert}">
             
         <f:facet name="header">
         <ice:panelGroup styleClass="popupHeaderWrapper">
@@ -222,7 +239,7 @@
                     styleClass="popupHeaderText"/>
             <ice:commandButton id="modalPnlCloseBtn" type="button"
                                image="images/popupclose.gif"
-                               actionListener="#{tipoIdentificacionWeb.toggleModalDelete}" 
+                               actionListener="#{empresaCorreoWeb.toggleModalDelete}" 
                                styleClass="popupHeaderImage"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
         </ice:panelGroup>
@@ -237,11 +254,11 @@
         	</tr>
         	<tr>
         		<td>
-        		<ice:commandButton id="btnAceptRole" value="#{msg['general.accept']}" actionListener="#{tipoIdentificacionWeb.delete}">
+        		<ice:commandButton id="btnAceptRole" value="#{msg['general.accept']}" actionListener="#{empresaCorreoWeb.delete}">
         		</ice:commandButton>
         		</td>
         		<td>
-        		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{tipoIdentificacionWeb.toggleModalDelete}">
+        		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{empresaCorreoWeb.toggleModalDelete}">
         		</ice:commandButton>
         		</td>
         	</tr>

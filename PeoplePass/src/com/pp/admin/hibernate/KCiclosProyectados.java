@@ -51,92 +51,92 @@ public class KCiclosProyectados implements java.io.Serializable {
 		this.ipActualizacion = ipActualizacion;
 	}
 
-	public KCiclosProyectadosId getId() {
-		return this.id;
-	}
-
-	public void setId(KCiclosProyectadosId id) {
-		this.id = id;
-	}
-
-	public KCiclo getKCiclo() {
-		return this.KCiclo;
-	}
-
-	public void setKCiclo(KCiclo KCiclo) {
-		this.KCiclo = KCiclo;
-	}
-
-	public KEmpresas getKEmpresas() {
-		return this.KEmpresas;
-	}
-
-	public void setKEmpresas(KEmpresas KEmpresas) {
-		this.KEmpresas = KEmpresas;
-	}
-
-	public Date getFechaDispersion() {
-		return this.fechaDispersion;
-	}
-
-	public void setFechaDispersion(Date fechaDispersion) {
-		this.fechaDispersion = fechaDispersion;
-	}
-
 	public String getDescripcionCiclo() {
 		return this.descripcionCiclo;
-	}
-
-	public void setDescripcionCiclo(String descripcionCiclo) {
-		this.descripcionCiclo = descripcionCiclo;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
 	}
 
 	public Date getFechaActualizacion() {
 		return this.fechaActualizacion;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
+	public Date getFechaDispersion() {
+		return this.fechaDispersion;
 	}
 
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
 	}
 
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public KCiclosProyectadosId getId() {
+		return this.id;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KCiclo getKCiclo() {
+		return this.KCiclo;
+	}
+
+	public KEmpresas getKEmpresas() {
+		return this.KEmpresas;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setDescripcionCiclo(String descripcionCiclo) {
+		this.descripcionCiclo = descripcionCiclo;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaDispersion(Date fechaDispersion) {
+		this.fechaDispersion = fechaDispersion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setId(KCiclosProyectadosId id) {
+		this.id = id;
+	}
+
 	public void setIpActualizacion(String ipActualizacion) {
 		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setKCiclo(KCiclo KCiclo) {
+		this.KCiclo = KCiclo;
+	}
+
+	public void setKEmpresas(KEmpresas KEmpresas) {
+		this.KEmpresas = KEmpresas;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

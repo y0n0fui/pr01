@@ -19,22 +19,6 @@ public class KFacturacionDeduccionesId implements java.io.Serializable {
 		this.codIntConcepto = codIntConcepto;
 	}
 
-	public int getCodigoInternoDeduccion() {
-		return this.codigoInternoDeduccion;
-	}
-
-	public void setCodigoInternoDeduccion(int codigoInternoDeduccion) {
-		this.codigoInternoDeduccion = codigoInternoDeduccion;
-	}
-
-	public int getCodIntConcepto() {
-		return this.codIntConcepto;
-	}
-
-	public void setCodIntConcepto(int codIntConcepto) {
-		this.codIntConcepto = codIntConcepto;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -49,12 +33,28 @@ public class KFacturacionDeduccionesId implements java.io.Serializable {
 				&& (this.getCodIntConcepto() == castOther.getCodIntConcepto());
 	}
 
+	public int getCodigoInternoDeduccion() {
+		return this.codigoInternoDeduccion;
+	}
+
+	public int getCodIntConcepto() {
+		return this.codIntConcepto;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
 		result = 37 * result + this.getCodigoInternoDeduccion();
 		result = 37 * result + this.getCodIntConcepto();
 		return result;
+	}
+
+	public void setCodigoInternoDeduccion(int codigoInternoDeduccion) {
+		this.codigoInternoDeduccion = codigoInternoDeduccion;
+	}
+
+	public void setCodIntConcepto(int codIntConcepto) {
+		this.codIntConcepto = codIntConcepto;
 	}
 
 }

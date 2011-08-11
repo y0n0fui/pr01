@@ -4,6 +4,7 @@ package com.pp.admin.web;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
@@ -18,6 +19,7 @@ import com.pp.admin.hibernate.CTipoCargo;
 import com.pp.admin.hibernate.KEmpresas;
 import com.pp.admin.hibernate.KUsuariosEmpresas;
 import com.pp.util.DataTable;
+import com.pp.util.MessageUtil;
 
 
 
@@ -37,10 +39,6 @@ public class UsuarioEmpresasWeb extends CRUDWeb{
 	private Integer empresasid=0;
 	
 	
-	public UsuarioEmpresasWeb() {
-		usuarioEmpresas=new KUsuariosEmpresas();
-	}
-	
 	/**
 	 * Herramienta logger
 	 */
@@ -48,8 +46,74 @@ public class UsuarioEmpresasWeb extends CRUDWeb{
 	
 	@Autowired
 	private IUserAdmin userAdmin;
+	
+	public UsuarioEmpresasWeb() {
+		usuarioEmpresas=new KUsuariosEmpresas();
+	}
 
 	
+	public void create(ActionEvent evnt){
+		this.usuarioEmpresas=new KUsuariosEmpresas();
+		toggleModal(evnt);
+	}
+	
+	
+	public void delete(ActionEvent evnt){
+		this.usuarioEmpresas=userAdmin.getUsuarioEmpresas((Integer)selectData[0]);
+		try{
+		userAdmin.delete(this.usuarioEmpresas);
+		this.usuarioEmpresas=new KUsuariosEmpresas();
+		this.selectData=null;
+		init();
+		toggleModalDelete(evnt);
+		}catch (org.springframework.dao.DataIntegrityViolationException e) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			logger.error("Error en constrain",e);	
+        	FacesContext.getCurrentInstance().addMessage(FacesMessage.SEVERITY_ERROR.toString(),  
+    				MessageUtil.getMessageStringFaces("adminuserempresa.usuarioempresa.error.delete", context ));
+		}
+	}
+	
+	public void edit(ActionEvent evnt){
+		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
+		this.usuarioEmpresas=userAdmin.getUsuarioEmpresas((Integer)selectData[0]);
+		tipoCargoid=this.usuarioEmpresas.getCTipoCargo().getCodigoInternoCargo();
+		empresasid=this.usuarioEmpresas.getKEmpresas().getCodigoInternoEmpresa();
+		toggleModal(null);
+	}
+	
+	
+	public SelectItem[] getEmpresas() {
+		return empresas;
+	}
+	
+
+	
+	public Integer getEmpresasid() {
+		return empresasid;
+	}
+	
+	public Integer getTipoCargoid() {
+		return tipoCargoid;
+	}
+
+	public SelectItem[] getTipoCargos() {
+		return tipoCargos;
+	}
+	
+
+
+	public IUserAdmin getUserAdmin() {
+		return userAdmin;
+	}
+
+	public KUsuariosEmpresas getUsuarioEmpresas() {
+		return usuarioEmpresas;
+	}
+
+
+
+
 	public void init(){
 		dataTable=new DataTable();
 		List<KUsuariosEmpresas> usuarioEmpresa=userAdmin.getUsuarioEmpresas();
@@ -62,8 +126,19 @@ public class UsuarioEmpresasWeb extends CRUDWeb{
 		initTipoCargo();
 		initEmpresas();
 	}
-	
-	
+
+
+	private void initEmpresas(){
+		List<KEmpresas> listEmpresas=userAdmin.getEmpresas();
+		empresas=new SelectItem[listEmpresas.size()];
+		int i=0;
+		for (KEmpresas empresa : listEmpresas) {
+			empresas[i]=new SelectItem(empresa.getCodigoInternoEmpresa(),empresa.getNroIdentificacion());
+			i++;
+		}
+	}
+
+
 	private void initTipoCargo(){
 		List<CTipoCargo> listTipoCargo=userAdmin.getTipoCargo();
 		tipoCargos=new SelectItem[listTipoCargo.size()];
@@ -74,17 +149,9 @@ public class UsuarioEmpresasWeb extends CRUDWeb{
 		}
 	}
 	
-	private void initEmpresas(){
-		List<KEmpresas> listEmpresas=userAdmin.getEmpresas();
-		empresas=new SelectItem[listEmpresas.size()];
-		int i=0;
-		for (KEmpresas empresa : listEmpresas) {
-			empresas[i]=new SelectItem(empresa.getCodigoInternoEmpresa(),empresa.getNroIdentificacion());
-			i++;
-		}
-	}
 	
-	
+
+
 	public void onSave(ActionEvent evnt){
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		this.usuarioEmpresas.setCTipoCargo(userAdmin.getTipoCargo(tipoCargoid));
@@ -104,83 +171,8 @@ public class UsuarioEmpresasWeb extends CRUDWeb{
 		toggleModal(evnt);
 		
 	}
-	
-
-	
-	public void create(ActionEvent evnt){
-		this.usuarioEmpresas=new KUsuariosEmpresas();
-		toggleModal(evnt);
-	}
-	
-	public void edit(ActionEvent evnt){
-		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
-		this.usuarioEmpresas=userAdmin.getUsuarioEmpresas((Integer)selectData[0]);
-		tipoCargoid=this.usuarioEmpresas.getCTipoCargo().getCodigoInternoCargo();
-		empresasid=this.usuarioEmpresas.getKEmpresas().getCodigoInternoEmpresa();
-		toggleModal(null);
-	}
-
-	public void delete(ActionEvent evnt){
-		this.usuarioEmpresas=userAdmin.getUsuarioEmpresas((Integer)selectData[0]);
-		userAdmin.delete(this.usuarioEmpresas);
-		this.usuarioEmpresas=new KUsuariosEmpresas();
-		this.selectData=null;
-		init();
-		toggleModalDelete(evnt);
-	}
-	
 
 
-	public IUserAdmin getUserAdmin() {
-		return userAdmin;
-	}
-
-	public void setUserAdmin(IUserAdmin userAdmin) {
-		this.userAdmin = userAdmin;
-	}
-
-
-
-
-	public KUsuariosEmpresas getUsuarioEmpresas() {
-		return usuarioEmpresas;
-	}
-
-
-	public void setUsuarioEmpresas(KUsuariosEmpresas usuarioEmpresas) {
-		this.usuarioEmpresas = usuarioEmpresas;
-	}
-
-
-	public SelectItem[] getTipoCargos() {
-		return tipoCargos;
-	}
-	
-	
-
-
-	public void setTipoCargos(SelectItem[] tipoCargos) {
-		this.tipoCargos = tipoCargos;
-	}
-
-
-
-
-	public Integer getTipoCargoid() {
-		return tipoCargoid;
-	}
-
-
-
-
-	public void setTipoCargoid(Integer tipoCargoid) {
-		this.tipoCargoid = tipoCargoid;
-	}
-
-
-	public SelectItem[] getEmpresas() {
-		return empresas;
-	}
 
 
 	public void setEmpresas(SelectItem[] empresas) {
@@ -188,13 +180,30 @@ public class UsuarioEmpresasWeb extends CRUDWeb{
 	}
 
 
-	public Integer getEmpresasid() {
-		return empresasid;
-	}
 
 
 	public void setEmpresasid(Integer empresasid) {
 		this.empresasid = empresasid;
+	}
+
+
+	public void setTipoCargoid(Integer tipoCargoid) {
+		this.tipoCargoid = tipoCargoid;
+	}
+
+
+	public void setTipoCargos(SelectItem[] tipoCargos) {
+		this.tipoCargos = tipoCargos;
+	}
+
+
+	public void setUserAdmin(IUserAdmin userAdmin) {
+		this.userAdmin = userAdmin;
+	}
+
+
+	public void setUsuarioEmpresas(KUsuariosEmpresas usuarioEmpresas) {
+		this.usuarioEmpresas = usuarioEmpresas;
 	}
 
 	

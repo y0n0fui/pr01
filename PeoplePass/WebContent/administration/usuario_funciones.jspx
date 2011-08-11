@@ -177,6 +177,7 @@
                                image="images/popupclose.gif"
                                actionListener="#{usuarioFuncionesWeb.toggleModal}" 
                                styleClass="popupHeaderImage"
+                               partialSubmit="true"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
         </ice:panelGroup>
     	</f:facet>
@@ -184,70 +185,127 @@
         <ice:panelGroup styleClass="popupBody">
         	<table>	
         
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminufunciones.ufunciones.empresa']}"/>
-        	</td><td>
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminufunciones.ufunciones.empresa']}"/> *
+        	</td><td align="left">
         	 <ice:selectOneMenu id="slcempresa"
                         value="#{usuarioFuncionesWeb.empresasid}"
                         partialSubmit="true" 
+                        required="#{usuarioFuncionesWeb.rederPopup}"
                         valueChangeListener="#{usuarioFuncionesWeb.loadUserEmpresas}">
                     <f:selectItems id="Slctempresas"
                                    value="#{usuarioFuncionesWeb.empresas}"/>
                 </ice:selectOneMenu>
         	
         	</td></tr>
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="slcempresa"/>		
+			</td>
+			</tr>
         	
-        	<tr><td>
-        	<ice:outputText value="#{msg['adminufunciones.ufunciones.usuario_empresa']}"/>
-        	</td><td>
+        	<tr><td align="left">
+        	<ice:outputText value="#{msg['adminufunciones.ufunciones.usuario_empresa']}"/> *
+        	</td><td align="left">
         	 <ice:selectOneMenu id="slcusuario"
                         value="#{usuarioFuncionesWeb.usuariosEmpresasid}"
-                        partialSubmit="true">
+                        partialSubmit="true"
+                        required="#{usuarioFuncionesWeb.rederPopup}"
+                        >
                     <f:selectItems id="Slctusuario"
                                    value="#{usuarioFuncionesWeb.usuariosEmpresas}"/>
                 </ice:selectOneMenu>
         	</td></tr>
-        	        	
-        	<tr><td>
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="slcusuario"/>		
+			</td>
+			</tr>        	
+        	<tr><td align="left">
         	<ice:outputText value="#{msg['adminufunciones.ufunciones.autorizar_pago']}"/>
-        	</td><td>
-        	<ice:inputText id="inputautorizapago" value="#{usuarioFuncionesWeb.usuarioFunciones.autorizaPago}"></ice:inputText>
+        	</td><td align="left">
+        	<ice:selectOneMenu id="inputautorizapago" value="#{usuarioFuncionesWeb.usuarioFunciones.autorizaPago}" required="#{usuarioFuncionesWeb.rederPopup}">
+        		<f:selectItem itemLabel="#{msg['general.no']}" itemValue="N"/>
+        		<f:selectItem itemLabel="#{msg['general.yes']}" itemValue="S"/>
+        	</ice:selectOneMenu>
         	</td></tr>
-        	
-        	<tr><td>
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="inputautorizapago"/>		
+			</td>
+			</tr>
+        	<tr><td align="left">
         	<ice:outputText value="#{msg['adminufunciones.ufunciones.informar_pedido']}"/>
-        	</td><td>
-        	<ice:inputText id="inputinformarpedido" value="#{usuarioFuncionesWeb.usuarioFunciones.informarPedido}"></ice:inputText>
+        	</td><td align="left">
+        	<ice:selectOneMenu id="inputinformarpedido" value="#{usuarioFuncionesWeb.usuarioFunciones.informarPedido}" required="#{usuarioFuncionesWeb.rederPopup}">
+        		<f:selectItem itemLabel="#{msg['general.no']}" itemValue="N"/>
+        		<f:selectItem itemLabel="#{msg['general.yes']}" itemValue="S"/>
+        	</ice:selectOneMenu>
         	</td></tr>
-        	
-        	<tr><td>
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="inputinformarpedido"/>		
+			</td>
+			</tr>
+        	<tr><td align="left">
         	<ice:outputText value="#{msg['adminufunciones.ufunciones.informar_factura']}"/>
-        	</td><td>
-        	<ice:inputText id="inputinfofactura" value="#{usuarioFuncionesWeb.usuarioFunciones.informarFactura}"></ice:inputText>
-        	</td></tr>
+        	</td><td align="left">
+        	<ice:selectOneMenu id="inputinfofactura" value="#{usuarioFuncionesWeb.usuarioFunciones.informarFactura}" required="#{usuarioFuncionesWeb.rederPopup}">
+        		<f:selectItem itemLabel="#{msg['general.no']}" itemValue="N"/>
+        		<f:selectItem itemLabel="#{msg['general.yes']}" itemValue="S"/>
+        	</ice:selectOneMenu>
         	
-        	<tr><td>
+        	</td></tr>
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="inputinfofactura"/>		
+			</td>
+			</tr>
+        	<tr><td align="left">
         	<ice:outputText value="#{msg['adminufunciones.ufunciones.informar_sobregiro']}"/>
-        	</td><td>
-        	<ice:inputText id="inputinfosobregiro" value="#{usuarioFuncionesWeb.usuarioFunciones.informarSobregiro}"></ice:inputText>
+        	</td><td align="left">
+        	<ice:selectOneMenu id="inputinfosobregiro" value="#{usuarioFuncionesWeb.usuarioFunciones.informarSobregiro}" required="#{usuarioFuncionesWeb.rederPopup}">
+        		<f:selectItem itemLabel="#{msg['general.no']}" itemValue="N"/>
+        		<f:selectItem itemLabel="#{msg['general.yes']}" itemValue="S"/>
+        	</ice:selectOneMenu>
         	</td></tr>
-        	
-        	<tr><td>
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="inputinfosobregiro"/>		
+			</td>
+			</tr>
+        	<tr><td align="left">
         	<ice:outputText value="#{msg['adminufunciones.ufunciones.enviar_plasticos']}"/>
-        	</td><td>
-        	<ice:inputText id="inputenviarplasticos" value="#{usuarioFuncionesWeb.usuarioFunciones.enviarPlasticos}"></ice:inputText>
-        	</td></tr>
+        	</td><td align="left">
+        	<ice:selectOneMenu id="inputenviarplasticos" value="#{usuarioFuncionesWeb.usuarioFunciones.enviarPlasticos}" required="#{usuarioFuncionesWeb.rederPopup}">
+        		<f:selectItem itemLabel="#{msg['general.no']}" itemValue="N"/>
+        		<f:selectItem itemLabel="#{msg['general.yes']}" itemValue="S"/>
+        	</ice:selectOneMenu>
         	
-        	<tr><td>
+        	</td></tr>
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="inputenviarplasticos"/>		
+			</td>
+			</tr>
+        	<tr><td align="left">
         	<ice:outputText value="#{msg['adminufunciones.ufunciones.coordinador']}"/>
-        	</td><td>
-        	<ice:inputText id="inputcoordinador" value="#{usuarioFuncionesWeb.usuarioFunciones.coordinador}"></ice:inputText>
-        	</td></tr>
+        	</td><td align="left">
+        	<ice:selectOneMenu id="inputcoordinador" value="#{usuarioFuncionesWeb.usuarioFunciones.coordinador}" required="#{usuarioFuncionesWeb.rederPopup}">
+        		<f:selectItem itemLabel="#{msg['general.no']}" itemValue="N"/>
+        		<f:selectItem itemLabel="#{msg['general.yes']}" itemValue="S"/>
+        	</ice:selectOneMenu>
         	
+        	</td></tr>
+        	<tr>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="inputcoordinador"/>		
+			</td>
+			</tr>
         	
         	<tr>
         		<td><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{usuarioFuncionesWeb.onSave}"></ice:commandButton></td>
-        		<td><ice:commandButton id="btnCancelSaveRole" value="#{msg['general.cancel']}" actionListener="#{usuarioFuncionesWeb.toggleModal}"></ice:commandButton></td>
+        		<td><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{usuarioFuncionesWeb.toggleModal}"></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 
@@ -260,7 +318,7 @@
             id="idPopUpDelete"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            draggable="true" modal="true" style="width: 300px;height: 170px;"
             visible="#{usuarioFuncionesWeb.renderDeleteAlert}">
             
         <f:facet name="header">
@@ -292,6 +350,15 @@
         		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{usuarioFuncionesWeb.toggleModalDelete}">
         		</ice:commandButton>
         		</td>
+        	</tr>
+        	<tr>
+        	<td colspan="2">
+        	  <h:messages layout="table"
+                    globalOnly="false"
+				    
+                    showDetail="false"
+                    showSummary="true"/>
+        	</td>
         	</tr>
         	</table>
         </ice:panelGroup> 

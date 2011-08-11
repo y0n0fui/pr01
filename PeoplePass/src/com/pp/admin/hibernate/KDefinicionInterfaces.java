@@ -78,156 +78,156 @@ public class KDefinicionInterfaces implements java.io.Serializable {
 		this.KColumnasInterfaceses = KColumnasInterfaceses;
 	}
 
-	public KDefinicionInterfacesId getId() {
-		return this.id;
-	}
-
-	public void setId(KDefinicionInterfacesId id) {
-		this.id = id;
-	}
-
-	public KBancosTerceros getKBancosTerceros() {
-		return this.KBancosTerceros;
-	}
-
-	public void setKBancosTerceros(KBancosTerceros KBancosTerceros) {
-		this.KBancosTerceros = KBancosTerceros;
-	}
-
-	public String getDescripcion() {
-		return this.descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	public String getCaracterSeparacion() {
-		return this.caracterSeparacion;
-	}
-
-	public void setCaracterSeparacion(String caracterSeparacion) {
-		this.caracterSeparacion = caracterSeparacion;
-	}
-
-	public String getCaracterSaltoPagina() {
-		return this.caracterSaltoPagina;
-	}
-
-	public void setCaracterSaltoPagina(String caracterSaltoPagina) {
-		this.caracterSaltoPagina = caracterSaltoPagina;
-	}
-
-	public String getCaracterSaltoLinea() {
-		return this.caracterSaltoLinea;
-	}
-
-	public void setCaracterSaltoLinea(String caracterSaltoLinea) {
-		this.caracterSaltoLinea = caracterSaltoLinea;
-	}
-
 	public String getAnchoFijoVariable() {
 		return this.anchoFijoVariable;
-	}
-
-	public void setAnchoFijoVariable(String anchoFijoVariable) {
-		this.anchoFijoVariable = anchoFijoVariable;
 	}
 
 	public String getCaracterRellenoAlfa() {
 		return this.caracterRellenoAlfa;
 	}
 
-	public void setCaracterRellenoAlfa(String caracterRellenoAlfa) {
-		this.caracterRellenoAlfa = caracterRellenoAlfa;
-	}
-
 	public String getCaracterRellenoNumber() {
 		return this.caracterRellenoNumber;
 	}
 
-	public void setCaracterRellenoNumber(String caracterRellenoNumber) {
-		this.caracterRellenoNumber = caracterRellenoNumber;
+	public String getCaracterSaltoLinea() {
+		return this.caracterSaltoLinea;
 	}
 
-	public String getRellenoAlfaDeIz() {
-		return this.rellenoAlfaDeIz;
+	public String getCaracterSaltoPagina() {
+		return this.caracterSaltoPagina;
 	}
 
-	public void setRellenoAlfaDeIz(String rellenoAlfaDeIz) {
-		this.rellenoAlfaDeIz = rellenoAlfaDeIz;
+	public String getCaracterSeparacion() {
+		return this.caracterSeparacion;
 	}
 
-	public String getRellenoNumDeIz() {
-		return this.rellenoNumDeIz;
-	}
-
-	public void setRellenoNumDeIz(String rellenoNumDeIz) {
-		this.rellenoNumDeIz = rellenoNumDeIz;
-	}
-
-	public String getTitulos() {
-		return this.titulos;
-	}
-
-	public void setTitulos(String titulos) {
-		this.titulos = titulos;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
+	public String getDescripcion() {
+		return this.descripcion;
 	}
 
 	public Date getFechaActualizacion() {
 		return this.fechaActualizacion;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
 	}
 
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public KDefinicionInterfacesId getId() {
+		return this.id;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KBancosTerceros getKBancosTerceros() {
+		return this.KBancosTerceros;
 	}
 
 	public Set getKColumnasInterfaceses() {
 		return this.KColumnasInterfaceses;
 	}
 
+	public String getRellenoAlfaDeIz() {
+		return this.rellenoAlfaDeIz;
+	}
+
+	public String getRellenoNumDeIz() {
+		return this.rellenoNumDeIz;
+	}
+
+	public String getTitulos() {
+		return this.titulos;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setAnchoFijoVariable(String anchoFijoVariable) {
+		this.anchoFijoVariable = anchoFijoVariable;
+	}
+
+	public void setCaracterRellenoAlfa(String caracterRellenoAlfa) {
+		this.caracterRellenoAlfa = caracterRellenoAlfa;
+	}
+
+	public void setCaracterRellenoNumber(String caracterRellenoNumber) {
+		this.caracterRellenoNumber = caracterRellenoNumber;
+	}
+
+	public void setCaracterSaltoLinea(String caracterSaltoLinea) {
+		this.caracterSaltoLinea = caracterSaltoLinea;
+	}
+
+	public void setCaracterSaltoPagina(String caracterSaltoPagina) {
+		this.caracterSaltoPagina = caracterSaltoPagina;
+	}
+
+	public void setCaracterSeparacion(String caracterSeparacion) {
+		this.caracterSeparacion = caracterSeparacion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setId(KDefinicionInterfacesId id) {
+		this.id = id;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setKBancosTerceros(KBancosTerceros KBancosTerceros) {
+		this.KBancosTerceros = KBancosTerceros;
+	}
+
 	public void setKColumnasInterfaceses(Set KColumnasInterfaceses) {
 		this.KColumnasInterfaceses = KColumnasInterfaceses;
+	}
+
+	public void setRellenoAlfaDeIz(String rellenoAlfaDeIz) {
+		this.rellenoAlfaDeIz = rellenoAlfaDeIz;
+	}
+
+	public void setRellenoNumDeIz(String rellenoNumDeIz) {
+		this.rellenoNumDeIz = rellenoNumDeIz;
+	}
+
+	public void setTitulos(String titulos) {
+		this.titulos = titulos;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

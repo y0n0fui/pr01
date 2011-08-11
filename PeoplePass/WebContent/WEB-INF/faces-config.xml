@@ -5,6 +5,11 @@
     "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
 
 <faces-config>
+    
+    <validator>
+    	<validator-id>EmailValidator</validator-id>
+    	<validator-class>com.pp.util.validator.EmailValidator</validator-class>
+    </validator>
 	<application>
 		<variable-resolver>
 			org.springframework.web.jsf.DelegatingVariableResolver
@@ -149,6 +154,40 @@
 	</managed-bean>
 	
 	<managed-bean>
+
+		<managed-bean-name>cicloWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.CicloWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>paramsAdmin</property-name>
+			<value>#{paramsAdmin}</value>  
+		</managed-property>
+	</managed-bean>
+	
+	
+	<managed-bean>
+		<managed-bean-name>definicionDeduccionesWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.DefinicionDeduccionesWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>paramsAdmin</property-name>
+			<value>#{paramsAdmin}</value>  
+		</managed-property>
+	</managed-bean>
+	
+	
+	<managed-bean>
+		<managed-bean-name>empresaCorreoWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.EmpresaCorreoWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property> 
+			<property-name>paramsAdmin</property-name>
+			<value>#{paramsAdmin}</value>  
+		</managed-property>
+	</managed-bean>
+	
+	
+	<managed-bean>
 		<managed-bean-name>bancosTercerosWeb</managed-bean-name>
 		<managed-bean-class>com.pp.admin.web.BancosTercerosWeb</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
@@ -161,5 +200,6 @@
 			<value>#{userAdmin}</value>  
 		</managed-property>
 	</managed-bean>
+
 		
 </faces-config>

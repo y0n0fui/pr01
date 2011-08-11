@@ -75,136 +75,136 @@ public class KUsuariosEmpresas implements java.io.Serializable {
 		return this.codigoInternoUsuario;
 	}
 
-	public void setCodigoInternoUsuario(int codigoInternoUsuario) {
-		this.codigoInternoUsuario = codigoInternoUsuario;
-	}
-
-	public KEmpresas getKEmpresas() {
-		return this.KEmpresas;
-	}
-
-	public void setKEmpresas(KEmpresas KEmpresas) {
-		this.KEmpresas = KEmpresas;
+	public String getCorreoElectronico() {
+		return this.correoElectronico;
 	}
 
 	public CTipoCargo getCTipoCargo() {
 		return this.CTipoCargo;
 	}
 
-	public void setCTipoCargo(CTipoCargo CTipoCargo) {
-		this.CTipoCargo = CTipoCargo;
-	}
-
-	public String getNombreFuncionario() {
-		return this.nombreFuncionario;
-	}
-
-	public void setNombreFuncionario(String nombreFuncionario) {
-		this.nombreFuncionario = nombreFuncionario;
-	}
-
-	public String getCorreoElectronico() {
-		return this.correoElectronico;
-	}
-
-	public void setCorreoElectronico(String correoElectronico) {
-		this.correoElectronico = correoElectronico;
-	}
-
 	public String getDependencia() {
 		return this.dependencia;
-	}
-
-	public void setDependencia(String dependencia) {
-		this.dependencia = dependencia;
 	}
 
 	public String getDireccion() {
 		return this.direccion;
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public Date getFechaActualizacion() {
+		return this.fechaActualizacion;
 	}
 
 	public Date getFechaInsercion() {
 		return this.fechaInsercion;
 	}
 
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
+	public String getIpActualizacion() {
+		return this.ipActualizacion;
 	}
 
 	public String getIpInsercion() {
 		return this.ipInsercion;
 	}
 
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
-	}
-
-	public Date getFechaActualizacion() {
-		return this.fechaActualizacion;
-	}
-
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
-	}
-
-	public String getIpActualizacion() {
-		return this.ipActualizacion;
-	}
-
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
-	}
-
-	public Set getKPivotGteCuentaEmpresases() {
-		return this.KPivotGteCuentaEmpresases;
-	}
-
-	public void setKPivotGteCuentaEmpresases(Set KPivotGteCuentaEmpresases) {
-		this.KPivotGteCuentaEmpresases = KPivotGteCuentaEmpresases;
+	public KEmpresas getKEmpresas() {
+		return this.KEmpresas;
 	}
 
 	public Set getKPivotCoorPros() {
 		return this.KPivotCoorPros;
 	}
 
-	public void setKPivotCoorPros(Set KPivotCoorPros) {
-		this.KPivotCoorPros = KPivotCoorPros;
-	}
-
-	public KUsuariosFunciones getKUsuariosFunciones() {
-		return this.KUsuariosFunciones;
-	}
-
-	public void setKUsuariosFunciones(KUsuariosFunciones KUsuariosFunciones) {
-		this.KUsuariosFunciones = KUsuariosFunciones;
+	public Set getKPivotGteCuentaEmpresases() {
+		return this.KPivotGteCuentaEmpresases;
 	}
 
 	public Set getKRolesEmpresases() {
 		return this.KRolesEmpresases;
 	}
 
+	public KUsuariosFunciones getKUsuariosFunciones() {
+		return this.KUsuariosFunciones;
+	}
+
+	public String getNombreFuncionario() {
+		return this.nombreFuncionario;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setCodigoInternoUsuario(int codigoInternoUsuario) {
+		this.codigoInternoUsuario = codigoInternoUsuario;
+	}
+
+	public void setCorreoElectronico(String correoElectronico) {
+		this.correoElectronico = correoElectronico;
+	}
+
+	public void setCTipoCargo(CTipoCargo CTipoCargo) {
+		this.CTipoCargo = CTipoCargo;
+	}
+
+	public void setDependencia(String dependencia) {
+		this.dependencia = dependencia;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setKEmpresas(KEmpresas KEmpresas) {
+		this.KEmpresas = KEmpresas;
+	}
+
+	public void setKPivotCoorPros(Set KPivotCoorPros) {
+		this.KPivotCoorPros = KPivotCoorPros;
+	}
+
+	public void setKPivotGteCuentaEmpresases(Set KPivotGteCuentaEmpresases) {
+		this.KPivotGteCuentaEmpresases = KPivotGteCuentaEmpresases;
+	}
+
 	public void setKRolesEmpresases(Set KRolesEmpresases) {
 		this.KRolesEmpresases = KRolesEmpresases;
+	}
+
+	public void setKUsuariosFunciones(KUsuariosFunciones KUsuariosFunciones) {
+		this.KUsuariosFunciones = KUsuariosFunciones;
+	}
+
+	public void setNombreFuncionario(String nombreFuncionario) {
+		this.nombreFuncionario = nombreFuncionario;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

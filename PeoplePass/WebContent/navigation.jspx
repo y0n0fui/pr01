@@ -154,31 +154,26 @@
 				<f:param name="stackName" value="bancostercerosPanel" />
 				<ice:outputText value="#{msg['menu.menu37.bancosterceros']}" />
 			</ice:commandLink>			
-			<br/>
-		</ice:panelCollapsible>
-
-
-				
-			<ice:commandLink id="bancostercerosPanel"
-				actionListener="#{navigationBean.navigationStackChange}">
-
-				<f:param name="stackName" value="bancostercerosPanel" />
-				<ice:outputText value="#{msg['menu.menu37.bancosterceros']}" />
-			</ice:commandLink>		
+			
 			<br/>
 			<ice:commandLink id="defdeduccionPanel"
 				actionListener="#{navigationBean.navigationStackChange}">
 
 				<f:param name="stackName" value="defdeduccionPanel" />
-				<ice:outputText value="#{msg['menu.menu36.defdeducciones']}" />
+				<ice:outputText value="#{msg['menu.menu38.defdeducciones']}" />
 			</ice:commandLink>
 			<br/>
 			<ice:commandLink id="empresascorreoPanel"
 				actionListener="#{navigationBean.navigationStackChange}">
 
 				<f:param name="stackName" value="empresascorreoPanel" />
-				<ice:outputText value="#{msg['menu.menu37.empresascorreo']}" />
+				<ice:outputText value="#{msg['menu.menu39.empresascorreo']}" />
 			</ice:commandLink>		
+		</ice:panelCollapsible>
+
+
+				
+	
 		
 		
 		

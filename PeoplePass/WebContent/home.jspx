@@ -28,7 +28,7 @@
 		<tr>
 			<td height="158" background="css/images/inicio/inicio_01.jpg"
 				valign="top" align="right"><ice:form id="outForm">
-			| <ice:outputText value=" #{navigationBean.user.username}"
+			 <ice:outputText value=" #{navigationBean.user.username}"
 						styleClass="iceOutTxt3" />|	  
 		   <ice:outputLink id="outLink" value="./j_spring_security_logout">
 						<ice:outputText value="#{msg['general.exit']}"
@@ -132,6 +132,13 @@
 							</ice:form>
 						</f:subview>
 					</ice:panelGroup>
+					<ice:panelGroup id="bancostercerosPanel">
+						<f:subview id="stSub">
+							<ice:form id="bancostercerosform">
+								<ui:include src="/administration/bancos_terceros.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
 					<ice:panelGroup id="cicloPanel">
 						<f:subview id="stSub">
 							<ice:form id="cicloform">
@@ -147,13 +154,14 @@
 						</f:subview>
 					</ice:panelGroup>
 					<ice:panelGroup id="empresascorreoPanel">
+					
 						<f:subview id="stSub">
 							<ice:form id="empresascorreoform">
 								<ui:include src="/administration/empresa_correo.jspx" />
 							</ice:form>
 						</f:subview>
 					</ice:panelGroup>
-				</ice:panelStack></td>
+				</ice:panelStack></td> 
 		</tr>
 	</table>
 	<table width="880" border="0" align="center" cellpadding="0"

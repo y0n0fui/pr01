@@ -130,14 +130,7 @@
 				actionListener="#{navigationBean.navigationStackChange}">
 
 				<f:param name="stackName" value="condicionesespecialesPanel" />
-				<ice:outputText value="#{msg['menu.menu13.cespeciales']}" />
-			</ice:commandLink>
-			<br/>
-			<ice:commandLink id="tipoubicacionPanel"
-				actionListener="#{navigationBean.navigationStackChange}">
-
-				<f:param name="stackName" value="tipoubicacionPanel" />
-				<ice:outputText value="#{msg['menu.menu33.tipoubicacion']}" />
+				<ice:outputText value="#{msg['menu.menu34.cespeciales']}" />
 			</ice:commandLink>
 			<br/>
 			<ice:commandLink id="conceptofacturacionPanel"
@@ -145,6 +138,20 @@
 
 				<f:param name="stackName" value="conceptofacturacionPanel" />
 				<ice:outputText value="#{msg['menu.menu35.conceptofacturacion']}" />
+			</ice:commandLink>			
+			<br/>
+			<ice:commandLink id="tipoubicacionPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="tipoubicacionPanel" />
+				<ice:outputText value="#{msg['menu.menu36.tipoubicacion']}" />
+			</ice:commandLink>
+			<br/>
+			<ice:commandLink id="bancostercerosPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="bancostercerosPanel" />
+				<ice:outputText value="#{msg['menu.menu37.bancosterceros']}" />
 			</ice:commandLink>		
 			<br/>
 			<ice:commandLink id="defdeduccionPanel"

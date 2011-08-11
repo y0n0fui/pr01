@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pp.admin.hibernate.CTipoUbicacion;
+import com.pp.admin.hibernate.KBancosTerceros;
 import com.pp.admin.hibernate.KCiclo;
 import com.pp.admin.hibernate.KConceptosFacturacion;
 import com.pp.admin.hibernate.KCondicionesEspeciales;
@@ -175,4 +176,30 @@ public class ParamsAdmin implements IParamsAdmin {
 		sessionFactory.getCurrentSession().saveOrUpdate(empresaCorreo);
 	}
 
+	@Transactional(readOnly = true)
+	@SuppressWarnings("unchecked")
+	public List<KBancosTerceros> getBancosTerceros() {
+		Query query = sessionFactory.getCurrentSession().createQuery(
+				"select cf from KBancosTerceros cf");
+		List<KBancosTerceros> result = (List<KBancosTerceros>) query
+				.list();
+		return result;
+	}
+
+	@Transactional(readOnly = false)
+	public void save(KBancosTerceros bancosTerceros) {
+		sessionFactory.getCurrentSession().saveOrUpdate(bancosTerceros);
+	}
+
+	@Transactional(readOnly = true)
+	public KBancosTerceros getBancosTerceros(int idRole) {
+		return (KBancosTerceros) sessionFactory.getCurrentSession().get(
+				KBancosTerceros.class, idRole);
+	}
+
+	public void delete(KBancosTerceros bancosTerceros) {
+		sessionFactory.getCurrentSession().delete(bancosTerceros);
+
+	}
+	
 }

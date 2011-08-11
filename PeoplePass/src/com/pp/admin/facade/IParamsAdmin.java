@@ -3,6 +3,7 @@ package com.pp.admin.facade;
 import java.util.List;
 
 import com.pp.admin.hibernate.CTipoUbicacion;
+import com.pp.admin.hibernate.KBancosTerceros;
 import com.pp.admin.hibernate.KCiclo;
 import com.pp.admin.hibernate.KConceptosFacturacion;
 import com.pp.admin.hibernate.KCondicionesEspeciales;
@@ -11,11 +12,13 @@ import com.pp.admin.hibernate.KEmpresaCorreo;
 
 public interface IParamsAdmin {
 
+	
+
 	public void delete(CTipoUbicacion tipoUbicacion);
 
 	public void delete(KCiclo ciclo);
 
-	public void delete(KConceptosFacturacion conceptosFacturacion);
+	
 
 	public void delete(KCondicionesEspeciales condicionesEspeciales);
 
@@ -29,7 +32,7 @@ public interface IParamsAdmin {
 
 	public List<KConceptosFacturacion> getConceptoFacturacion();
 
-	public KConceptosFacturacion getConceptoFacturacion(int idRole);
+	
 
 	public List<KCondicionesEspeciales> getCondicionesEspeciales();
 
@@ -60,7 +63,20 @@ public interface IParamsAdmin {
 	public void save(KDefinicionDeducciones definicionDeducciones);
 
 	public void save(KEmpresaCorreo empresaCorreo);
+	
+	public KConceptosFacturacion getConceptoFacturacion(int idRole);
+	
+	public void delete(KConceptosFacturacion conceptosFacturacion);
+	
+	//KBancosTerceros
+	public List<KBancosTerceros> getBancosTerceros();
 
+	
+	public void save(KBancosTerceros bancosTerceros);
 
-
+	
+	public KBancosTerceros getBancosTerceros(int idRole);
+	
+	public void delete(KBancosTerceros bancosTerceros);
+	
 }

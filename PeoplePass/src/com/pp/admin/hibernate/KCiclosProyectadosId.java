@@ -23,30 +23,6 @@ public class KCiclosProyectadosId implements java.io.Serializable {
 		this.fechaPago = fechaPago;
 	}
 
-	public int getCodigoInternoEmpresa() {
-		return this.codigoInternoEmpresa;
-	}
-
-	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
-		this.codigoInternoEmpresa = codigoInternoEmpresa;
-	}
-
-	public int getCodigoInternoCiclo() {
-		return this.codigoInternoCiclo;
-	}
-
-	public void setCodigoInternoCiclo(int codigoInternoCiclo) {
-		this.codigoInternoCiclo = codigoInternoCiclo;
-	}
-
-	public Date getFechaPago() {
-		return this.fechaPago;
-	}
-
-	public void setFechaPago(Date fechaPago) {
-		this.fechaPago = fechaPago;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -66,6 +42,18 @@ public class KCiclosProyectadosId implements java.io.Serializable {
 						.getFechaPago().equals(castOther.getFechaPago())));
 	}
 
+	public int getCodigoInternoCiclo() {
+		return this.codigoInternoCiclo;
+	}
+
+	public int getCodigoInternoEmpresa() {
+		return this.codigoInternoEmpresa;
+	}
+
+	public Date getFechaPago() {
+		return this.fechaPago;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
@@ -74,6 +62,18 @@ public class KCiclosProyectadosId implements java.io.Serializable {
 		result = 37 * result
 				+ (getFechaPago() == null ? 0 : this.getFechaPago().hashCode());
 		return result;
+	}
+
+	public void setCodigoInternoCiclo(int codigoInternoCiclo) {
+		this.codigoInternoCiclo = codigoInternoCiclo;
+	}
+
+	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
+		this.codigoInternoEmpresa = codigoInternoEmpresa;
+	}
+
+	public void setFechaPago(Date fechaPago) {
+		this.fechaPago = fechaPago;
 	}
 
 }

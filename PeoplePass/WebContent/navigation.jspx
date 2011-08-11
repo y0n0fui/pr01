@@ -143,6 +143,7 @@
 			<ice:commandLink id="tipoubicacionPanel"
 				actionListener="#{navigationBean.navigationStackChange}">
 
+
 				<f:param name="stackName" value="tipoubicacionPanel" />
 				<ice:outputText value="#{msg['menu.menu36.tipoubicacion']}" />
 			</ice:commandLink>
@@ -153,8 +154,42 @@
 				<f:param name="stackName" value="bancostercerosPanel" />
 				<ice:outputText value="#{msg['menu.menu37.bancosterceros']}" />
 			</ice:commandLink>			
+			
 			<br/>
+			<ice:commandLink id="defdeduccionPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="defdeduccionPanel" />
+				<ice:outputText value="#{msg['menu.menu38.defdeducciones']}" />
+			</ice:commandLink>
+			<br/>
+			<ice:commandLink id="empresascorreoPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="empresascorreoPanel" />
+				<ice:outputText value="#{msg['menu.menu39.empresascorreo']}" />
+			</ice:commandLink>		
 		</ice:panelCollapsible>
 
+
+				
+	
+		
+		
+		
+		<ice:panelCollapsible id="comercialPanel" expanded="false"
+			styleClass="navPnlClpsbl">
+			<f:facet name="header">
+				<ice:panelGroup>
+					<ice:outputText value="#{msg['menu.menu4.admin']}" />
+				</ice:panelGroup>
+			</f:facet>
+			<ice:commandLink id="cicloPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="cicloPanel" />
+				<ice:outputText value="#{msg['menu.menu41.ciclo']}" />
+			</ice:commandLink>		
+		</ice:panelCollapsible>	
 	</ice:panelGroup>
 </ice:form>

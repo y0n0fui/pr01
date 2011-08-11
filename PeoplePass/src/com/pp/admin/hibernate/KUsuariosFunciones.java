@@ -62,113 +62,113 @@ public class KUsuariosFunciones implements java.io.Serializable {
 		this.ipActualizacion = ipActualizacion;
 	}
 
-	public int getCodigoInternoUsuario() {
-		return this.codigoInternoUsuario;
-	}
-
-	public void setCodigoInternoUsuario(int codigoInternoUsuario) {
-		this.codigoInternoUsuario = codigoInternoUsuario;
-	}
-
-	
 	public String getAutorizaPago() {
 		return this.autorizaPago;
 	}
 
-	public void setAutorizaPago(String autorizaPago) {
-		this.autorizaPago = autorizaPago;
+	public int getCodigoInternoUsuario() {
+		return this.codigoInternoUsuario;
 	}
 
-	public String getInformarPedido() {
-		return this.informarPedido;
-	}
-
-	public void setInformarPedido(String informarPedido) {
-		this.informarPedido = informarPedido;
-	}
-
-	public String getInformarFactura() {
-		return this.informarFactura;
-	}
-
-	public void setInformarFactura(String informarFactura) {
-		this.informarFactura = informarFactura;
-	}
-
-	public String getInformarSobregiro() {
-		return this.informarSobregiro;
-	}
-
-	public void setInformarSobregiro(String informarSobregiro) {
-		this.informarSobregiro = informarSobregiro;
+	
+	public String getCoordinador() {
+		return this.coordinador;
 	}
 
 	public String getEnviarPlasticos() {
 		return this.enviarPlasticos;
 	}
 
-	public void setEnviarPlasticos(String enviarPlasticos) {
-		this.enviarPlasticos = enviarPlasticos;
-	}
-
-	public String getCoordinador() {
-		return this.coordinador;
-	}
-
-	public void setCoordinador(String coordinador) {
-		this.coordinador = coordinador;
+	public Date getFechaActualizacion() {
+		return this.fechaActualizacion;
 	}
 
 	public Date getFechaInsercion() {
 		return this.fechaInsercion;
 	}
 
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
+	public String getInformarFactura() {
+		return this.informarFactura;
 	}
 
-	public BigDecimal getUsuarioInsercion() {
-		return this.usuarioInsercion;
+	public String getInformarPedido() {
+		return this.informarPedido;
 	}
 
-	public void setUsuarioInsercion(BigDecimal usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
-	}
-
-	public Date getFechaActualizacion() {
-		return this.fechaActualizacion;
-	}
-
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public String getInformarSobregiro() {
+		return this.informarSobregiro;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public BigDecimal getUsuarioInsercion() {
+		return this.usuarioInsercion;
 	}
 
 	public KUsuariosEmpresas getUsuariosEmpresas() {
 		return usuariosEmpresas;
+	}
+
+	public void setAutorizaPago(String autorizaPago) {
+		this.autorizaPago = autorizaPago;
+	}
+
+	public void setCodigoInternoUsuario(int codigoInternoUsuario) {
+		this.codigoInternoUsuario = codigoInternoUsuario;
+	}
+
+	public void setCoordinador(String coordinador) {
+		this.coordinador = coordinador;
+	}
+
+	public void setEnviarPlasticos(String enviarPlasticos) {
+		this.enviarPlasticos = enviarPlasticos;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setInformarFactura(String informarFactura) {
+		this.informarFactura = informarFactura;
+	}
+
+	public void setInformarPedido(String informarPedido) {
+		this.informarPedido = informarPedido;
+	}
+
+	public void setInformarSobregiro(String informarSobregiro) {
+		this.informarSobregiro = informarSobregiro;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(BigDecimal usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 	public void setUsuariosEmpresas(KUsuariosEmpresas usuariosEmpresas) {

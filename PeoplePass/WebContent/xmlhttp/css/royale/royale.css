@@ -2328,11 +2328,13 @@ Disabeld classes for the calendar controls
 }
 
 .iceMsgFatal {
-
+	color: red;
+	font: bold;
 }
 
 .iceMsgError {
-
+	color: red;
+	font: bold;
 }
 
 .iceMsgWarn {
@@ -2355,7 +2357,8 @@ Disabeld classes for the calendar controls
 }
 
 .iceMsgsError {
-
+	color: red;
+	font: bold;
 }
 
 .iceMsgsWarn {

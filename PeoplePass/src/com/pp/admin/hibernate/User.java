@@ -12,8 +12,8 @@ public class User {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public String getName() {
+		return name;
 	}
 
 	
@@ -22,16 +22,16 @@ public class User {
 		return shortName;
 	}
 
-	public void setShortName(String shortName) {
-		this.shortName = shortName;
-	}
-
-	public String getName() {
-		return name;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public void setShortName(String shortName) {
+		this.shortName = shortName;
 	}
 	
 	

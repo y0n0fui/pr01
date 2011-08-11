@@ -56,100 +56,100 @@ public class KCorreo implements java.io.Serializable {
 		this.ipActualizacion = ipActualizacion;
 	}
 
-	public String getNumeroGuia() {
-		return this.numeroGuia;
-	}
-
-	public void setNumeroGuia(String numeroGuia) {
-		this.numeroGuia = numeroGuia;
-	}
-
-	public KEmpresaCorreo getKEmpresaCorreo() {
-		return this.KEmpresaCorreo;
-	}
-
-	public void setKEmpresaCorreo(KEmpresaCorreo KEmpresaCorreo) {
-		this.KEmpresaCorreo = KEmpresaCorreo;
+	public int getCodigoInternoEmpresa() {
+		return this.codigoInternoEmpresa;
 	}
 
 	public int getCodigoInternoUsuario() {
 		return this.codigoInternoUsuario;
 	}
 
-	public void setCodigoInternoUsuario(int codigoInternoUsuario) {
-		this.codigoInternoUsuario = codigoInternoUsuario;
-	}
-
-	public int getCodigoInternoEmpresa() {
-		return this.codigoInternoEmpresa;
-	}
-
-	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
-		this.codigoInternoEmpresa = codigoInternoEmpresa;
-	}
-
-	public Date getFechaEnvio() {
-		return this.fechaEnvio;
-	}
-
-	public void setFechaEnvio(Date fechaEnvio) {
-		this.fechaEnvio = fechaEnvio;
-	}
-
 	public String getEntregado() {
 		return this.entregado;
-	}
-
-	public void setEntregado(String entregado) {
-		this.entregado = entregado;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
 	}
 
 	public Date getFechaActualizacion() {
 		return this.fechaActualizacion;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
+	public Date getFechaEnvio() {
+		return this.fechaEnvio;
 	}
 
-	public Integer getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KEmpresaCorreo getKEmpresaCorreo() {
+		return this.KEmpresaCorreo;
+	}
+
+	public String getNumeroGuia() {
+		return this.numeroGuia;
+	}
+
+	public Integer getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
+		this.codigoInternoEmpresa = codigoInternoEmpresa;
+	}
+
+	public void setCodigoInternoUsuario(int codigoInternoUsuario) {
+		this.codigoInternoUsuario = codigoInternoUsuario;
+	}
+
+	public void setEntregado(String entregado) {
+		this.entregado = entregado;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaEnvio(Date fechaEnvio) {
+		this.fechaEnvio = fechaEnvio;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
 	public void setIpActualizacion(String ipActualizacion) {
 		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setKEmpresaCorreo(KEmpresaCorreo KEmpresaCorreo) {
+		this.KEmpresaCorreo = KEmpresaCorreo;
+	}
+
+	public void setNumeroGuia(String numeroGuia) {
+		this.numeroGuia = numeroGuia;
+	}
+
+	public void setUsuarioActualizacion(Integer usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

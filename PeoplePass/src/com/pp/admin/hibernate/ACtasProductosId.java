@@ -18,22 +18,6 @@ public class ACtasProductosId implements java.io.Serializable {
 		this.codigoInternoDefinicion = codigoInternoDefinicion;
 	}
 
-	public String getCodigoCuenta() {
-		return this.codigoCuenta;
-	}
-
-	public void setCodigoCuenta(String codigoCuenta) {
-		this.codigoCuenta = codigoCuenta;
-	}
-
-	public int getCodigoInternoDefinicion() {
-		return this.codigoInternoDefinicion;
-	}
-
-	public void setCodigoInternoDefinicion(int codigoInternoDefinicion) {
-		this.codigoInternoDefinicion = codigoInternoDefinicion;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -51,6 +35,14 @@ public class ACtasProductosId implements java.io.Serializable {
 						.getCodigoInternoDefinicion());
 	}
 
+	public String getCodigoCuenta() {
+		return this.codigoCuenta;
+	}
+
+	public int getCodigoInternoDefinicion() {
+		return this.codigoInternoDefinicion;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
@@ -60,6 +52,14 @@ public class ACtasProductosId implements java.io.Serializable {
 						.hashCode());
 		result = 37 * result + this.getCodigoInternoDefinicion();
 		return result;
+	}
+
+	public void setCodigoCuenta(String codigoCuenta) {
+		this.codigoCuenta = codigoCuenta;
+	}
+
+	public void setCodigoInternoDefinicion(int codigoInternoDefinicion) {
+		this.codigoInternoDefinicion = codigoInternoDefinicion;
 	}
 
 }

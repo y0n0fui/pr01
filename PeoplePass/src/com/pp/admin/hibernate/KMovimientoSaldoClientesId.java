@@ -19,22 +19,6 @@ public class KMovimientoSaldoClientesId implements java.io.Serializable {
 		this.facturaAbono = facturaAbono;
 	}
 
-	public int getCodigoInternoEmpresa() {
-		return this.codigoInternoEmpresa;
-	}
-
-	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
-		this.codigoInternoEmpresa = codigoInternoEmpresa;
-	}
-
-	public String getFacturaAbono() {
-		return this.facturaAbono;
-	}
-
-	public void setFacturaAbono(String facturaAbono) {
-		this.facturaAbono = facturaAbono;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -52,6 +36,14 @@ public class KMovimientoSaldoClientesId implements java.io.Serializable {
 						.getFacturaAbono().equals(castOther.getFacturaAbono())));
 	}
 
+	public int getCodigoInternoEmpresa() {
+		return this.codigoInternoEmpresa;
+	}
+
+	public String getFacturaAbono() {
+		return this.facturaAbono;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
@@ -61,6 +53,14 @@ public class KMovimientoSaldoClientesId implements java.io.Serializable {
 				+ (getFacturaAbono() == null ? 0 : this.getFacturaAbono()
 						.hashCode());
 		return result;
+	}
+
+	public void setCodigoInternoEmpresa(int codigoInternoEmpresa) {
+		this.codigoInternoEmpresa = codigoInternoEmpresa;
+	}
+
+	public void setFacturaAbono(String facturaAbono) {
+		this.facturaAbono = facturaAbono;
 	}
 
 }

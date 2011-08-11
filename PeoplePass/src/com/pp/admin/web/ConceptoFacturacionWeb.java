@@ -3,6 +3,7 @@ package com.pp.admin.web;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.servlet.http.HttpServletRequest;
@@ -12,17 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.context.SecurityContextHolder;
 
 import com.pp.admin.facade.IParamsAdmin;
-
 import com.pp.admin.hibernate.KConceptosFacturacion;
 import com.pp.util.DataTable;
+import com.pp.util.MessageUtil;
 
 public class ConceptoFacturacionWeb extends CRUDWeb {
 
 	private KConceptosFacturacion conceptoFacturacion;
-
-	public ConceptoFacturacionWeb() {
-		conceptoFacturacion = new KConceptosFacturacion();
-	}
 
 	/**
 	 * Herramienta logger
@@ -31,6 +28,47 @@ public class ConceptoFacturacionWeb extends CRUDWeb {
 
 	@Autowired
 	private IParamsAdmin paramsAdmin;
+
+	public ConceptoFacturacionWeb() {
+		conceptoFacturacion = new KConceptosFacturacion();
+	}
+
+	public void create(ActionEvent evnt) {
+		this.conceptoFacturacion = new KConceptosFacturacion();
+		toggleModal(evnt);
+	}
+
+	public void delete(ActionEvent evnt) {
+		this.conceptoFacturacion = paramsAdmin
+				.getConceptoFacturacion((Integer) selectData[0]);
+		try{
+		paramsAdmin.delete(this.conceptoFacturacion);
+		this.conceptoFacturacion = new KConceptosFacturacion();
+		this.selectData = null;
+		init();
+		toggleModalDelete(evnt);
+		}catch (org.springframework.dao.DataIntegrityViolationException e) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			logger.error("Error en constrain",e);	
+        	FacesContext.getCurrentInstance().addMessage(FacesMessage.SEVERITY_ERROR.toString(),  
+    				MessageUtil.getMessageStringFaces("adminconcepfacturacion.concepfac.error.delete", context ));
+		}
+	}
+
+	public void edit(ActionEvent evnt) {
+		selectData = (Object[]) evnt.getComponent().getAttributes().get("row");
+		this.conceptoFacturacion = paramsAdmin
+				.getConceptoFacturacion((Integer) selectData[0]);
+		toggleModal(null);
+	}
+
+	public KConceptosFacturacion getConceptoFacturacion() {
+		return conceptoFacturacion;
+	}
+
+	public IParamsAdmin getParamsAdmin() {
+		return paramsAdmin;
+	}
 
 	public void init() {
 		dataTable = new DataTable();
@@ -68,38 +106,8 @@ public class ConceptoFacturacionWeb extends CRUDWeb {
 
 	}
 
-	public void create(ActionEvent evnt) {
-		this.conceptoFacturacion = new KConceptosFacturacion();
-		toggleModal(evnt);
-	}
-
-	public void edit(ActionEvent evnt) {
-		selectData = (Object[]) evnt.getComponent().getAttributes().get("row");
-		this.conceptoFacturacion = paramsAdmin
-				.getConceptoFacturacion((Integer) selectData[0]);
-		toggleModal(null);
-	}
-
-	public void delete(ActionEvent evnt) {
-		this.conceptoFacturacion = paramsAdmin
-				.getConceptoFacturacion((Integer) selectData[0]);
-		paramsAdmin.delete(this.conceptoFacturacion);
-		this.conceptoFacturacion = new KConceptosFacturacion();
-		this.selectData = null;
-		init();
-		toggleModalDelete(evnt);
-	}
-
-	public KConceptosFacturacion getConceptoFacturacion() {
-		return conceptoFacturacion;
-	}
-
 	public void setConceptoFacturacion(KConceptosFacturacion conceptoFacturacion) {
 		this.conceptoFacturacion = conceptoFacturacion;
-	}
-
-	public IParamsAdmin getParamsAdmin() {
-		return paramsAdmin;
 	}
 
 	public void setParamsAdmin(IParamsAdmin paramsAdmin) {

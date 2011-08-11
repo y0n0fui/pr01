@@ -51,32 +51,64 @@ public class KPivotCoorPro implements java.io.Serializable {
 		this.ipActualizacion = ipActualizacion;
 	}
 
+	public Date getFechaActualizacion() {
+		return this.fechaActualizacion;
+	}
+
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
+	}
+
 	public KPivotCoorProId getId() {
 		return this.id;
 	}
 
-	public void setId(KPivotCoorProId id) {
-		this.id = id;
+	public String getIpActualizacion() {
+		return this.ipActualizacion;
+	}
+
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KDefinicionProductos getKDefinicionProductos() {
+		return this.KDefinicionProductos;
 	}
 
 	public KEmpresas getKEmpresas() {
 		return this.KEmpresas;
 	}
 
-	public void setKEmpresas(KEmpresas KEmpresas) {
-		this.KEmpresas = KEmpresas;
-	}
-
 	public KUsuariosEmpresas getKUsuariosEmpresas() {
 		return this.KUsuariosEmpresas;
 	}
 
-	public void setKUsuariosEmpresas(KUsuariosEmpresas KUsuariosEmpresas) {
-		this.KUsuariosEmpresas = KUsuariosEmpresas;
+	public BigDecimal getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
 	}
 
-	public KDefinicionProductos getKDefinicionProductos() {
-		return this.KDefinicionProductos;
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setId(KPivotCoorProId id) {
+		this.id = id;
+	}
+
+	public void setIpActualizacion(String ipActualizacion) {
+		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
 	}
 
 	public void setKDefinicionProductos(
@@ -84,52 +116,20 @@ public class KPivotCoorPro implements java.io.Serializable {
 		this.KDefinicionProductos = KDefinicionProductos;
 	}
 
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
+	public void setKEmpresas(KEmpresas KEmpresas) {
+		this.KEmpresas = KEmpresas;
 	}
 
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
-	}
-
-	public Date getFechaActualizacion() {
-		return this.fechaActualizacion;
-	}
-
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public BigDecimal getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
+	public void setKUsuariosEmpresas(KUsuariosEmpresas KUsuariosEmpresas) {
+		this.KUsuariosEmpresas = KUsuariosEmpresas;
 	}
 
 	public void setUsuarioActualizacion(BigDecimal usuarioActualizacion) {
 		this.usuarioActualizacion = usuarioActualizacion;
 	}
 
-	public String getIpActualizacion() {
-		return this.ipActualizacion;
-	}
-
-	public void setIpActualizacion(String ipActualizacion) {
-		this.ipActualizacion = ipActualizacion;
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

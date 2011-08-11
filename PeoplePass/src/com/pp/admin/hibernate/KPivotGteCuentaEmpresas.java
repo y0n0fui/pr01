@@ -46,76 +46,76 @@ public class KPivotGteCuentaEmpresas implements java.io.Serializable {
 		this.ipActualizacion = ipActualizacion;
 	}
 
-	public KPivotGteCuentaEmpresasId getId() {
-		return this.id;
-	}
-
-	public void setId(KPivotGteCuentaEmpresasId id) {
-		this.id = id;
-	}
-
-	public KEmpresas getKEmpresas() {
-		return this.KEmpresas;
-	}
-
-	public void setKEmpresas(KEmpresas KEmpresas) {
-		this.KEmpresas = KEmpresas;
-	}
-
-	public KUsuariosEmpresas getKUsuariosEmpresas() {
-		return this.KUsuariosEmpresas;
-	}
-
-	public void setKUsuariosEmpresas(KUsuariosEmpresas KUsuariosEmpresas) {
-		this.KUsuariosEmpresas = KUsuariosEmpresas;
+	public Date getFechaActualizacion() {
+		return this.fechaActualizacion;
 	}
 
 	public Date getFechaInsercion() {
 		return this.fechaInsercion;
 	}
 
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
-	}
-
-	public Date getFechaActualizacion() {
-		return this.fechaActualizacion;
-	}
-
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
-	}
-
-	public BigDecimal getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(BigDecimal usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public KPivotGteCuentaEmpresasId getId() {
+		return this.id;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KEmpresas getKEmpresas() {
+		return this.KEmpresas;
+	}
+
+	public KUsuariosEmpresas getKUsuariosEmpresas() {
+		return this.KUsuariosEmpresas;
+	}
+
+	public BigDecimal getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setId(KPivotGteCuentaEmpresasId id) {
+		this.id = id;
+	}
+
 	public void setIpActualizacion(String ipActualizacion) {
 		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setKEmpresas(KEmpresas KEmpresas) {
+		this.KEmpresas = KEmpresas;
+	}
+
+	public void setKUsuariosEmpresas(KUsuariosEmpresas KUsuariosEmpresas) {
+		this.KUsuariosEmpresas = KUsuariosEmpresas;
+	}
+
+	public void setUsuarioActualizacion(BigDecimal usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

@@ -28,7 +28,7 @@
 		<tr>
 			<td height="158" background="css/images/inicio/inicio_01.jpg"
 				valign="top" align="right"><ice:form id="outForm">
-			| <ice:outputText value=" #{navigationBean.user.username}"
+			 <ice:outputText value=" #{navigationBean.user.username}"
 						styleClass="iceOutTxt3" />|	  
 		   <ice:outputLink id="outLink" value="./j_spring_security_logout">
 						<ice:outputText value="#{msg['general.exit']}"
@@ -50,7 +50,8 @@
 		<tr>
 			<td valign="top" width="300"><ui:include src="/navigation.jspx" />
 			</td>
-			<td valign="top" height="355"><ice:panelStack
+			<td valign="top" height="355">
+			<ice:panelStack
 					id="templatePanelStack" styleClass="componentContentPanelStack"
 					selectedPanel="#{navigationBean.selectedPanel}">
 
@@ -139,7 +140,33 @@
 							</ice:form>
 						</f:subview>
 					</ice:panelGroup>
-				</ice:panelStack></td>
+
+					<ice:panelGroup id="cicloPanel">
+						<f:subview id="stSub">
+							<ice:form id="cicloform">
+								<ui:include src="/administration/ciclo.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
+					<ice:panelGroup id="defdeduccionPanel">
+						<f:subview id="stSub">
+							<ice:form id="defdeduccionform">
+								<ui:include src="/administration/definicion_deducciones.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
+					<ice:panelGroup id="empresascorreoPanel">
+					
+						<f:subview id="stSub">
+							<ice:form id="empresascorreoform">
+								<ui:include src="/administration/empresa_correo.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
+				</ice:panelStack></td> 
+
+				
+
 		</tr>
 	</table>
 	<table width="880" border="0" align="center" cellpadding="0"

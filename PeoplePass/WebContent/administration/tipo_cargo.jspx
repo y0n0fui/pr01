@@ -165,7 +165,7 @@
             id="idPopUpPanel"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            draggable="true" modal="true" style="width: 300px;height: 170px;"
             visible="#{tipoCargoWeb.rederPopup}">
             
         <f:facet name="header">
@@ -177,6 +177,7 @@
                                image="images/popupclose.gif"
                                actionListener="#{tipoCargoWeb.toggleModal}" 
                                styleClass="popupHeaderImage"
+                               partialSubmit="true"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
         </ice:panelGroup>
     	</f:facet>
@@ -185,15 +186,21 @@
         	<table>	
         	<tr>
         	<td>
-        	<ice:outputText value="#{msg['admintipocargo.tipocargo.description']}"/>
+        	<ice:outputText value="#{msg['admintipocargo.tipocargo.description']}"/> *
         	</td>
         	<td>
-        	<ice:inputText id="description" value="#{tipoCargoWeb.tipoCargo.descripcion}"></ice:inputText>
+        	<ice:inputText id="description" value="#{tipoCargoWeb.tipoCargo.descripcion}" required="#{tipoCargoWeb.rederPopup}" maxlength="16"></ice:inputText>
         	</td>
         	</tr>
+        	
         	<tr>
-        		<td><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{tipoCargoWeb.onSave}"></ice:commandButton></td>
-        		<td><ice:commandButton id="btnCancelSaveRole" value="#{msg['general.cancel']}" actionListener="#{tipoCargoWeb.toggleModal}"></ice:commandButton></td>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="description"/>		
+			</td>
+			</tr>
+        	<tr>
+        		<td align="center"><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{tipoCargoWeb.onSave}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{tipoCargoWeb.toggleModal}"></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 
@@ -206,7 +213,7 @@
             id="idPopUpDelete"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            draggable="true" modal="true" style="width: 300px;height: 170px;"
             visible="#{tipoCargoWeb.renderDeleteAlert}">
             
         <f:facet name="header">
@@ -238,6 +245,15 @@
         		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{tipoCargoWeb.toggleModalDelete}">
         		</ice:commandButton>
         		</td>
+        	</tr>
+        	<tr>
+        	<td colspan="2">
+        	  <h:messages layout="table"
+                    globalOnly="false"
+				    
+                    showDetail="false"
+                    showSummary="true"/>
+        	</td>
         	</tr>
         	</table>
         </ice:panelGroup> 

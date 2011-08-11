@@ -57,100 +57,100 @@ public class KDirecciones implements java.io.Serializable {
 		this.ipActualizacion = ipActualizacion;
 	}
 
-	public KDireccionesId getId() {
-		return this.id;
-	}
-
-	public void setId(KDireccionesId id) {
-		this.id = id;
+	public CCiudad getCCiudad() {
+		return this.CCiudad;
 	}
 
 	public CTipoUbicacion getCTipoUbicacion() {
 		return this.CTipoUbicacion;
 	}
 
-	public void setCTipoUbicacion(CTipoUbicacion CTipoUbicacion) {
-		this.CTipoUbicacion = CTipoUbicacion;
-	}
-
-	public CCiudad getCCiudad() {
-		return this.CCiudad;
-	}
-
-	public void setCCiudad(CCiudad CCiudad) {
-		this.CCiudad = CCiudad;
-	}
-
-	public KEmpleadosClientes getKEmpleadosClientes() {
-		return this.KEmpleadosClientes;
-	}
-
-	public void setKEmpleadosClientes(KEmpleadosClientes KEmpleadosClientes) {
-		this.KEmpleadosClientes = KEmpleadosClientes;
-	}
-
 	public String getDescripcion() {
 		return this.descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	public int getTipoDireccion() {
-		return this.tipoDireccion;
-	}
-
-	public void setTipoDireccion(int tipoDireccion) {
-		this.tipoDireccion = tipoDireccion;
-	}
-
-	public Date getFechaInsercion() {
-		return this.fechaInsercion;
-	}
-
-	public void setFechaInsercion(Date fechaInsercion) {
-		this.fechaInsercion = fechaInsercion;
-	}
-
-	public Integer getUsuarioInsercion() {
-		return this.usuarioInsercion;
-	}
-
-	public void setUsuarioInsercion(Integer usuarioInsercion) {
-		this.usuarioInsercion = usuarioInsercion;
-	}
-
-	public String getIpInsercion() {
-		return this.ipInsercion;
-	}
-
-	public void setIpInsercion(String ipInsercion) {
-		this.ipInsercion = ipInsercion;
 	}
 
 	public Date getFechaActualizacion() {
 		return this.fechaActualizacion;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaActualizacion = fechaActualizacion;
+	public Date getFechaInsercion() {
+		return this.fechaInsercion;
 	}
 
-	public BigDecimal getUsuarioActualizacion() {
-		return this.usuarioActualizacion;
-	}
-
-	public void setUsuarioActualizacion(BigDecimal usuarioActualizacion) {
-		this.usuarioActualizacion = usuarioActualizacion;
+	public KDireccionesId getId() {
+		return this.id;
 	}
 
 	public String getIpActualizacion() {
 		return this.ipActualizacion;
 	}
 
+	public String getIpInsercion() {
+		return this.ipInsercion;
+	}
+
+	public KEmpleadosClientes getKEmpleadosClientes() {
+		return this.KEmpleadosClientes;
+	}
+
+	public int getTipoDireccion() {
+		return this.tipoDireccion;
+	}
+
+	public BigDecimal getUsuarioActualizacion() {
+		return this.usuarioActualizacion;
+	}
+
+	public Integer getUsuarioInsercion() {
+		return this.usuarioInsercion;
+	}
+
+	public void setCCiudad(CCiudad CCiudad) {
+		this.CCiudad = CCiudad;
+	}
+
+	public void setCTipoUbicacion(CTipoUbicacion CTipoUbicacion) {
+		this.CTipoUbicacion = CTipoUbicacion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public void setFechaInsercion(Date fechaInsercion) {
+		this.fechaInsercion = fechaInsercion;
+	}
+
+	public void setId(KDireccionesId id) {
+		this.id = id;
+	}
+
 	public void setIpActualizacion(String ipActualizacion) {
 		this.ipActualizacion = ipActualizacion;
+	}
+
+	public void setIpInsercion(String ipInsercion) {
+		this.ipInsercion = ipInsercion;
+	}
+
+	public void setKEmpleadosClientes(KEmpleadosClientes KEmpleadosClientes) {
+		this.KEmpleadosClientes = KEmpleadosClientes;
+	}
+
+	public void setTipoDireccion(int tipoDireccion) {
+		this.tipoDireccion = tipoDireccion;
+	}
+
+	public void setUsuarioActualizacion(BigDecimal usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	public void setUsuarioInsercion(Integer usuarioInsercion) {
+		this.usuarioInsercion = usuarioInsercion;
 	}
 
 }

@@ -4,6 +4,7 @@ package com.pp.admin.web;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.springframework.security.context.SecurityContextHolder;
 import com.pp.admin.facade.IUserAdmin;
 import com.pp.admin.hibernate.CTipoCargo;
 import com.pp.util.DataTable;
+import com.pp.util.MessageUtil;
 
 
 
@@ -28,10 +30,6 @@ public class TipoCargoWeb extends CRUDWeb{
 	
 	
 	
-	public TipoCargoWeb() {
-		tipoCargo=new CTipoCargo();
-	}
-	
 	/**
 	 * Herramienta logger
 	 */
@@ -39,8 +37,54 @@ public class TipoCargoWeb extends CRUDWeb{
 	
 	@Autowired
 	private IUserAdmin userAdmin;
+	
+	public TipoCargoWeb() {
+		tipoCargo=new CTipoCargo();
+	}
 
 	
+	public void create(ActionEvent evnt){
+		this.tipoCargo=new CTipoCargo();
+		toggleModal(evnt);
+	}
+	
+	
+	
+	
+	public void delete(ActionEvent evnt){
+		this.tipoCargo=userAdmin.getTipoCargo((Integer)selectData[0]);
+		try{
+		userAdmin.delete(this.tipoCargo);
+		this.tipoCargo=new CTipoCargo();
+		this.selectData=null;
+		init();
+		toggleModalDelete(evnt);
+		}catch (org.springframework.dao.DataIntegrityViolationException e) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			logger.error("Error en constrain",e);	
+        	FacesContext.getCurrentInstance().addMessage(FacesMessage.SEVERITY_ERROR.toString(),  
+    				MessageUtil.getMessageStringFaces("admintipocargo.tipocargo.error.delete", context ));
+		}
+	}
+	
+
+	
+	public void edit(ActionEvent evnt){
+		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
+		this.tipoCargo=userAdmin.getTipoCargo((Integer)selectData[0]);
+		toggleModal(null);
+	}
+	
+	public CTipoCargo getTipoCargo() {
+		return tipoCargo;
+	}
+
+	public IUserAdmin getUserAdmin() {
+		return userAdmin;
+	}
+	
+
+
 	public void init(){
 		dataTable=new DataTable();
 		List<CTipoCargo> roles=userAdmin.getTipoCargo();
@@ -51,10 +95,7 @@ public class TipoCargoWeb extends CRUDWeb{
 					kRole.getFechaInsercion(),kRole.getIpInsercion(),kRole.getUsuarioInsercion());
 		}
 	}
-	
-	
-	
-	
+
 	public void onSave(ActionEvent evnt){
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		if(this.tipoCargo.getCodigoInternoCargo()==0){
@@ -72,51 +113,19 @@ public class TipoCargoWeb extends CRUDWeb{
 		toggleModal(evnt);
 		
 	}
-	
-
-	
-	public void create(ActionEvent evnt){
-		this.tipoCargo=new CTipoCargo();
-		toggleModal(evnt);
-	}
-	
-	public void edit(ActionEvent evnt){
-		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
-		this.tipoCargo=userAdmin.getTipoCargo((Integer)selectData[0]);
-		toggleModal(null);
-	}
-
-	public void delete(ActionEvent evnt){
-		this.tipoCargo=userAdmin.getTipoCargo((Integer)selectData[0]);
-		userAdmin.delete(this.tipoCargo);
-		this.tipoCargo=new CTipoCargo();
-		this.selectData=null;
-		init();
-		toggleModalDelete(evnt);
-	}
-	
-
-
-	public IUserAdmin getUserAdmin() {
-		return userAdmin;
-	}
-
-	public void setUserAdmin(IUserAdmin userAdmin) {
-		this.userAdmin = userAdmin;
-	}
-
-
-
-
-	public CTipoCargo getTipoCargo() {
-		return tipoCargo;
-	}
 
 
 
 
 	public void setTipoCargo(CTipoCargo tipoCargo) {
 		this.tipoCargo = tipoCargo;
+	}
+
+
+
+
+	public void setUserAdmin(IUserAdmin userAdmin) {
+		this.userAdmin = userAdmin;
 	}
 
 	

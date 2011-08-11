@@ -18,22 +18,6 @@ public class KDireccionesId implements java.io.Serializable {
 		this.tipoUbicacion = tipoUbicacion;
 	}
 
-	public int getCodigoInternoCliente() {
-		return this.codigoInternoCliente;
-	}
-
-	public void setCodigoInternoCliente(int codigoInternoCliente) {
-		this.codigoInternoCliente = codigoInternoCliente;
-	}
-
-	public int getTipoUbicacion() {
-		return this.tipoUbicacion;
-	}
-
-	public void setTipoUbicacion(int tipoUbicacion) {
-		this.tipoUbicacion = tipoUbicacion;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -48,12 +32,28 @@ public class KDireccionesId implements java.io.Serializable {
 				&& (this.getTipoUbicacion() == castOther.getTipoUbicacion());
 	}
 
+	public int getCodigoInternoCliente() {
+		return this.codigoInternoCliente;
+	}
+
+	public int getTipoUbicacion() {
+		return this.tipoUbicacion;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
 		result = 37 * result + this.getCodigoInternoCliente();
 		result = 37 * result + this.getTipoUbicacion();
 		return result;
+	}
+
+	public void setCodigoInternoCliente(int codigoInternoCliente) {
+		this.codigoInternoCliente = codigoInternoCliente;
+	}
+
+	public void setTipoUbicacion(int tipoUbicacion) {
+		this.tipoUbicacion = tipoUbicacion;
 	}
 
 }

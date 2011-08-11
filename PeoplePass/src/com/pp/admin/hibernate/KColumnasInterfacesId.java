@@ -23,38 +23,6 @@ public class KColumnasInterfacesId implements java.io.Serializable {
 		this.nombreColumna = nombreColumna;
 	}
 
-	public int getCodigoInternoInterface() {
-		return this.codigoInternoInterface;
-	}
-
-	public void setCodigoInternoInterface(int codigoInternoInterface) {
-		this.codigoInternoInterface = codigoInternoInterface;
-	}
-
-	public int getCodIntBancoTero() {
-		return this.codIntBancoTero;
-	}
-
-	public void setCodIntBancoTero(int codIntBancoTero) {
-		this.codIntBancoTero = codIntBancoTero;
-	}
-
-	public String getNombreTabla() {
-		return this.nombreTabla;
-	}
-
-	public void setNombreTabla(String nombreTabla) {
-		this.nombreTabla = nombreTabla;
-	}
-
-	public String getNombreColumna() {
-		return this.nombreColumna;
-	}
-
-	public void setNombreColumna(String nombreColumna) {
-		this.nombreColumna = nombreColumna;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -78,6 +46,22 @@ public class KColumnasInterfacesId implements java.io.Serializable {
 						.equals(castOther.getNombreColumna())));
 	}
 
+	public int getCodigoInternoInterface() {
+		return this.codigoInternoInterface;
+	}
+
+	public int getCodIntBancoTero() {
+		return this.codIntBancoTero;
+	}
+
+	public String getNombreColumna() {
+		return this.nombreColumna;
+	}
+
+	public String getNombreTabla() {
+		return this.nombreTabla;
+	}
+
 	public int hashCode() {
 		int result = 17;
 
@@ -92,6 +76,22 @@ public class KColumnasInterfacesId implements java.io.Serializable {
 				+ (getNombreColumna() == null ? 0 : this.getNombreColumna()
 						.hashCode());
 		return result;
+	}
+
+	public void setCodigoInternoInterface(int codigoInternoInterface) {
+		this.codigoInternoInterface = codigoInternoInterface;
+	}
+
+	public void setCodIntBancoTero(int codIntBancoTero) {
+		this.codIntBancoTero = codIntBancoTero;
+	}
+
+	public void setNombreColumna(String nombreColumna) {
+		this.nombreColumna = nombreColumna;
+	}
+
+	public void setNombreTabla(String nombreTabla) {
+		this.nombreTabla = nombreTabla;
 	}
 
 }

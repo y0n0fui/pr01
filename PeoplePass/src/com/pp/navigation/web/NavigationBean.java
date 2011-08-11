@@ -34,12 +34,17 @@ public class NavigationBean {
     }
 
     /**
-     * Asginar el nombre del panel seleccionado.
-     * @param selectedPanel nombre del panel seleccionado
-     */
-    public void setSelectedPanel(String selectedPanel) {
-        this.selectedPanel = selectedPanel;
-    }
+	 * @return the user
+	 */
+	public org.springframework.security.userdetails.User getUser() {
+		org.springframework.security.userdetails.User user = null;
+		try{
+		user = (org.springframework.security.userdetails.User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		}catch (Exception e) { //no se encuentra en un contexto de seguridad, entonces debe retornar null
+			user = null;
+		}
+		return user;  
+	}
 
     /**
      * Evento realizado en el cambio de stack
@@ -56,17 +61,12 @@ public class NavigationBean {
     }
 
 	/**
-	 * @return the user
-	 */
-	public org.springframework.security.userdetails.User getUser() {
-		org.springframework.security.userdetails.User user = null;
-		try{
-		user = (org.springframework.security.userdetails.User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		}catch (Exception e) { //no se encuentra en un contexto de seguridad, entonces debe retornar null
-			user = null;
-		}
-		return user;  
-	}
+     * Asginar el nombre del panel seleccionado.
+     * @param selectedPanel nombre del panel seleccionado
+     */
+    public void setSelectedPanel(String selectedPanel) {
+        this.selectedPanel = selectedPanel;
+    }
 
     
 }

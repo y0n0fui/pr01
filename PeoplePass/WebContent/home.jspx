@@ -50,7 +50,8 @@
 		<tr>
 			<td valign="top" width="300"><ui:include src="/navigation.jspx" />
 			</td>
-			<td valign="top" height="355"><ice:panelStack
+			<td valign="top" height="355">
+			<ice:panelStack
 					id="templatePanelStack" styleClass="componentContentPanelStack"
 					selectedPanel="#{navigationBean.selectedPanel}">
 
@@ -139,6 +140,7 @@
 							</ice:form>
 						</f:subview>
 					</ice:panelGroup>
+
 					<ice:panelGroup id="cicloPanel">
 						<f:subview id="stSub">
 							<ice:form id="cicloform">
@@ -162,6 +164,9 @@
 						</f:subview>
 					</ice:panelGroup>
 				</ice:panelStack></td> 
+
+				
+
 		</tr>
 	</table>
 	<table width="880" border="0" align="center" cellpadding="0"

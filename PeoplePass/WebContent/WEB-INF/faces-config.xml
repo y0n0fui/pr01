@@ -201,5 +201,15 @@
 		</managed-property>
 	</managed-bean>
 
+	<managed-bean>
+		<managed-bean-name>productWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.ProductWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>productAdmin</property-name>
+			<value>#{productAdmin}</value>  
+		</managed-property>
+		
+	</managed-bean>
 		
 </faces-config>

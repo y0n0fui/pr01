@@ -56,6 +56,7 @@ public class NavigationBean {
         // get from the context panel stack item to show as well
         // as the title associated with the link.
         FacesContext context = FacesContext.getCurrentInstance();
+       
         Map<String,String> map = context.getExternalContext().getRequestParameterMap();
         selectedPanel = (String) map.get("stackName");
     }
@@ -68,5 +69,7 @@ public class NavigationBean {
         this.selectedPanel = selectedPanel;
     }
 
-    
+    public String getResources(){
+    	return "rolePanel";
+    }
 }

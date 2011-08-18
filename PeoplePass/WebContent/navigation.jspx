@@ -34,6 +34,7 @@
 <ice:form xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	
 	id="navigationMenuForm">
 	<ice:panelGroup>
 		<!-- standard components-->
@@ -47,12 +48,15 @@
 				</ice:panelGroup>
 			</f:facet>
 
+			
 			<ice:commandLink id="userPanel"
 				actionListener="#{navigationBean.navigationStackChange}">
 
 				<f:param name="stackName" value="userPanel" />
 				<ice:outputText value="#{msg['menu.menu12.user']}" />
 			</ice:commandLink>
+			
+			
 			<br />
 			<ice:commandLink id="rolePanel"
 				actionListener="#{navigationBean.navigationStackChange}"
@@ -62,6 +66,8 @@
 				<ice:outputText value="#{msg['menu.menu12.role']}" />
 			</ice:commandLink>
 			<br />
+			
+			
 			<ice:commandLink id="empresaPanel"
 				actionListener="#{navigationBean.navigationStackChange}">
 
@@ -112,9 +118,11 @@
 				<ice:outputText value="#{msg['menu.menu31.city']}" />
 			</ice:commandLink>
 			<br />
+			
 			<ice:commandLink id="tipoCargoPanel"
-				actionListener="#{navigationBean.navigationStackChange}">
-
+				actionListener="#{navigationBean.navigationStackChange}" 
+				>
+				
 				<f:param name="stackName" value="tipocargoPanel" />
 				<ice:outputText value="#{msg['menu.menu32.tipocargo']}" />
 			</ice:commandLink>

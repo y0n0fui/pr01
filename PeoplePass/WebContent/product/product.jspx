@@ -9,21 +9,21 @@
    
 		
 		<ice:panelGroup styleClass="synopsisBox inputFileContainer">
-        	<ice:outputText value="#{msg['adminrole.title']}"/>
-        	<ice:outputText value="#{msg['adminrole.desc']}"/>
+        	<ice:outputText value="#{msg['adminproduct.title']}"/>
+        	<ice:outputText value="#{msg['adminproduct.desc']}"/>
 		</ice:panelGroup>
 		<ice:panelGroup styleClass="basicBox" >
 		
 		
 			<ice:dataTable id="rolelisttable"
  				  var="row"
- 				  value="#{roleWeb.dataTable.data}"
+ 				  value="#{productWeb.dataTable.data}"
 		  columnClasses="tableCol"
 		  scrollable="true"
 		  scrollHeight="250px"
 		  columnWidths="100px,100px,80px,250px,100px,80px,80px,80px,80px"
-		  sortAscending="#{roleWeb.dataTable.sortDataAscending}" 	
-		  sortColumn="#{roleWeb.dataTable.sortColumn}">
+		  sortAscending="#{productWeb.dataTable.sortDataAscending}" 	
+		  sortColumn="#{productWeb.dataTable.sortColumn}">
 		 <ice:column>
 		
 			
@@ -31,7 +31,7 @@
 		          	<ice:commandSortHeader id="c1Header"
                                            columnName="c1" arrow="true">
 			              <ice:outputText id="lblc1"
-			                              value="#{msg['adminrole.role.description']}"/>
+			                              value="#{msg['adminproduct.product.description']}"/>
 			        </ice:commandSortHeader>                      
 		     	  </f:facet>	
 		      <ice:outputText id="valuec1"
@@ -46,7 +46,7 @@
 		     	<ice:commandSortHeader id="c2Header"
                                            columnName="c2" arrow="true">
 		     		 <ice:outputText id="lblc2"
-		                         value="#{msg['adminrole.role.dateAct']}"/>
+		                         value="#{msg['adminproduct.product.dateAct']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec2"
@@ -60,7 +60,7 @@
 		     	<ice:commandSortHeader id="c3Header"
                                            columnName="c3" arrow="true">
 		     		 <ice:outputText id="lblc3"
-		                         value="#{msg['adminrole.role.ipAct']}"/>
+		                         value="#{msg['adminproduct.product.ipAct']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec3"
@@ -75,7 +75,7 @@
 		     	<ice:commandSortHeader id="c4Header"
                                            columnName="c4" arrow="true">
 		     		 <ice:outputText id="lblc4"
-		                         value="#{msg['adminrole.role.userAct']}"/>
+		                         value="#{msg['adminproduct.product.userAct']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec4"
@@ -89,7 +89,7 @@
 		     	<ice:commandSortHeader id="c5Header"
                                            columnName="c5" arrow="true">
 		     		 <ice:outputText id="lblc5"
-		                         value="#{msg['adminrole.role.dateInsert']}"/>
+		                         value="#{msg['adminproduct.product.dateInsert']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec5"
@@ -104,7 +104,7 @@
 		     	<ice:commandSortHeader id="c6Header"
                                            columnName="c6" arrow="true">
 		     		 <ice:outputText id="lblc6"
-		                         value="#{msg['adminrole.role.ipInsert']}"/>
+		                         value="#{msg['adminproduct.product.ipInsert']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec6"
@@ -118,7 +118,7 @@
 		     	<ice:commandSortHeader id="c7Header"
                                            columnName="c7" arrow="true">
 		     		 <ice:outputText id="lblc7"
-		                         value="#{msg['adminrole.role.userInsert']}"/>
+		                         value="#{msg['adminproduct.product.userInsert']}"/>
 		         </ice:commandSortHeader>                
 		     </f:facet>
 		      <ice:outputText id="valuec7"
@@ -133,7 +133,7 @@
 		                         value="#{msg['general.edit']}"/>
 		     </f:facet>
 		     
-		            <ice:commandLink   actionListener="#{roleWeb.edit}" value="#{msg['general.edit']}" >
+		            <ice:commandLink   actionListener="#{productWeb.edit}" value="#{msg['general.edit']}" >
 							<f:attribute name="row" value="#{row}"/>
 					</ice:commandLink>
 		                        
@@ -146,7 +146,7 @@
 		                         value="#{msg['general.delete']}"/>
 		     </f:facet>
 		     
-		            <ice:commandLink actionListener="#{roleWeb.prepareToDelete}" value="#{msg['general.delete']}" >
+		            <ice:commandLink actionListener="#{productWeb.prepareToDelete}" value="#{msg['general.delete']}" >
 							<f:attribute name="row" value="#{row}"/>
 					</ice:commandLink>
 		                        
@@ -155,7 +155,7 @@
 			
 		</ice:dataTable>	
 		<ice:panelGroup> 
-		<ice:commandButton id="btnCreateRole" value="#{msg['adminrole.role.create']}" actionListener="#{roleWeb.create}" ></ice:commandButton>
+		<ice:commandButton id="btnCreateRole" value="#{msg['adminproduct.product.create']}" actionListener="#{productWeb.create}" ></ice:commandButton>
 			
 		</ice:panelGroup>
 		</ice:panelGroup>
@@ -166,16 +166,16 @@
             styleClass="corePopup2"
             autoCentre="true" 
             draggable="true" modal="true" style="width: 300px;height: 170px;"
-            visible="#{roleWeb.rederPopup}">
+            visible="#{productWeb.rederPopup}">
             
         <f:facet name="header">
         <ice:panelGroup styleClass="popupHeaderWrapper">
             <ice:outputText id="popuptitle"
-                    value="#{msg['adminrole.role']}"
+                    value="#{msg['adminproduct.product']}"
                     styleClass="popupHeaderText"/>
             <ice:commandButton id="modalpopUpCloseBtn" type="button"
                                image="images/popupclose.gif"
-                               actionListener="#{roleWeb.toggleModal}" 
+                               actionListener="#{productWeb.toggleModal}" 
                                styleClass="popupHeaderImage"
                                partialSubmit="true"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
@@ -186,10 +186,10 @@
         	<table width="100%">	
         	<tr>
         	<td>
-        	<ice:outputText value="#{msg['adminrole.role.description']}"/> *
+        	<ice:outputText value="#{msg['adminproduct.product.description']}"/> *
         	</td>
         	<td>
-        	<ice:inputText id="description" value="#{roleWeb.role.descripcion}" required="#{roleWeb.rederPopup}" maxlength="16">
+        	<ice:inputText id="description" value="#{productWeb.product.descripcionProducto}" required="#{productWeb.rederPopup}" maxlength="6">
         	</ice:inputText>
         	</td>
         	</tr>
@@ -199,8 +199,8 @@
 			</td>
 			</tr>
         	<tr>
-        		<td align="center"><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{roleWeb.onSave}"></ice:commandButton></td>
-        		<td align="center"><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{roleWeb.toggleModal}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{productWeb.onSave}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{productWeb.toggleModal}"></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 
@@ -214,7 +214,7 @@
             styleClass="corePopup2"
             autoCentre="true" 
             draggable="true" modal="true" style="width: 300px;height: 170px;"
-            visible="#{roleWeb.renderDeleteAlert}">
+            visible="#{productWeb.renderDeleteAlert}">
             
         <f:facet name="header">
         <ice:panelGroup styleClass="popupHeaderWrapper">
@@ -223,7 +223,7 @@
                     styleClass="popupHeaderText"/>
             <ice:commandButton id="modalPnlCloseBtn" type="button"
                                image="images/popupclose.gif"
-                               actionListener="#{roleWeb.toggleModalDelete}" 
+                               actionListener="#{productWeb.toggleModalDelete}" 
                                styleClass="popupHeaderImage"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
         </ice:panelGroup>
@@ -238,11 +238,11 @@
         	</tr>
         	<tr>
         		<td>
-        		<ice:commandButton id="btnAceptRole" value="#{msg['general.accept']}" actionListener="#{roleWeb.delete}">
+        		<ice:commandButton id="btnAceptRole" value="#{msg['general.accept']}" actionListener="#{productWeb.delete}">
         		</ice:commandButton>
         		</td>
         		<td>
-        		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{roleWeb.toggleModalDelete}">
+        		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{productWeb.toggleModalDelete}">
         		</ice:commandButton>
         		</td>
         	</tr>

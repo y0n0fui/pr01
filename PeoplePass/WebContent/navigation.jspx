@@ -197,6 +197,13 @@
 
 				<f:param name="stackName" value="cicloPanel" />
 				<ice:outputText value="#{msg['menu.menu41.ciclo']}" />
+			</ice:commandLink>
+			<br/>		
+			<ice:commandLink id="productPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="productPanel" />
+				<ice:outputText value="#{msg['menu.menu42.product']}" />
 			</ice:commandLink>		
 		</ice:panelCollapsible>	
 	</ice:panelGroup>

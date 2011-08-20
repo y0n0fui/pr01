@@ -2,6 +2,9 @@ package com.pp.admin.facade;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.pp.admin.hibernate.CTipoUbicacion;
 import com.pp.admin.hibernate.KBancosTerceros;
 
@@ -10,6 +13,7 @@ import com.pp.admin.hibernate.KCiclo;
 import com.pp.admin.hibernate.KConceptosFacturacion;
 import com.pp.admin.hibernate.KCondicionesEspeciales;
 import com.pp.admin.hibernate.KDefinicionDeducciones;
+import com.pp.admin.hibernate.KDescripcionRecursos;
 import com.pp.admin.hibernate.KEmpresaCorreo;
 
 public interface IParamsAdmin {
@@ -81,4 +85,16 @@ public interface IParamsAdmin {
 	
 	public void delete(KBancosTerceros bancosTerceros);
 	
+	
+	
+	public List<KDescripcionRecursos> getDescripcionRecursos();
+
+	
+	public void save(KDescripcionRecursos descripcionRecursos);
+	
+	
+	public KDescripcionRecursos getDescripcionRecursos(int idDesc);
+	
+	
+	public void delete(KDescripcionRecursos descripcionRecursos);	
 }

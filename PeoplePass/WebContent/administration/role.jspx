@@ -142,6 +142,19 @@
 			
 			<ice:column>
 		     <f:facet name="header">
+		     	      <ice:outputText id="lblcrecursos"
+		                         value="#{msg['adminrole.recursos']}"/>
+		     </f:facet>
+		     
+		            <ice:commandLink   actionListener="#{roleWeb.recursos}" value="#{msg['adminrole.recursos']}" >
+							<f:attribute name="row" value="#{row}"/>
+					</ice:commandLink> 
+		                        
+		                      
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
 		              <ice:outputText id="lblcD"
 		                         value="#{msg['general.delete']}"/>
 		     </f:facet>
@@ -259,5 +272,77 @@
         </ice:panelGroup> 
         </f:facet>
  </ice:panelPopup>
+ 
+ 
+<ice:panelPopup 
+            id="idPopUpPanelRecursos"
+            styleClass="corePopup2"
+            autoCentre="true" 
+            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            visible="#{roleWeb.renderPopupRecursos}">
+            
+        <f:facet name="header">
+        <ice:panelGroup styleClass="popupHeaderWrapper">
+            <ice:outputText id="popuptitle"
+                    value="#{msg['adminrole.recursos']}"
+                    styleClass="popupHeaderText"/>
+            <ice:commandButton id="modalpopUpCloseBtn" type="button"
+                               image="images/popupclose.gif"
+                               actionListener="#{roleWeb.toggleModalRecursos}" 
+                               styleClass="popupHeaderImage"
+                               partialSubmit="true"
+                               title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
+        </ice:panelGroup>
+    	</f:facet>
+    	<f:facet name="body"> 
+        <ice:panelGroup styleClass="popupBody">
+        	<table width="100%">	
+        	<tr>
+        	<td>
+        	<ice:outputText value="#{msg['adminrole.recursos.select']}"/>&nbsp;<ice:outputText value="#{roleWeb.role.descripcion}"/> 
+        	</td>
+        	<td>
+        	&nbsp;	
+        	</td>
+        	</tr>
+        	<tr>
+        	<td>
+        	<ice:dataTable id="employeeList"
+                       var="employee"
+                       value="#{roleWeb.role.employees}"
+                       rows="8" 
+                       columnClasses="tableCol" >
+            <ice:column>
+            <ice:rowSelector id="selected"
+                      
+                                 value="#{employee.selected}"
+                                 multiple="#{rowSelectController.multiple}"
+                                 enhancedMultiple="#{rowSelectController.enhancedMultiple}"                                 
+                                 selectionListener="#{rowSelectController.rowSelectionListener}"
+                                 />
+				                <f:facet name="header">
+				                    <ice:outputText id="column1"
+				                                    value="#{msgs['page.dataTable.column1']}"/>
+				                </f:facet>
+				                <ice:outputText id="Number" value="#{employee.id}"/> 
+			</ice:column>
+			</ice:dataTable>
+        	</td>
+        	<td>
+        	&nbsp;	
+        	</td>
+        	</tr>
+        	<tr>
+        		<td align="center"><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{roleWeb.onSave}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{roleWeb.toggleModal}"></ice:commandButton></td>
+        	</tr>
+        	</table>
+        </ice:panelGroup> 
+        </f:facet>
+ </ice:panelPopup>
+ 
+ 
+ 
+ 
  
 </ice:panelGroup>    

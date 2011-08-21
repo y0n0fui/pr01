@@ -37,6 +37,8 @@ public class RoleWeb extends CRUDWeb{
 	@Autowired
 	private IUserAdmin userAdmin;
 	
+	protected boolean renderPopupRecursos;
+	
 	public RoleWeb() {
 		role=new KRoles();
 	}
@@ -73,6 +75,16 @@ public class RoleWeb extends CRUDWeb{
 		this.role=userAdmin.getRoles((Integer)selectData[0]);
 		toggleModal(null);
 	}
+	
+	
+	public void recursos(ActionEvent evnt){
+		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
+		this.role=userAdmin.getRoles((Integer)selectData[0]);
+		
+		toggleModalRecursos(null);
+	}
+	
+	
 	
 	public KRoles getRole() {
 		return role;
@@ -122,5 +134,19 @@ public class RoleWeb extends CRUDWeb{
 		this.userAdmin = userAdmin;
 	}
 
+	public void toggleModalRecursos(ActionEvent evn){
+		renderPopupRecursos=!renderPopupRecursos;
+	}
+
+
+	public boolean isRenderPopupRecursos() {
+		return renderPopupRecursos;
+	}
+
+
+	public void setRenderPopupRecursos(boolean renderPopupRecursos) {
+		this.renderPopupRecursos = renderPopupRecursos;
+	}
+	
 	
 }

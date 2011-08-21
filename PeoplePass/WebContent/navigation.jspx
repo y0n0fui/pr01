@@ -75,6 +75,13 @@
 				<ice:outputText value="#{msg['menu.menu12.empresa']}" />
 			</ice:commandLink>
 			
+			<ice:commandLink id="descrecursosPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="descrecursosPanel" />
+				<ice:outputText value="#{msg['menu.menu12.descrecursos']}" />
+			</ice:commandLink>
+			
 			<br />
 
 		</ice:panelCollapsible>
@@ -199,5 +206,9 @@
 				<ice:outputText value="#{msg['menu.menu41.ciclo']}" />
 			</ice:commandLink>		
 		</ice:panelCollapsible>	
+		
+		
+		
+	
 	</ice:panelGroup>
 </ice:form>

@@ -1,23 +1,29 @@
 package com.pp.admin.facade;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.context.SecurityContextHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pp.admin.hibernate.CTipoUbicacion;
 import com.pp.admin.hibernate.KBancosTerceros;
-
 import com.pp.admin.hibernate.KCiclo;
-
 import com.pp.admin.hibernate.KConceptosFacturacion;
 import com.pp.admin.hibernate.KCondicionesEspeciales;
 import com.pp.admin.hibernate.KDefinicionDeducciones;
 import com.pp.admin.hibernate.KDescripcionRecursos;
 import com.pp.admin.hibernate.KEmpresaCorreo;
+import com.pp.admin.hibernate.KRecursosXRoles;
+import com.pp.admin.hibernate.KRecursosXRolesId;
+import com.pp.admin.hibernate.KRoles;
+
 
 @Repository
 @Transactional
@@ -231,5 +237,42 @@ public class ParamsAdmin implements IParamsAdmin {
 	public void delete(KDescripcionRecursos descripcionRecursos) {
 		sessionFactory.getCurrentSession().delete(descripcionRecursos);
 
+	}
+	
+	@Transactional(readOnly = true)
+	@SuppressWarnings("unchecked")
+	public List<KDescripcionRecursos> getRecursosByRole(int roleId) {
+		Query query = sessionFactory.getCurrentSession().createQuery(
+				"select rr.KDescripcionRecursos from KRecursosXRoles rr where rr.KRoles.codigoInternoRole=:cRole");
+		query.setParameter("cRole", roleId);
+		List<KDescripcionRecursos> result = (List<KDescripcionRecursos>) query
+				.list();
+		return result;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void save(List<KDescripcionRecursos> descr,KRoles roles, int user, String ipAddress) {
+		KRecursosXRoles kRecursosXRoles =null;
+		KRecursosXRolesId id = null;
+		//eliminar las relaciones roles x recursos
+		Query query = sessionFactory.getCurrentSession().createQuery(
+				"delete from KRecursosXRoles rr where rr.KRoles.codigoInternoRole=:cRole");
+		query.setParameter("cRole", roles.getCodigoInternoRole());
+		query.executeUpdate();
+		//poner las nuevas
+		for (KDescripcionRecursos kDescripcionRecursos : descr) {
+			kRecursosXRoles= new KRecursosXRoles();
+			kRecursosXRoles.setKRoles(roles);
+			kRecursosXRoles.setKDescripcionRecursos(kDescripcionRecursos);
+			kRecursosXRoles.setFechaInsercion(new Date());
+			kRecursosXRoles.setIpInsercion(ipAddress);
+			kRecursosXRoles.setUsuarioInsercion(user);
+			id=new KRecursosXRolesId();
+			id.setCodigoInternoRecurso(kDescripcionRecursos.getCodigoInternoRecurso());
+			id.setCodigoInternoRole(roles.getCodigoInternoRole());
+			kRecursosXRoles.setId(id);
+			sessionFactory.getCurrentSession().save(kRecursosXRoles);
+		}
+		
 	}
 }

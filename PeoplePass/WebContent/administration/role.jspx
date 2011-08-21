@@ -278,15 +278,15 @@
             id="idPopUpPanelRecursos"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            draggable="true" modal="true" style="width: 450px;height: 300px;"
             visible="#{roleWeb.renderPopupRecursos}">
             
         <f:facet name="header">
-        <ice:panelGroup styleClass="popupHeaderWrapper">
+        <ice:panelGroup styleClass="popupRecursosHeaderWrapper">
             <ice:outputText id="popuptitle"
                     value="#{msg['adminrole.recursos']}"
                     styleClass="popupHeaderText"/>
-            <ice:commandButton id="modalpopUpCloseBtn" type="button"
+            <ice:commandButton id="modalpopUpCloseBtnRecursos" type="button"
                                image="images/popupclose.gif"
                                actionListener="#{roleWeb.toggleModalRecursos}" 
                                styleClass="popupHeaderImage"
@@ -299,42 +299,57 @@
         	<table width="100%">	
         	<tr>
         	<td>
-        	<ice:outputText value="#{msg['adminrole.recursos.select']}"/>&nbsp;<ice:outputText value="#{roleWeb.role.descripcion}"/> 
+        	<ice:outputText value="#{msg['adminrole.recursos.select']}"/><ice:outputText value="#{roleWeb.role.descripcion}"/> 
         	</td>
         	<td>
-        	&nbsp;	
+        	<ice:outputText value="#{msg['adminrole.recursos.selected']}"/>> 	
         	</td>
         	</tr>
         	<tr>
-        	<td>
-        	<ice:dataTable id="employeeList"
-                       var="employee"
-                       value="#{roleWeb.role.employees}"
-                       rows="8" 
+        	<td align="left">
+        	<ice:dataTable id="recursosList"
+                       var="recurso"
+                       value="#{roleWeb.descripcionRecursos}"
+                       rows="5" 
+                       scrollable="true"
+                       scrollHeight="100px"
                        columnClasses="tableCol" >
             <ice:column>
             <ice:rowSelector id="selected"
                       
-                                 value="#{employee.selected}"
-                                 multiple="#{rowSelectController.multiple}"
-                                 enhancedMultiple="#{rowSelectController.enhancedMultiple}"                                 
-                                 selectionListener="#{rowSelectController.rowSelectionListener}"
+                                 value="#{recurso.selected}"
+                                 multiple="true"
+                                selectionListener="#{roleWeb.rowSelectionListener}"
                                  />
 				                <f:facet name="header">
-				                    <ice:outputText id="column1"
-				                                    value="#{msgs['page.dataTable.column1']}"/>
+				                    <ice:outputText id="lblnamerecursotoselect"
+				                                    value="#{msg['admindescrecursos.descrecursos.description']}"/>
 				                </f:facet>
-				                <ice:outputText id="Number" value="#{employee.id}"/> 
+				                <ice:outputText id="namerecursotoselect" value="#{recurso.descripcion}"/> 
 			</ice:column>
 			</ice:dataTable>
         	</td>
-        	<td>
-        	&nbsp;	
+        	<td valign="top" align="left">
+        	<ice:dataTable id="selectedrecursosList"
+                       var="recurso"
+                       value="#{roleWeb.selectedResources}"
+                       rows="5" 
+                       scrollable="true"
+                       scrollHeight="100px"
+                       columnClasses="tableCol" >
+            <ice:column>
+           	                    <f:facet name="header">
+				                    <ice:outputText id="lblnamerecurso"
+				                                    value="#{msg['admindescrecursos.descrecursos.description']}"/>
+				                </f:facet>
+				                <ice:outputText id="namerecurso" value="#{recurso.descripcion}"/> 
+			</ice:column>
+			</ice:dataTable>	
         	</td>
         	</tr>
         	<tr>
-        		<td align="center"><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{roleWeb.onSave}"></ice:commandButton></td>
-        		<td align="center"><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{roleWeb.toggleModal}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnSaveRecursosXRole" value="#{msg['general.save']}" actionListener="#{roleWeb.onSaveResources}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnCancelSaveRecursosXRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{roleWeb.toggleModalRecursos}"></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 

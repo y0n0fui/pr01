@@ -16,6 +16,7 @@ import com.pp.admin.hibernate.KDefinicionDeducciones;
 import com.pp.admin.hibernate.KDescripcionRecursos;
 import com.pp.admin.hibernate.KEmpresaCorreo;
 import com.pp.admin.hibernate.KRoles;
+
 import com.pp.admin.hibernate.KUsuariosEmpresas;
 
 public interface IParamsAdmin {
@@ -103,5 +104,10 @@ public interface IParamsAdmin {
 	
 	
 	public void delete(KDescripcionRecursos descripcionRecursos);	
+
+	
+	public List<KDescripcionRecursos> getRecursosByRole(int roleId);
+	
+	public void save(List<KDescripcionRecursos> descr,KRoles roles, int user, String ipAddress);
 
 }

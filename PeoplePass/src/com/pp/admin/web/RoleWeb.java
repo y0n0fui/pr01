@@ -125,6 +125,9 @@ public class RoleWeb extends CRUDWeb{
 		
 	}
 
+	
+	
+	
 	public void setRole(KRoles role) {
 		this.role = role;
 	}

@@ -11,6 +11,8 @@ import com.pp.admin.hibernate.KConceptosFacturacion;
 import com.pp.admin.hibernate.KCondicionesEspeciales;
 import com.pp.admin.hibernate.KDefinicionDeducciones;
 import com.pp.admin.hibernate.KEmpresaCorreo;
+import com.pp.admin.hibernate.KRoles;
+import com.pp.admin.hibernate.KUsuariosEmpresas;
 
 public interface IParamsAdmin {
 
@@ -80,5 +82,8 @@ public interface IParamsAdmin {
 	public KBancosTerceros getBancosTerceros(int idRole);
 	
 	public void delete(KBancosTerceros bancosTerceros);
+	
+	public List<KRoles> getRolesByUsuarioEmpresa(int usuarioEmpresa);
+	public void save(List<KRoles> roles,KUsuariosEmpresas usuariosEmpresas, int user, String ipAddress);
 	
 }

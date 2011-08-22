@@ -102,7 +102,10 @@
 			<property-name>userAdmin</property-name>
 			<value>#{userAdmin}</value> 
 		</managed-property>
-		
+		<managed-property>
+			<property-name>paramsAdmin</property-name>
+			<value>#{paramsAdmin}</value>  
+		</managed-property>
 	</managed-bean>
 	
 	

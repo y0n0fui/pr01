@@ -16,6 +16,7 @@ import com.pp.admin.hibernate.KCiclo;
 import com.pp.admin.hibernate.KConceptosFacturacion;
 import com.pp.admin.hibernate.KCondicionesEspeciales;
 import com.pp.admin.hibernate.KDefinicionDeducciones;
+import com.pp.admin.hibernate.KDescripcionRecursos;
 import com.pp.admin.hibernate.KEmpresaCorreo;
 import com.pp.admin.hibernate.KRoles;
 import com.pp.admin.hibernate.KRolesEmpresas;
@@ -209,6 +210,7 @@ public class ParamsAdmin implements IParamsAdmin {
 	}
 	
 	
+
 	@Transactional(readOnly = true)
 	@SuppressWarnings("unchecked")
 	public List<KRoles> getRolesByUsuarioEmpresa(int usuarioEmpresa) {
@@ -247,6 +249,34 @@ public class ParamsAdmin implements IParamsAdmin {
 			sessionFactory.getCurrentSession().save(kRolesEmpresas);
 		}
 		
+	}
+
+
+	
+	@Transactional(readOnly = true)
+	@SuppressWarnings("unchecked")
+	public List<KDescripcionRecursos> getDescripcionRecursos() {
+		Query query = sessionFactory.getCurrentSession().createQuery(
+				"select cf from KDescripcionRecursos cf");
+		List<KDescripcionRecursos> result = (List<KDescripcionRecursos>) query
+				.list();
+		return result;
+	}
+
+	@Transactional(readOnly = false)
+	public void save(KDescripcionRecursos descripcionRecursos) {
+		sessionFactory.getCurrentSession().saveOrUpdate(descripcionRecursos);
+	}
+
+	@Transactional(readOnly = true)
+	public KDescripcionRecursos getDescripcionRecursos(int idDesc) {
+		return (KDescripcionRecursos) sessionFactory.getCurrentSession().get(
+				KDescripcionRecursos.class, idDesc);
+	}
+
+	public void delete(KDescripcionRecursos descripcionRecursos) {
+		sessionFactory.getCurrentSession().delete(descripcionRecursos);
+
 	}
 
 }

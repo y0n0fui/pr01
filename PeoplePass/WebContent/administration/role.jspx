@@ -278,6 +278,7 @@
             id="idPopUpPanelRecursos"
             styleClass="corePopup2"
             autoCentre="true" 
+
             draggable="true" modal="true" style="width: 450px;height: 300px;"
             visible="#{roleWeb.renderPopupRecursos}">
             
@@ -350,6 +351,7 @@
         	<tr>
         		<td align="center"><ice:commandButton id="btnSaveRecursosXRole" value="#{msg['general.save']}" actionListener="#{roleWeb.onSaveResources}"></ice:commandButton></td>
         		<td align="center"><ice:commandButton id="btnCancelSaveRecursosXRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{roleWeb.toggleModalRecursos}"></ice:commandButton></td>
+
         	</tr>
         	</table>
         </ice:panelGroup> 

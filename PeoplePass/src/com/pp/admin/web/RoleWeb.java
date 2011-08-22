@@ -46,10 +46,12 @@ public class RoleWeb extends CRUDWeb{
 	@Autowired
 	private IUserAdmin userAdmin;
 	
+
 	@Autowired
 	private IParamsAdmin paramsAdmin;
 	
 	
+
 	protected boolean renderPopupRecursos;
 	
 	public RoleWeb() {
@@ -121,6 +123,11 @@ public class RoleWeb extends CRUDWeb{
 		
 		return listResources;
 	}
+	
+	
+	
+	
+	
 	
 	public KRoles getRole() {
 		return role;
@@ -251,5 +258,6 @@ public class RoleWeb extends CRUDWeb{
 		
 		
 	}
+
 	
 }

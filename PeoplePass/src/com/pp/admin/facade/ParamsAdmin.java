@@ -1,5 +1,7 @@
 package com.pp.admin.facade;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -10,13 +12,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pp.admin.hibernate.CTipoUbicacion;
 import com.pp.admin.hibernate.KBancosTerceros;
-
 import com.pp.admin.hibernate.KCiclo;
-
 import com.pp.admin.hibernate.KConceptosFacturacion;
 import com.pp.admin.hibernate.KCondicionesEspeciales;
 import com.pp.admin.hibernate.KDefinicionDeducciones;
 import com.pp.admin.hibernate.KEmpresaCorreo;
+import com.pp.admin.hibernate.KRoles;
+import com.pp.admin.hibernate.KRolesEmpresas;
+import com.pp.admin.hibernate.KRolesEmpresasId;
+import com.pp.admin.hibernate.KUsuariosEmpresas;
 
 @Repository
 @Transactional
@@ -204,4 +208,45 @@ public class ParamsAdmin implements IParamsAdmin {
 
 	}
 	
+	
+	@Transactional(readOnly = true)
+	@SuppressWarnings("unchecked")
+	public List<KRoles> getRolesByUsuarioEmpresa(int usuarioEmpresa) {
+		Query query = sessionFactory.getCurrentSession().createQuery(
+				"select re.KRoles from KRolesEmpresas re where re.KUsuariosEmpresas.codigoInternoUsuario=:uEmpresa");
+		query.setParameter("uEmpresa", usuarioEmpresa);
+		List<KRoles> result = (List<KRoles>) query
+				.list();
+		return result;
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public void save(List<KRoles> roles,KUsuariosEmpresas usuariosEmpresas, int user, String ipAddress) {
+		KRolesEmpresas kRolesEmpresas =null;
+		KRolesEmpresasId id = null;
+		//eliminar las relaciones roles x recursos
+		Query query = sessionFactory.getCurrentSession().createQuery(
+				"delete from KRolesEmpresas  re where re.KUsuariosEmpresas.codigoInternoUsuario=:uEmpresa");
+		query.setParameter("uEmpresa", usuariosEmpresas.getCodigoInternoUsuario());
+		query.executeUpdate();
+		//poner las nuevas
+		for (KRoles rol : roles) {
+			kRolesEmpresas= new KRolesEmpresas();
+			kRolesEmpresas.setKRoles(rol);
+			kRolesEmpresas.setKUsuariosEmpresas(usuariosEmpresas);
+			kRolesEmpresas.setKEmpresas(usuariosEmpresas.getKEmpresas());
+			kRolesEmpresas.setFechaInsercion(new Date());
+			kRolesEmpresas.setIpInsercion(ipAddress);
+			kRolesEmpresas.setUsuarioInsercion(new BigDecimal(user));
+			id=new KRolesEmpresasId();
+			id.setCodigoInternoRole(rol.getCodigoInternoRole());
+			id.setCodigoInternoUsuario(usuariosEmpresas.getCodigoInternoUsuario());
+			id.setCodigoInternoEmpresa(usuariosEmpresas.getKEmpresas().getCodigoInternoEmpresa());
+			kRolesEmpresas.setId(id);
+			sessionFactory.getCurrentSession().save(kRolesEmpresas);
+		}
+		
+	}
+
 }

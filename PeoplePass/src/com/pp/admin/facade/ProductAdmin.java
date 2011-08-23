@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import com.pp.admin.hibernate.KDefinicionProductos;
 import com.pp.admin.hibernate.KProductos;
 
 
@@ -18,6 +19,33 @@ public class ProductAdmin implements IProductAdmin {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	@Transactional(readOnly = true)
+	@SuppressWarnings("unchecked")
+	public List<KDefinicionProductos> getDefProductsByEmpresa(int codEmpresa) {
+		Query query = sessionFactory.getCurrentSession().createQuery(
+				"select p from KDefinicionProductos p where p.KEmpresas.codigoInternoEmpresa=:codEmpresa");
+		query.setParameter("codEmpresa", codEmpresa);
+		List<KDefinicionProductos> result = (List<KDefinicionProductos>) query
+				.list();
+		return result;
+	}
+
+	@Transactional(readOnly = false)
+	public void save(KDefinicionProductos defProducto) {
+		sessionFactory.getCurrentSession().saveOrUpdate(defProducto);
+	}
+
+	@Transactional(readOnly = true)
+	public KDefinicionProductos getDefProduct(int idDefProduct) {
+		return (KDefinicionProductos) sessionFactory.getCurrentSession().get(
+				KDefinicionProductos.class, idDefProduct);
+	}
+
+	public void delete(KDefinicionProductos defProduct) {
+		sessionFactory.getCurrentSession().delete(defProduct);
+
+	}
 	
 	@Transactional(readOnly = true)
 	@SuppressWarnings("unchecked")

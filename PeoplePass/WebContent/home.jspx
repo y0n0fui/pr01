@@ -182,6 +182,15 @@
 							</ice:form>
 						</f:subview>
 					</ice:panelGroup>
+					<ice:panelGroup id="definitionproductPanel">
+					
+						<f:subview id="stSub">
+							<ice:form id="definitionproductform">
+								<ui:include src="/product/definicion_productos.jspx" />
+
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
 				</ice:panelStack></td> 
 
 				

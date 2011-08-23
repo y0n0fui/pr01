@@ -6,7 +6,7 @@
               http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd"> 
   
 
-
+ 
   <authentication-provider>
     <user-service>
       <user name="july" password="july" authorities="ROLE_USER, ROLE_ADMIN" />
@@ -43,19 +43,21 @@
  </beans:bean>
  -->
  
+ <!--
  <beans:bean id="ppAuthotitiesPopulation" class="com.pp.util.authoritiespopulator.PeoplePassAuthoritiesPopulator" >
 	</beans:bean>
 
-<!-- 
+
 <beans:bean id="contextSource"
        class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
-     <beans:constructor-arg value="ldap://monkeymachine:389/dc=springframework,dc=org"/>
-     <beans:property name="userDn" value="cn=manager,dc=springframework,dc=org"/>
-     <beans:property name="password" value="password"/>
+     <beans:constructor-arg value="ldap://192.168.0.13:10389/dc=peoplepass,dc=com"/>
+     <beans:property name="userDn" value="uid=admin,ou=system"/>
+     <beans:property name="password" value="secret"/>
    </beans:bean>
 
    <beans:bean id="ldapAuthProvider"
        class="org.springframework.security.providers.ldap.LdapAuthenticationProvider">
+     <custom-authentication-provider/>
      <beans:constructor-arg>
        <beans:bean class="org.springframework.security.providers.ldap.authenticator.BindAuthenticator">
            <beans:constructor-arg ref="contextSource"/>
@@ -66,8 +68,8 @@
        
      </beans:constructor-arg>
    </beans:bean>
-  -->
   
+  -->
   
   <http auto-config='false'>
     <intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN" />

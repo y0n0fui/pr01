@@ -1,6 +1,7 @@
 package com.pp.admin.web;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,10 +15,16 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.context.SecurityContextHolder;
 
+import com.icesoft.faces.component.ext.RowSelectorEvent;
+import com.pp.admin.facade.IParamsAdmin;
 import com.pp.admin.facade.IUserAdmin;
 import com.pp.admin.hibernate.CTipoCargo;
+
 import com.pp.admin.hibernate.KEmpresas;
+import com.pp.admin.hibernate.KRoles;
 import com.pp.admin.hibernate.KUsuariosEmpresas;
+
+
 import com.pp.util.DataTable;
 import com.pp.util.MessageUtil;
 
@@ -38,7 +45,21 @@ public class UsuarioEmpresasWeb extends CRUDWeb{
 	
 	private Integer empresasid=0;
 	
+	private boolean renderPopupRole=false;
 	
+	private List<DataTableRole> listRoles;
+	
+	private List<KRoles> selectedRole;
+	
+	public List<KRoles> getSelectedRole() {
+		return selectedRole;
+	}
+
+
+	public void setSelectedRole(List<KRoles> selectedRole) {
+		this.selectedRole = selectedRole;
+	}
+
 	/**
 	 * Herramienta logger
 	 */
@@ -47,6 +68,19 @@ public class UsuarioEmpresasWeb extends CRUDWeb{
 	@Autowired
 	private IUserAdmin userAdmin;
 	
+	@Autowired
+	private IParamsAdmin paramsAdmin;
+	
+	public IParamsAdmin getParamsAdmin() {
+		return paramsAdmin;
+	}
+
+
+	public void setParamsAdmin(IParamsAdmin paramsAdmin) {
+		this.paramsAdmin = paramsAdmin;
+	}
+
+
 	public UsuarioEmpresasWeb() {
 		usuarioEmpresas=new KUsuariosEmpresas();
 	}
@@ -82,6 +116,46 @@ public class UsuarioEmpresasWeb extends CRUDWeb{
 		toggleModal(null);
 	}
 	
+	
+	public void roles(ActionEvent evnt){
+		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
+		this.usuarioEmpresas=userAdmin.getUsuarioEmpresas((Integer)selectData[0]);
+		selectedRole=paramsAdmin.getRolesByUsuarioEmpresa(usuarioEmpresas.getCodigoInternoUsuario());
+		a:
+			for (DataTableRole dtr : listRoles) {
+				for (KRoles select : selectedRole) {
+					if(select.getCodigoInternoRole()==dtr.getCodigoInternoRole()){
+						dtr.setSelected(true);
+						continue a;
+					}
+				}
+				dtr.setSelected(false);
+			}
+		toggleModalRole(null);
+	}
+	
+	public void rowSelectionListener(RowSelectorEvent event) {
+		selectedRole.clear();
+		for (DataTableRole recursoDataTable : listRoles) {
+			if(recursoDataTable.isSelected()){
+				selectedRole.add(recursoDataTable);
+			}
+		} 
+	}
+	
+	public List<DataTableRole> getRolesList(){
+		if(listRoles==null){
+			listRoles=new ArrayList<DataTableRole>();
+			List<KRoles> list=userAdmin.getRoles();
+			for (KRoles role : list) {
+				listRoles.add(new DataTableRole(role.getCodigoInternoRole(),role.getDescripcion()));
+			}
+		}else{
+			return listRoles;
+		}
+		
+		return listRoles;
+	}
 	
 	public SelectItem[] getEmpresas() {
 		return empresas;
@@ -170,10 +244,14 @@ public class UsuarioEmpresasWeb extends CRUDWeb{
 		init();
 		toggleModal(evnt);
 		
+	} 
+
+
+	public void onSaveRoles(ActionEvent evnt){
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		paramsAdmin.save(selectedRole,usuarioEmpresas, 1, request.getRemoteAddr()); 
+		toggleModalRole(evnt);
 	}
-
-
-
 
 	public void setEmpresas(SelectItem[] empresas) {
 		this.empresas = empresas;
@@ -206,6 +284,50 @@ public class UsuarioEmpresasWeb extends CRUDWeb{
 		this.usuarioEmpresas = usuarioEmpresas;
 	}
 
+
+	public boolean isRenderPopupRole() {
+		return renderPopupRole;
+	}
+
+
+	public void setRenderPopupRole(boolean renderPopupRole) {
+		this.renderPopupRole = renderPopupRole;
+	}
+
+	public void toggleModalRole(ActionEvent evn){
+		this.renderPopupRole=!renderPopupRole;
+	}
+
+
 	
+	
+	public List<DataTableRole> getListRoles() {
+		return listRoles;
+	}
+
+
+	public void setListRoles(List<DataTableRole> listRoles) {
+		this.listRoles = listRoles;
+	}
+
+
+
+
+	public class DataTableRole extends KRoles{
+		private boolean selected;
+
+		public boolean isSelected() {
+			return selected;
+		}
+
+		public void setSelected(boolean selected) {
+			this.selected = selected;
+		}
+		
+		public DataTableRole(int cod,String desc){
+			super(cod,desc);
+		}
+		
+	}
 	
 }

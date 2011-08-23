@@ -21,7 +21,7 @@
 		  columnClasses="tableCol"
 		  scrollable="true"
 		  scrollHeight="250px"
-		  columnWidths="100px,100px,80px,250px,100px,80px,80px,80px,80px"
+		  columnWidths="100px,100px,80px,250px,100px,80px,80px,80px,80px,80px"
 		  sortAscending="#{usuarioEmpresaWeb.dataTable.sortDataAscending}" 	
 		  sortColumn="#{usuarioEmpresaWeb.dataTable.sortColumn}">
 		 <ice:column>
@@ -134,6 +134,19 @@
 		     </f:facet>
 		     
 		            <ice:commandLink   actionListener="#{usuarioEmpresaWeb.edit}" value="#{msg['general.edit']}" >
+							<f:attribute name="row" value="#{row}"/>
+					</ice:commandLink>
+		                        
+		                      
+			</ice:column>
+			
+			<ice:column>
+		     <f:facet name="header">
+		     	      <ice:outputText id="lblcRoles"
+		                         value="#{msg['adminuserempresa.roles']}"/>
+		     </f:facet>
+		     
+		            <ice:commandLink   actionListener="#{usuarioEmpresaWeb.roles}" value="#{msg['adminuserempresa.roles']}" >
 							<f:attribute name="row" value="#{row}"/>
 					</ice:commandLink>
 		                        
@@ -332,5 +345,88 @@
         </ice:panelGroup> 
         </f:facet>
  </ice:panelPopup>
+ 
+ <ice:panelPopup 
+            id="idPopUpPanelRoles"
+            styleClass="corePopup2"
+            autoCentre="true" 
+            draggable="true" modal="true" style="width: 450px;height: 300px;"
+            visible="#{usuarioEmpresaWeb.renderPopupRole}"> 
+            
+        <f:facet name="header">
+        <ice:panelGroup styleClass="popupRoleHeaderWrapper">
+            <ice:outputText id="popuptitle"
+                    value="#{msg['adminrole.role']}"
+                    styleClass="popupHeaderText"/>
+            <ice:commandButton id="modalpopUpCloseBtnRole" type="button"
+                               image="images/popupclose.gif"
+                               actionListener="#{usuarioEmpresaWeb.toggleModalRole}"  
+                               styleClass="popupHeaderImage" 
+                               partialSubmit="true"
+                               title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
+        </ice:panelGroup>
+    	</f:facet>
+    	<f:facet name="body"> 
+        <ice:panelGroup styleClass="popupBody">
+        	<table width="100%">	
+        	<tr>
+        	<td>
+        	<ice:outputText value="#{msg['adminuserempresa.roles.select']}"/><ice:outputText value="#{usuarioEmpresaWeb.usuarioEmpresas.nombreFuncionario}"/> 
+        	</td>
+        	<td>
+        	<ice:outputText value="#{msg['adminuserempresa.roles.selected']}"/> 	
+        	</td>
+        	</tr>
+        	<tr>
+        	<td align="left">
+        	<ice:dataTable id="roleList"
+                       var="role"
+                       value="#{usuarioEmpresaWeb.rolesList}"
+                       rows="5" 
+                       scrollable="true"
+                       scrollHeight="100px"
+                       columnClasses="tableCol" >
+            <ice:column>
+            <ice:rowSelector id="selected"
+                      
+                                 value="#{role.selected}"
+                                 multiple="true"
+                                selectionListener="#{usuarioEmpresaWeb.rowSelectionListener}"
+                                 />
+				                <f:facet name="header">
+				                    <ice:outputText id="lblnameroleselect"
+				                                    value="#{msg['adminrole.role.description']}"/>
+				                </f:facet>
+				                <ice:outputText id="nameroleselect" value="#{role.descripcion}"/> 
+			</ice:column>
+			</ice:dataTable>
+        	</td>
+        	<td valign="top" align="left">
+        	<ice:dataTable id="selectedroleList"
+                       var="rol"
+                       value="#{usuarioEmpresaWeb.selectedRole}"
+                       rows="5" 
+                       scrollable="true"
+                       scrollHeight="100px"
+                       columnClasses="tableCol" >
+            <ice:column>
+           	                    <f:facet name="header">
+				                    <ice:outputText id="lblnamerecurso"
+				                                    value="#{msg['adminrole.role.description']}"/>
+				                </f:facet>
+				                <ice:outputText id="namerole" value="#{rol.descripcion}"/> 
+			</ice:column>
+			</ice:dataTable>	
+        	</td>
+        	</tr>
+        	<tr>
+        		<td align="center"><ice:commandButton id="btnSaveusuarioXRole" value="#{msg['general.save']}" actionListener="#{usuarioEmpresaWeb.onSaveRoles}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnCancelSaveusuarioXRole" partialSubmit="true" value="#{msg['general.cancel']}" actionListener="#{usuarioEmpresaWeb.toggleModalRole}"></ice:commandButton></td>
+        	</tr>
+        	</table>
+        </ice:panelGroup> 
+        </f:facet>
+ </ice:panelPopup>
+ 
  
 </ice:panelGroup>    

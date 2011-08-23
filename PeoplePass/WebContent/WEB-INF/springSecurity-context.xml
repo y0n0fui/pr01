@@ -5,21 +5,72 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
               http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd"> 
   
-   <authentication-provider>
+
+ 
+  <authentication-provider>
     <user-service>
       <user name="july" password="july" authorities="ROLE_USER, ROLE_ADMIN" />
       <user name="fysus" password="fysus" authorities="ROLE_USER" />
     </user-service>
-  </authentication-provider>
+  </authentication-provider>  
   
  <!--  
+
   <ldap-authentication-provider  user-dn-pattern="uid={0},ou=people" 
   
   	group-role-attribute="cn" 
   	group-search-filter="memberUid={1}"
 	group-search-base="ou=group"
 	role-prefix="ROLE_"/>
-   -->
+   
+   
+   <beans:bean id="jaasAuthenticationProvider"
+     class="org.springframework.security.providers.jaas.JaasAuthenticationProvider">
+    <custom-authentication-provider />
+    <beans:property name="loginConfig" value="/WEB-INF/auth.conf"/>
+    <beans:property name="loginContextName" value="JmsXARealm"/>
+    <beans:property name="callbackHandlers">
+       <beans:list>
+          <beans:bean class="org.springframework.security.providers.jaas.JaasNameCallbackHandler"/>
+          <beans:bean class="org.springframework.security.providers.jaas.JaasPasswordCallbackHandler"/>
+       </beans:list>
+    </beans:property>
+    <beans:property name="authorityGranters">  
+        <beans:list>  
+          <beans:bean class="org.collectionspace.authentication.spring.CSpaceAuthorityGranter"/>  
+        </beans:list>  
+    </beans:property>  
+ </beans:bean>
+ -->
+ 
+ <!--
+ <beans:bean id="ppAuthotitiesPopulation" class="com.pp.util.authoritiespopulator.PeoplePassAuthoritiesPopulator" >
+	</beans:bean>
+
+
+<beans:bean id="contextSource"
+       class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
+     <beans:constructor-arg value="ldap://192.168.0.13:10389/dc=peoplepass,dc=com"/>
+     <beans:property name="userDn" value="uid=admin,ou=system"/>
+     <beans:property name="password" value="secret"/>
+   </beans:bean>
+
+   <beans:bean id="ldapAuthProvider"
+       class="org.springframework.security.providers.ldap.LdapAuthenticationProvider">
+     <custom-authentication-provider/>
+     <beans:constructor-arg>
+       <beans:bean class="org.springframework.security.providers.ldap.authenticator.BindAuthenticator">
+           <beans:constructor-arg ref="contextSource"/>
+           <beans:property name="userDnPatterns"><beans:list><beans:value>uid={0},ou=people</beans:value></beans:list></beans:property>
+       </beans:bean>
+     </beans:constructor-arg>
+     <beans:constructor-arg ref="ppAuthotitiesPopulation">
+       
+     </beans:constructor-arg>
+   </beans:bean>
+  
+  -->
+  
   <http auto-config='false'>
     <intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN" />
     <intercept-url pattern="/login*" filters="none" />
@@ -28,7 +79,7 @@
     <form-login login-page="/login.jsp" authentication-failure-url="/login.jsp?login_error=1" default-target-url="/home.iface"/>
     <http-basic />
     <logout />
-  </http>
+  </http> 
     
 
    

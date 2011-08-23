@@ -18,6 +18,9 @@ public abstract class CRUDWeb {
 	
 	protected boolean rederPopup=false;
 	
+	
+	
+	
 	protected boolean renderDeleteAlert=false;
 	
 	

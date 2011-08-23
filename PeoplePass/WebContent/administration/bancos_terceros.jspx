@@ -165,7 +165,7 @@
             id="idPopUpPanel"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            draggable="true" modal="true" style="width: 300px;height: 500px;"
             visible="#{bancosTercerosWeb.rederPopup}">
             
         <f:facet name="header">
@@ -183,26 +183,30 @@
 		<f:facet name="body">
 			<ice:panelGroup styleClass="popupBody">
 				<table>
-					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.razonsocial']}" /></td>
-					    <td><ice:inputText id="razonsocial" value="#{bancosTercerosWeb.bancosTerceros.razonSocial}"></ice:inputText></td></tr>
-					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.nombreContacto']}" /></td>
-					    <td><ice:inputText id="nombreContacto" value="#{bancosTercerosWeb.bancosTerceros.nombreContacto}"></ice:inputText></td></tr>
-					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.nroIdentificacion']}" /></td>
-					    <td><ice:inputText id="nroIdentificacion" value="#{bancosTercerosWeb.bancosTerceros.nroIdentificacion}"></ice:inputText></td></tr>
-					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.telefono']}" /></td>
-					    <td><ice:inputText id="telefono" value="#{bancosTercerosWeb.bancosTerceros.telefono}"></ice:inputText></td></tr>
-					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.direccionIp']}" /></td>
-					    <td><ice:inputText id="direccionIp" value="#{bancosTercerosWeb.bancosTerceros.direccionIp}"></ice:inputText></td></tr>
-					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.url']}" /></td>
-					    <td><ice:inputText id="url" value="#{bancosTercerosWeb.bancosTerceros.url}"></ice:inputText></td></tr>
-					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.usuarioConexion']}" /></td>
-					    <td><ice:inputText id="usuarioConexion" value="#{bancosTercerosWeb.bancosTerceros.usuarioConexion}"></ice:inputText></td></tr>
-					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.clave']}" /></td>
-					    <td><ice:inputText id="clave" value="#{bancosTercerosWeb.bancosTerceros.clave}"></ice:inputText></td></tr>
-					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.tipoInterface']}" /></td>
-					    <td><ice:inputText id="tipoInterface" value="#{bancosTercerosWeb.bancosTerceros.tipoInterface}"></ice:inputText></td></tr>
-					<tr><td><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.tipoId']}" /></td>
-					    <td><ice:selectOneMenu id="tipoIdentificacion" value="#{bancosTercerosWeb.idTipo}" partialSubmit="true">
+					<tr><td align="left"><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.razonsocial']}"/>*</td>
+					    <td align="left"><ice:inputText id="razonsocial" value="#{bancosTercerosWeb.bancosTerceros.razonSocial}"  maxlength="60" required="#{bancosTercerosWeb.rederPopup}"></ice:inputText></td></tr>
+					<tr><td colspan="2"><ice:message errorClass="error" for="razonsocial"/></td></tr>
+					<tr><td align="left"><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.nombreContacto']}"/>*</td>
+					    <td align="left"><ice:inputText id="nombreContacto" value="#{bancosTercerosWeb.bancosTerceros.nombreContacto}"  maxlength="60" required="#{bancosTercerosWeb.rederPopup}"></ice:inputText></td></tr>
+					<tr><td colspan="2"><ice:message errorClass="error" for="nombreContacto"/></td></tr>
+					<tr><td align="left"><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.nroIdentificacion']}" />*</td>
+					    <td align="left"><ice:inputText id="nroIdentificacion" value="#{bancosTercerosWeb.bancosTerceros.nroIdentificacion}"  maxlength="240" required="#{bancosTercerosWeb.rederPopup}"></ice:inputText></td></tr>
+					<tr><td colspan="2"><ice:message errorClass="error" for="nroIdentificacion"/></td></tr>
+					<tr><td align="left"><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.telefono']}" />*</td>
+					    <td align="left"><ice:inputText id="telefono" value="#{bancosTercerosWeb.bancosTerceros.telefono}"  maxlength="20" required="#{bancosTercerosWeb.rederPopup}"></ice:inputText></td></tr>
+					<tr><td colspan="2"><ice:message errorClass="error" for="telefono"/></td></tr>
+					<tr><td align="left"><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.direccionIp']}" /></td>
+					    <td align="left"><ice:inputText id="direccionIp" value="#{bancosTercerosWeb.bancosTerceros.direccionIp}"  maxlength="16"></ice:inputText></td></tr>
+					<tr><td align="left"><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.url']}" /></td>
+					    <td align="left"><ice:inputText id="url" value="#{bancosTercerosWeb.bancosTerceros.url}"  maxlength="120"></ice:inputText></td></tr>
+					<tr><td align="left"><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.usuarioConexion']}" /></td>
+					    <td align="left"><ice:inputText id="usuarioConexion" value="#{bancosTercerosWeb.bancosTerceros.usuarioConexion}"  maxlength="20"></ice:inputText></td></tr>
+					<tr><td align="left"><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.clave']}" /></td>
+					    <td align="left"><ice:inputText id="clave" value="#{bancosTercerosWeb.bancosTerceros.clave}"  maxlength="20"></ice:inputText></td></tr>
+					<tr><td align="left"><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.tipoInterface']}" /></td>
+					    <td align="left"><ice:inputText id="tipoInterface" value="#{bancosTercerosWeb.bancosTerceros.tipoInterface}" maxlength="1"></ice:inputText></td></tr>
+					<tr><td align="left"><ice:outputText value="#{msg['adminbancosterceros.bancosterceros.tipoId']}" /></td>
+					    <td align="left"><ice:selectOneMenu id="tipoIdentificacion" value="#{bancosTercerosWeb.idTipo}" partialSubmit="true">
                       <f:selectItems id="SlcttipoIdentificacion" value="#{bancosTercerosWeb.tiposId}"/></ice:selectOneMenu></td>
                     </tr>
 					<tr>

@@ -192,6 +192,23 @@
 		</managed-property>
 	</managed-bean>
 	
+	<managed-bean>
+		<managed-bean-name>definicionProductosWeb</managed-bean-name>
+		<managed-bean-class>com.pp.admin.web.DefinicionProductosWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>productAdmin</property-name>
+			<value>#{productAdmin}</value>  
+		</managed-property>
+		<managed-property> 
+			<property-name>paramsAdmin</property-name>
+			<value>#{paramsAdmin}</value>  
+		</managed-property>
+		<managed-property>
+			<property-name>userAdmin</property-name>
+			<value>#{userAdmin}</value>  
+		</managed-property>
+	</managed-bean>
 	
 	<managed-bean>
 		<managed-bean-name>bancosTercerosWeb</managed-bean-name>

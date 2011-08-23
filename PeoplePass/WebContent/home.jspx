@@ -164,11 +164,21 @@
 						</f:subview>
 					</ice:panelGroup>
 					
+
+					<ice:panelGroup id="productPanel">
+					
+						<f:subview id="stSub">
+							<ice:form id="productform">
+								<ui:include src="/product/product.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
 					<ice:panelGroup id="descrecursosPanel">
 					
 						<f:subview id="stSub">
 							<ice:form id="descrecursosform">
 								<ui:include src="/administration/descripcion_recursos.jspx" />
+
 							</ice:form>
 						</f:subview>
 					</ice:panelGroup>

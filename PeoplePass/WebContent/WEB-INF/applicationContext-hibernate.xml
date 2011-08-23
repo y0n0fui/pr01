@@ -141,6 +141,8 @@
 	
 	<bean id="cityAdmin" class="com.pp.admin.facade.CityAdmin" >
 	</bean>
+	<bean id="productAdmin" class="com.pp.admin.facade.ProductAdmin" >
+	</bean>
 	
 
 	<!-- Hibernate's JMX statistics service -->

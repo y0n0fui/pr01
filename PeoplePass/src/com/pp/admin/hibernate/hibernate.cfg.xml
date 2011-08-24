@@ -4,10 +4,10 @@
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">userpp</property>
-        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/pp</property>
-        <property name="hibernate.connection.username">userpp</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.password">pp</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
+        <property name="hibernate.connection.username">pp</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
     </session-factory>
 </hibernate-configuration>

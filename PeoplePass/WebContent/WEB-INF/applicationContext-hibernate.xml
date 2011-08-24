@@ -134,7 +134,9 @@
 	</bean>
 	<bean id="paramsAdmin" class="com.pp.admin.facade.ParamsAdmin" >
 	</bean>
-	
+	<bean id="productAdmin" class="com.pp.admin.facade.ProductAdmin" >
+	</bean>
+
 	<!-- Hibernate's JMX statistics service -->
 	<bean name="peoplePass:type=HibernateStatistics" class="org.hibernate.jmx.StatisticsService" autowire="byName"/>
 

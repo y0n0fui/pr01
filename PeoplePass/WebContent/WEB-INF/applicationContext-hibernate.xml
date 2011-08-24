@@ -129,20 +129,12 @@
 		service MBean, using its bean name as JMX object name.
 	-->
 	<context:mbean-export/>
-
-
-	
 	
 	<bean id="userAdmin" class="com.pp.admin.facade.UserAdmin" >
 	</bean>
 	<bean id="paramsAdmin" class="com.pp.admin.facade.ParamsAdmin" >
 	</bean>
-
 	
-	<bean id="cityAdmin" class="com.pp.admin.facade.CityAdmin" >
-	</bean>
-	
-
 	<!-- Hibernate's JMX statistics service -->
 	<bean name="peoplePass:type=HibernateStatistics" class="org.hibernate.jmx.StatisticsService" autowire="byName"/>
 

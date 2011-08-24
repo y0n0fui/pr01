@@ -1,0 +1,240 @@
+<ice:panelGroup styleClass="componentBox"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+
+
+	<ice:panelGroup styleClass="synopsisBox inputFileContainer">
+		<ice:outputText value="#{msg['adminempleados.title']}" />
+		<ice:outputText value="#{msg['adminempleados.desc']}" />
+	</ice:panelGroup>
+	<ice:panelGroup styleClass="basicBox">
+
+
+		<ice:dataTable id="tipoidlisttable" var="row"
+			value="#{tipoIdentificacionWeb.dataTable.data}"
+			columnClasses="tableCol" scrollable="true" scrollHeight="250px"
+			columnWidths="100px,100px,80px,250px,100px,80px,80px,80px,80px"
+			sortAscending="#{tipoIdentificacionWeb.dataTable.sortDataAscending}"
+			sortColumn="#{tipoIdentificacionWeb.dataTable.sortColumn}">
+			<ice:column>
+
+
+				<f:facet name="header">
+					<ice:commandSortHeader id="c1Header" columnName="c1" arrow="true">
+						<ice:outputText id="lblc1"
+							value="#{msg['admintipoid.tipoid.description']}" />
+					</ice:commandSortHeader>
+				</f:facet>
+				<ice:outputText id="valuec1" value="#{row[1]}">
+				</ice:outputText>
+			</ice:column>
+
+
+
+			<ice:column>
+				<f:facet name="header">
+					<ice:commandSortHeader id="c2Header" columnName="c2" arrow="true">
+						<ice:outputText id="lblc2"
+							value="#{msg['admintipoid.tipoid.dateAct']}" />
+					</ice:commandSortHeader>
+				</f:facet>
+				<ice:outputText id="valuec2" value="#{row[2]}">
+
+				</ice:outputText>
+			</ice:column>
+
+			<ice:column>
+				<f:facet name="header">
+					<ice:commandSortHeader id="c3Header" columnName="c3" arrow="true">
+						<ice:outputText id="lblc3"
+							value="#{msg['admintipoid.tipoid.ipAct']}" />
+					</ice:commandSortHeader>
+				</f:facet>
+				<ice:outputText id="valuec3" value="#{row[3]}">
+
+				</ice:outputText>
+			</ice:column>
+
+
+			<ice:column>
+				<f:facet name="header">
+					<ice:commandSortHeader id="c4Header" columnName="c4" arrow="true">
+						<ice:outputText id="lblc4"
+							value="#{msg['admintipoid.tipoid.userAct']}" />
+					</ice:commandSortHeader>
+				</f:facet>
+				<ice:outputText id="valuec4" value="#{row[4]}">
+
+				</ice:outputText>
+			</ice:column>
+
+			<ice:column>
+				<f:facet name="header">
+					<ice:commandSortHeader id="c5Header" columnName="c5" arrow="true">
+						<ice:outputText id="lblc5"
+							value="#{msg['admintipoid.tipoid.dateInsert']}" />
+					</ice:commandSortHeader>
+				</f:facet>
+				<ice:outputText id="valuec5" value="#{row[5]}">
+
+				</ice:outputText>
+			</ice:column>
+
+
+			<ice:column>
+				<f:facet name="header">
+					<ice:commandSortHeader id="c6Header" columnName="c6" arrow="true">
+						<ice:outputText id="lblc6"
+							value="#{msg['admintipoid.tipoid.ipInsert']}" />
+					</ice:commandSortHeader>
+				</f:facet>
+				<ice:outputText id="valuec6" value="#{row[6]}">
+
+				</ice:outputText>
+			</ice:column>
+
+			<ice:column>
+				<f:facet name="header">
+					<ice:commandSortHeader id="c7Header" columnName="c7" arrow="true">
+						<ice:outputText id="lblc7"
+							value="#{msg['admintipoid.tipoid.userInsert']}" />
+					</ice:commandSortHeader>
+				</f:facet>
+				<ice:outputText id="valuec7" value="#{row[7]}">
+
+				</ice:outputText>
+			</ice:column>
+
+			<ice:column>
+				<f:facet name="header">
+					<ice:outputText id="lblcE" value="#{msg['general.edit']}" />
+				</f:facet>
+
+				<ice:commandLink actionListener="#{tipoIdentificacionWeb.edit}"
+					value="#{msg['general.edit']}">
+					<f:attribute name="row" value="#{row}" />
+				</ice:commandLink>
+
+
+			</ice:column>
+
+			<ice:column>
+				<f:facet name="header">
+					<ice:outputText id="lblcD" value="#{msg['general.delete']}" />
+				</f:facet>
+
+				<ice:commandLink
+					actionListener="#{tipoIdentificacionWeb.prepareToDelete}"
+					value="#{msg['general.delete']}">
+					<f:attribute name="row" value="#{row}" />
+				</ice:commandLink>
+
+
+			</ice:column>
+
+		</ice:dataTable>
+		<ice:panelGroup>
+			<ice:commandButton id="btnCreateRole"
+				value="#{msg['admintipoid.tipoid.create']}"
+				actionListener="#{tipoIdentificacionWeb.create}"></ice:commandButton>
+
+		</ice:panelGroup>
+	</ice:panelGroup>
+	<br />
+
+	<ice:panelPopup id="idPopUpPanel" styleClass="corePopup2"
+		autoCentre="true" draggable="true" modal="true"
+		style="width: 300px;height: 170px;"
+		visible="#{tipoIdentificacionWeb.rederPopup}">
+
+		<f:facet name="header">
+			<ice:panelGroup styleClass="popupHeaderWrapper">
+				<ice:outputText id="popuptitle" value="#{msg['admintipoid.tipoid']}"
+					styleClass="popupHeaderText" />
+				<ice:commandButton id="modalpopUpCloseBtn" type="button"
+					image="images/popupclose.gif"
+					actionListener="#{tipoIdentificacionWeb.toggleModal}"
+					styleClass="popupHeaderImage" partialSubmit="true"
+					title="#{msg['general.close']}" alt="#{msg['general.close']}" />
+			</ice:panelGroup>
+		</f:facet>
+		<f:facet name="body">
+			<ice:panelGroup styleClass="popupBody">
+				<table>
+					<tr>
+						<td><ice:outputText
+								value="#{msg['admintipoid.tipoid.description']}" /> *</td>
+						<td><ice:inputText id="description"
+								value="#{tipoIdentificacionWeb.tipoIdentificacion.descripcion}"
+								required="#{tipoIdentificacionWeb.rederPopup}" maxlength="16"></ice:inputText>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><ice:message errorClass="error"
+								for="description" /></td>
+					</tr>
+					<tr>
+						<td align="center"><ice:commandButton id="btnSaveRole"
+								value="#{msg['general.save']}"
+								actionListener="#{tipoIdentificacionWeb.onSave}"></ice:commandButton>
+						</td>
+						<td align="center"><ice:commandButton id="btnCancelSaveRole"
+								partialSubmit="true" value="#{msg['general.cancel']}"
+								actionListener="#{tipoIdentificacionWeb.toggleModal}"></ice:commandButton>
+						</td>
+					</tr>
+				</table>
+			</ice:panelGroup>
+		</f:facet>
+	</ice:panelPopup>
+
+
+
+	<ice:panelPopup id="idPopUpDelete" styleClass="corePopup2"
+		autoCentre="true" draggable="true" modal="true"
+		style="width: 300px;height: 300px;"
+		visible="#{tipoIdentificacionWeb.renderDeleteAlert}">
+
+		<f:facet name="header">
+			<ice:panelGroup styleClass="popupHeaderWrapper">
+				<ice:outputText id="xytitle" value="#{msg['general.delete']}"
+					styleClass="popupHeaderText" />
+				<ice:commandButton id="modalPnlCloseBtn" type="button"
+					image="images/popupclose.gif"
+					actionListener="#{tipoIdentificacionWeb.toggleModalDelete}"
+					styleClass="popupHeaderImage" title="#{msg['general.close']}"
+					alt="#{msg['general.close']}" />
+			</ice:panelGroup>
+		</f:facet>
+		<f:facet name="body">
+			<ice:panelGroup styleClass="popupBody">
+				<table>
+					<tr>
+						<td colspan="2"><ice:outputText
+								value="#{msg['general.delete.alert']}" /></td>
+					</tr>
+					<tr>
+						<td><ice:commandButton id="btnAceptRole"
+								value="#{msg['general.accept']}"
+								actionListener="#{tipoIdentificacionWeb.delete}">
+							</ice:commandButton></td>
+						<td><ice:commandButton id="btnCancelRole"
+								value="#{msg['general.cancel']}"
+								actionListener="#{tipoIdentificacionWeb.toggleModalDelete}">
+							</ice:commandButton></td>
+					</tr>
+					<tr>
+						<td colspan="2"><h:messages layout="table" globalOnly="false"
+								showDetail="false" showSummary="true" /></td>
+					</tr>
+				</table>
+			</ice:panelGroup>
+		</f:facet>
+	</ice:panelPopup>
+
+</ice:panelGroup>

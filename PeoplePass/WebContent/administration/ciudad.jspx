@@ -14,22 +14,16 @@
 		</ice:panelGroup>
 		<ice:panelGroup styleClass="basicBox" >
 		
-		
-			<ice:dataTable id="citylisttable"
+			<ice:dataTable id="listtable"
  				  var="row"
  				  value="#{cityWeb.dataTable.data}"
 		  columnClasses="tableCol"
 		  scrollable="true"
 		  scrollHeight="250px"
-		  columnWidths="100px,80px,80px,80px,80px,80px,80px"
+		  columnWidths="100px,100px,80px,250px,100px,80px,80px,80px,80px"
 		  sortAscending="#{cityWeb.dataTable.sortDataAscending}" 	
 		  sortColumn="#{cityWeb.dataTable.sortColumn}">
 		 <ice:column>
-			<ice:rowSelector id="selectedReg"
-                                 multiple="false"
-                                 selectionListener="#{cityWeb.selectRow}"
-                                 />
-			
 		          <f:facet name="header">
 		          	<ice:commandSortHeader id="c1Header"
                                            columnName="c1" arrow="true">
@@ -130,11 +124,36 @@
 		        </ice:outputText>                 
 			</ice:column>
 			
+			<ice:column>
+		     <f:facet name="header">
+		     	      <ice:outputText id="lblcE"
+		                         value="#{msg['general.edit']}"/>
+		     </f:facet>
+		     
+		            <ice:commandLink   actionListener="#{cityWeb.edit}" value="#{msg['general.edit']}" >
+							<f:attribute name="row" value="#{row}"/>
+					</ice:commandLink>
+		                        
+		                      
+			</ice:column>
 			
+			<ice:column>
+		     <f:facet name="header">
+		              <ice:outputText id="lblcD"
+		                         value="#{msg['general.delete']}"/>
+		     </f:facet>
+		     
+		            <ice:commandLink actionListener="#{cityWeb.prepareToDelete}" value="#{msg['general.delete']}" >
+							<f:attribute name="row" value="#{row}"/>
+					</ice:commandLink>
+		                        
+		                    
+			</ice:column>
 			
 		</ice:dataTable>	
-		<ice:panelGroup>
-		<ice:commandButton id="btnCreateCity" value="#{msg['admincity.city.create']}" actionListener="#{cityWeb.create}"></ice:commandButton>	
+		<ice:panelGroup> 
+		<ice:commandButton id="btnCreateRole" value="#{msg['admincity.city.create']}" actionListener="#{cityWeb.create}" ></ice:commandButton>
+			
 		</ice:panelGroup>
 		</ice:panelGroup>
 		<br/>
@@ -143,18 +162,19 @@
             id="idPopUpPanel"
             styleClass="corePopup2"
             autoCentre="true" 
-            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            draggable="true" modal="true" style="width: 300px;height: 170px;"
             visible="#{cityWeb.rederPopup}">
             
         <f:facet name="header">
         <ice:panelGroup styleClass="popupHeaderWrapper">
-            <ice:outputText id="xytitle"
+            <ice:outputText id="popuptitle"
                     value="#{msg['admincity.city']}"
                     styleClass="popupHeaderText"/>
-            <ice:commandButton id="modalPnlCloseBtn" type="button"
+            <ice:commandButton id="modalpopUpCloseBtn" type="button"
                                image="images/popupclose.gif"
                                actionListener="#{cityWeb.toggleModal}" 
                                styleClass="popupHeaderImage"
+                               partialSubmit="true"
                                title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
         </ice:panelGroup>
     	</f:facet>
@@ -163,17 +183,77 @@
         	<table>	
         	<tr>
         	<td>
-        	<ice:outputText value="#{msg['admincity.city.description']}"/>
+        	<ice:outputText value="#{msg['admincity.city.description']}"/> *
         	</td>
         	<td>
-        	<ice:inputText id="description" value="#{cityWeb.ciudad.descripcion}"></ice:inputText>
+        	<ice:inputText id="description" value="#{cityWeb.ciudad.descripcion}" required="#{cityWeb.rederPopup}" maxlength="16"></ice:inputText>
         	</td>
         	</tr>
         	<tr>
-        		<td colspan="2"><ice:commandButton id="btnSaveCity" value="#{msg['general.save']}" actionListener="#{cityWeb.onSave}"></ice:commandButton></td>
+        	<td colspan="2">
+        			<ice:message errorClass="error" for="description"/>		
+			</td>
+			</tr>
+        	<tr>
+        		<td align="center"><ice:commandButton id="btnSaveRole" value="#{msg['general.save']}" actionListener="#{cityWeb.onSave}"></ice:commandButton></td>
+        		<td align="center"><ice:commandButton id="btnCancelSaveRole" partialSubmit="true" value="#{msg['general.cancel']}"  actionListener="#{cityWeb.toggleModal}"></ice:commandButton></td>
         	</tr>
         	</table>
         </ice:panelGroup> 
         </f:facet>
  </ice:panelPopup>
+ 
+ 
+ 
+ <ice:panelPopup 
+            id="idPopUpDelete"
+            styleClass="corePopup2"
+            autoCentre="true" 
+            draggable="true" modal="true" style="width: 300px;height: 300px;"
+            visible="#{cityWeb.renderDeleteAlert}">
+            
+        <f:facet name="header">
+        <ice:panelGroup styleClass="popupHeaderWrapper">
+            <ice:outputText id="xytitle"
+                    value="#{msg['general.delete']}"
+                    styleClass="popupHeaderText"/>
+            <ice:commandButton id="modalPnlCloseBtn" type="button"
+                               image="images/popupclose.gif"
+                               actionListener="#{cityWeb.toggleModalDelete}" 
+                               styleClass="popupHeaderImage"
+                               title="#{msg['general.close']}" alt="#{msg['general.close']}"/>
+        </ice:panelGroup>
+    	</f:facet>
+    	<f:facet name="body"> 
+        <ice:panelGroup styleClass="popupBody">
+        	<table>	
+        	<tr>
+        	<td colspan="2">
+        	<ice:outputText value="#{msg['general.delete.alert']}"/>
+        	</td>
+        	</tr>
+        	<tr>
+        		<td>
+        		<ice:commandButton id="btnAceptRole" value="#{msg['general.accept']}" actionListener="#{cityWeb.delete}">
+        		</ice:commandButton>
+        		</td>
+        		<td>
+        		<ice:commandButton id="btnCancelRole" value="#{msg['general.cancel']}" actionListener="#{cityWeb.toggleModalDelete}">
+        		</ice:commandButton>
+        		</td>
+        	</tr>
+        	<tr>
+        	<td colspan="2">
+        	  <h:messages layout="table"
+                    globalOnly="false"
+				    
+                    showDetail="false"
+                    showSummary="true"/>
+        	</td>
+        	</tr>
+        	</table>
+        </ice:panelGroup> 
+        </f:facet>
+ </ice:panelPopup>
+ 
 </ice:panelGroup>    

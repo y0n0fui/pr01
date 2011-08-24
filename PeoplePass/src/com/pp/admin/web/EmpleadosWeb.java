@@ -13,16 +13,18 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.context.SecurityContextHolder;
 
-import com.pp.admin.facade.IParamsAdmin;
-import com.pp.admin.hibernate.CCiudad;
+import com.pp.admin.facade.IUserAdmin;
+import com.pp.admin.hibernate.CTipoIdentificacion;
 import com.pp.util.DataTable;
 import com.pp.util.MessageUtil;
 
 
 
-public class CityWeb extends CRUDWeb{
+public class EmpleadosWeb extends CRUDWeb{
 
-	private CCiudad ciudad;
+	
+	
+	private CTipoIdentificacion tipoIdentificacion;
 	
 	
 	
@@ -30,18 +32,18 @@ public class CityWeb extends CRUDWeb{
 	/**
 	 * Herramienta logger
 	 */
-	static Logger logger = Logger.getLogger(CityWeb.class);
+	static Logger logger = Logger.getLogger(EmpleadosWeb.class);
 	
 	@Autowired
-	private IParamsAdmin paramsAdmin;
+	private IUserAdmin userAdmin;
 	
-	public CityWeb() {
-		ciudad=new CCiudad();
+	public EmpleadosWeb() {
+		tipoIdentificacion=new CTipoIdentificacion();
 	}
 
 	
 	public void create(ActionEvent evnt){
-		this.ciudad=new CCiudad();
+		this.tipoIdentificacion=new CTipoIdentificacion();
 		toggleModal(evnt);
 	}
 	
@@ -49,10 +51,10 @@ public class CityWeb extends CRUDWeb{
 	
 	
 	public void delete(ActionEvent evnt){
-		this.ciudad=paramsAdmin.getCiudad((Integer)selectData[0]);
+		this.tipoIdentificacion=userAdmin.getTipoIdentificacion((Integer)selectData[0]);
 		try{
-		paramsAdmin.delete(this.ciudad);
-		this.ciudad=new CCiudad();
+		userAdmin.delete(this.tipoIdentificacion);
+		this.tipoIdentificacion=new CTipoIdentificacion();
 		this.selectData=null;
 		init();
 		toggleModalDelete(evnt);
@@ -68,26 +70,26 @@ public class CityWeb extends CRUDWeb{
 	
 	public void edit(ActionEvent evnt){
 		selectData = (Object[])evnt.getComponent().getAttributes().get("row"); 
-		this.ciudad=paramsAdmin.getCiudad((Integer)selectData[0]);
+		this.tipoIdentificacion=userAdmin.getTipoIdentificacion((Integer)selectData[0]);
 		toggleModal(null);
 	}
 	
-	public CCiudad getCiudad() {
-		return ciudad;
+	public CTipoIdentificacion getTipoIdentificacion() {
+		return tipoIdentificacion;
 	}
 
-	public IParamsAdmin getParamsAdmin() {
-		return paramsAdmin;
+	public IUserAdmin getUserAdmin() {
+		return userAdmin;
 	}
 	
 
 
 	public void init(){
 		dataTable=new DataTable();
-		List<CCiudad> tiposId=paramsAdmin.getCiudad();
+		List<CTipoIdentificacion> tiposId=userAdmin.getTipoIdentificacion();
 		if(tiposId!=null)
-		for (CCiudad tipid : tiposId) {
-			dataTable.addReg(tipid.getCodigoInternoCiudad(),tipid.getDescripcion(),tipid.getFechaActualizacion(),
+		for (CTipoIdentificacion tipid : tiposId) {
+			dataTable.addReg(tipid.getCodIntTipoId(),tipid.getDescripcion(),tipid.getFechaActualizacion(),
 					tipid.getIpActualizacion(),tipid.getUsuarioActualizacion(),
 					tipid.getFechaInsercion(),tipid.getIpInsercion(),tipid.getUsuarioInsercion());
 		}
@@ -95,17 +97,17 @@ public class CityWeb extends CRUDWeb{
 
 	public void onSave(ActionEvent evnt){
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		if(this.ciudad.getCodigoInternoCiudad()==0){
-		this.ciudad.setFechaInsercion(new Date());
-		this.ciudad.setIpInsercion(request.getRemoteAddr());
+		if(this.tipoIdentificacion.getCodIntTipoId()==0){
+		this.tipoIdentificacion.setFechaInsercion(new Date());
+		this.tipoIdentificacion.setIpInsercion(request.getRemoteAddr());
 		SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		this.ciudad.setUsuarioInsercion(1);
+		this.tipoIdentificacion.setUsuarioInsercion(1);
 		}else{
-		this.ciudad.setFechaActualizacion(new Date());
-		this.ciudad.setIpActualizacion(request.getRemoteAddr());
-		this.ciudad.setUsuarioActualizacion(1);
+		this.tipoIdentificacion.setFechaActualizacion(new Date());
+		this.tipoIdentificacion.setIpActualizacion(request.getRemoteAddr());
+		this.tipoIdentificacion.setUsuarioActualizacion(1);
 		}
-		paramsAdmin.save(ciudad);
+		userAdmin.save(tipoIdentificacion);
 		init();
 		toggleModal(evnt);
 		
@@ -114,18 +116,23 @@ public class CityWeb extends CRUDWeb{
 
 
 
-	public void setCiudad(CCiudad ciudad) {
-		this.ciudad = ciudad;
+	public void setTipoIdentificacion(CTipoIdentificacion tipoIdentificacion) {
+		this.tipoIdentificacion = tipoIdentificacion;
 	}
 
 
 
 
-	public void setParamsAdmin(IParamsAdmin paramsAdmin) {
-		this.paramsAdmin = paramsAdmin;
+	public void setUserAdmin(IUserAdmin userAdmin) {
+		this.userAdmin = userAdmin;
 	}
 
+
+
+
 	
+
 	
+
 	
 }

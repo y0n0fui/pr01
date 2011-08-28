@@ -10,13 +10,13 @@ import com.pp.admin.hibernate.KBancosTerceros;
 
 import com.pp.admin.hibernate.KCiclo;
 
+import com.pp.admin.hibernate.CCiudad;
 import com.pp.admin.hibernate.KConceptosFacturacion;
 import com.pp.admin.hibernate.KCondicionesEspeciales;
 import com.pp.admin.hibernate.KDefinicionDeducciones;
 import com.pp.admin.hibernate.KDescripcionRecursos;
 import com.pp.admin.hibernate.KEmpresaCorreo;
 import com.pp.admin.hibernate.KRoles;
-
 import com.pp.admin.hibernate.KUsuariosEmpresas;
 
 public interface IParamsAdmin {
@@ -88,7 +88,17 @@ public interface IParamsAdmin {
 	
 	public void delete(KBancosTerceros bancosTerceros);
 	
+	//CCiudad
+	public List<CCiudad> getCiudad();
 
+	
+	public void save(CCiudad ciudad);
+
+	
+	public CCiudad getCiudad(int idRole);
+	
+	public void delete(CCiudad ciudad);
+	
 	public List<KRoles> getRolesByUsuarioEmpresa(int usuarioEmpresa);
 	public void save(List<KRoles> roles,KUsuariosEmpresas usuariosEmpresas, int user, String ipAddress);
 	

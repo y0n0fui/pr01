@@ -8,9 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import com.pp.admin.hibernate.KDefinicionProductos;
 import com.pp.admin.hibernate.KProductos;
+import com.pp.admin.hibernate.KProductosDeducciones;
+import com.pp.admin.hibernate.KProductosDeduccionesId;
 
 
 @Repository
@@ -19,6 +20,7 @@ public class ProductAdmin implements IProductAdmin {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	private KProductosDeducciones productoDeduccion;
 	
 	@Transactional(readOnly = true)
 	@SuppressWarnings("unchecked")
@@ -70,6 +72,33 @@ public class ProductAdmin implements IProductAdmin {
 
 	public void delete(KProductos producto) {
 		sessionFactory.getCurrentSession().delete(producto);
+
+	}
+
+	@Transactional(readOnly = true)
+	@SuppressWarnings("unchecked")
+	public List<KProductosDeducciones> getProductsDeducciones() {
+		Query query = sessionFactory.getCurrentSession().createQuery(
+				"select p from KProductosDeducciones p");
+		List<KProductosDeducciones> result = (List<KProductosDeducciones>) query
+				.list();
+		return result;
+	}
+
+	@Transactional(readOnly = false)
+	public void save(KProductosDeducciones productoDeduccion) {
+		sessionFactory.getCurrentSession().saveOrUpdate(productoDeduccion);
+	}
+
+	@Transactional(readOnly = true)
+	public KProductosDeducciones getProductsDeducciones(KProductosDeduccionesId idProductoDeduccion) {
+		return (KProductosDeducciones) sessionFactory.getCurrentSession().get(
+				KProductosDeducciones.class, idProductoDeduccion);
+	}
+
+	public void delete(KProductosDeducciones productoDeduccion) {
+		this.productoDeduccion = productoDeduccion;
+		sessionFactory.getCurrentSession().delete(productoDeduccion);
 
 	}
 }

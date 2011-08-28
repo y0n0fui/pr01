@@ -20,12 +20,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.pp.admin.hibernate.CTipoUbicacion;
 import com.pp.admin.hibernate.KBancosTerceros;
 import com.pp.admin.hibernate.KCiclo;
+import com.pp.admin.hibernate.CCiudad;
 import com.pp.admin.hibernate.KConceptosFacturacion;
 import com.pp.admin.hibernate.KCondicionesEspeciales;
 import com.pp.admin.hibernate.KDefinicionDeducciones;
 import com.pp.admin.hibernate.KDescripcionRecursos;
 import com.pp.admin.hibernate.KEmpresaCorreo;
-
 import com.pp.admin.hibernate.KRoles;
 import com.pp.admin.hibernate.KRolesEmpresas;
 import com.pp.admin.hibernate.KRolesEmpresasId;
@@ -33,8 +33,6 @@ import com.pp.admin.hibernate.KUsuariosEmpresas;
 
 import com.pp.admin.hibernate.KRecursosXRoles;
 import com.pp.admin.hibernate.KRecursosXRolesId;
-
-
 
 
 @Repository
@@ -220,6 +218,33 @@ public class ParamsAdmin implements IParamsAdmin {
 
 	public void delete(KBancosTerceros bancosTerceros) {
 		sessionFactory.getCurrentSession().delete(bancosTerceros);
+
+	}
+	
+	//Ciudad
+	@Transactional(readOnly = true)
+	@SuppressWarnings("unchecked")
+	public List<CCiudad> getCiudad() {
+		Query query = sessionFactory.getCurrentSession().createQuery(
+				"select cf from CCiudad cf");
+		List<CCiudad> result = (List<CCiudad>) query
+				.list();
+		return result;
+	}
+
+	@Transactional(readOnly = false)
+	public void save(CCiudad ciudad) {
+		sessionFactory.getCurrentSession().saveOrUpdate(ciudad);
+	}
+
+	@Transactional(readOnly = true)
+	public CCiudad getCiudad(int idRole) {
+		return (CCiudad) sessionFactory.getCurrentSession().get(
+				CCiudad.class, idRole);
+	}
+
+	public void delete(CCiudad ciudad) {
+		sessionFactory.getCurrentSession().delete(ciudad);
 
 	}
 	

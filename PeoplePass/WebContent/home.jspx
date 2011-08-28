@@ -112,6 +112,13 @@
 							</ice:form>
 						</f:subview>
 					</ice:panelGroup>
+					<ice:panelGroup id="empleadosPanel">
+						<f:subview id="stSub">
+							<ice:form id="empleadosform">
+								<ui:include src="/administration/empleados.jspx" />
+							</ice:form>
+						</f:subview>
+					</ice:panelGroup>
 					<ice:panelGroup id="condicionesespecialesPanel">
 						<f:subview id="stSub">
 							<ice:form id="condicionesespecialesform">
@@ -164,7 +171,6 @@
 						</f:subview>
 					</ice:panelGroup>
 					
-
 					<ice:panelGroup id="productPanel">
 					
 						<f:subview id="stSub">
@@ -187,7 +193,6 @@
 						<f:subview id="stSub">
 							<ice:form id="definitionproductform">
 								<ui:include src="/product/definicion_productos.jspx" />
-
 							</ice:form>
 						</f:subview>
 					</ice:panelGroup>

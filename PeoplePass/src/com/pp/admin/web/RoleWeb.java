@@ -46,11 +46,8 @@ public class RoleWeb extends CRUDWeb{
 	@Autowired
 	private IUserAdmin userAdmin;
 	
-
 	@Autowired
 	private IParamsAdmin paramsAdmin;
-	
-	
 
 	protected boolean renderPopupRecursos;
 	
@@ -125,10 +122,6 @@ public class RoleWeb extends CRUDWeb{
 	}
 	
 	
-	
-	
-	
-	
 	public KRoles getRole() {
 		return role;
 	}
@@ -195,8 +188,6 @@ public class RoleWeb extends CRUDWeb{
 		} 
 	}
 
-	
-	
 	public void setRole(KRoles role) {
 		this.role = role;
 	}
@@ -219,7 +210,6 @@ public class RoleWeb extends CRUDWeb{
 	public void setRenderPopupRecursos(boolean renderPopupRecursos) {
 		this.renderPopupRecursos = renderPopupRecursos;
 	}
-	
 	
 	public List<KDescripcionRecursos> getSelectedResources() {
 		return selectedResources;
@@ -259,6 +249,5 @@ public class RoleWeb extends CRUDWeb{
 		
 		
 	}
-
 	
 }

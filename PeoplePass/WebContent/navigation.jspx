@@ -52,7 +52,7 @@
 			<ice:commandLink id="userPanel"
 				actionListener="#{navigationBean.navigationStackChange}">
 
-				<f:param name="stackName" value="userPanel" />
+				<f:param name="stackName" value="usuarioempresaPanel" />
 				<ice:outputText value="#{msg['menu.menu12.user']}" />
 			</ice:commandLink>
 			
@@ -105,6 +105,13 @@
 
 				<f:param name="stackName" value="usuariofuncionesPanel" />
 				<ice:outputText value="#{msg['menu.menu12.ufunciones']}" />
+			</ice:commandLink>
+			<br />
+			<ice:commandLink id="empleadosPanel"
+				actionListener="#{navigationBean.navigationStackChange}">
+
+				<f:param name="stackName" value="empleadosPanel" />
+				<ice:outputText value="#{msg['menu.menu12.employees']}" />
 			</ice:commandLink>
 			
 
@@ -220,9 +227,5 @@
 				<ice:outputText value="#{msg['menu.menu43.defproduc']}" />
 			</ice:commandLink>		
 		</ice:panelCollapsible>	
-		
-		
-		
-	
 	</ice:panelGroup>
 </ice:form>
